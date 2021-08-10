@@ -1,0 +1,77 @@
+<div class="back_img">
+    <div class="name">
+        <img src="assets/images/user.png" alt="UserImage" class="user">
+        <h1>Registration Form</h1>
+        <form action="login.html" (ngSubmit)="register()">
+            <table cellpadding="10">
+                <caption></caption>
+                <tr>
+                    <th>
+                        <label for="candidateName">Candidate Name</label>
+                    </th>
+                    <td>
+                        <input type="text" [(ngModel)]="candidateName" name="candidateName" id="name"
+                            placeholder="Candidate Name" required >
+                    </td>
+                </tr>
+                <tr>
+
+                    <th>
+                        <label for="contactNumber">Mobile Number</label>
+                    </th>
+
+                    <td>
+                        <input type="tel" id="contact" [(ngModel)]="contactNumber" name="contactNumber"
+                            placeholder="Mobile number" minlength="10" maxlength="10" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Date of Birth
+                    </th>
+                    <td>
+                        <input type="date" [(ngModel)]="dob" name="dob" id="dob" name="date" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Email-ID</label>
+                    </th>
+                    <td>
+                        <input type="email" name="email" id="email" placeholder="Email-ID" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>UserName</label>
+                    </th>
+                    <td>
+                        <input type="text" name="userName" id="userName" placeholder="Username" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Password</label>
+                    </th>
+                    <td>
+                        <input type="password" name="password" minlength="8" id="userPassword" placeholder="Password"
+                            minlength="8" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>Confirm Password</label>
+                    </th>
+                    <td>
+                        <input type="password" minlength="8" id="confirmPassword" placeholder="Password" minlength="8"
+                            required>
+                    </td>
+                </tr>
+            </table>
+            <div class="buttons">
+                <input type="reset" id="reset" value="Reset">&nbsp;&nbsp;&nbsp;
+                <input type="Submit" id="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>

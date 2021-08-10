@@ -1,0 +1,45 @@
+legend {
+    margin: 30px;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+table {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 1000px;
+    text-align: center;
+    table-layout: auto;
+    border-radius: 10px;
+
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+
+fieldset {
+    margin: auto;
+    margin-top: 20px;
+    width: 700px;
+    height: 660px;
+    border-radius: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+}

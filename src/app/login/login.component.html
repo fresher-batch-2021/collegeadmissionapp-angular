@@ -1,0 +1,18 @@
+<div class="back-img">
+    <div class="login_box">
+        <img src="assets/images/user.png" alt="LoginImage" class="user">
+        <h1>Login Here</h1>
+        <form (ngSubmit)="login()">
+            <label>email</label>
+            <input type="email" [(ngModel)]="email" name="email" id="userName" placeholder="Enter_Username" required>
+            <label>password</label>
+            <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="Enter_Password" required>
+            <input type="submit" name="submit" value="Login">
+            <a href="#">Forgot Password ?</a>
+            <br>
+            <br>
+            <label>New Registration</label>
+            <a routerLink="/register">Click Here</a>
+        </form>
+    </div>
+</div>
