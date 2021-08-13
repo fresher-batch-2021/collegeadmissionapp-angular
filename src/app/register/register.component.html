@@ -11,7 +11,7 @@
                     </th>
                     <td>
                         <input type="text" [(ngModel)]="candidateName" name="candidateName" id="name"
-                            placeholder="Candidate Name" required >
+                            placeholder="Candidate Name" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -21,8 +21,8 @@
                     </th>
 
                     <td>
-                        <input type="tel" id="contact" [(ngModel)]="contactNumber" name="contactNumber"
-                            placeholder="Mobile number" minlength="10" maxlength="10" required>
+                        <input type="tel" id="contact" [(ngModel)]="contactNumber" name="candidateName"
+                            placeholder="Mobile number"  pattern="[6789][0-9]{9}" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -30,7 +30,7 @@
                         Date of Birth
                     </th>
                     <td>
-                        <input type="date" [(ngModel)]="dob" name="dob" id="dob" name="date" required>
+                        <input type="date" [(ngModel)]="dob" name="candidateName" id="dob" name="date" required>
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +38,8 @@
                         <label>Email-ID</label>
                     </th>
                     <td>
-                        <input type="email" name="email" id="email" placeholder="Email-ID" required>
+                        <input type="email" [(ngModel)]="email" name="candidateName" id="email" placeholder="Email-ID" required
+                            autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -46,7 +47,8 @@
                         <label>UserName</label>
                     </th>
                     <td>
-                        <input type="text" name="userName" id="userName" placeholder="Username" required>
+                        <input type="text" [(ngModel)]="userName" name="candidateName" id="userName" placeholder="Username"
+                            required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -54,8 +56,8 @@
                         <label>Password</label>
                     </th>
                     <td>
-                        <input type="password" name="password" minlength="8" id="userPassword" placeholder="Password"
-                            minlength="8" required>
+                        <input type="password" [(ngModel)]="userPassword" name="candidateName" minlength="8"
+                            id="userPassword" placeholder="Password" minlength="8" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -63,8 +65,8 @@
                         <label>Confirm Password</label>
                     </th>
                     <td>
-                        <input type="password" minlength="8" id="confirmPassword" placeholder="Password" minlength="8"
-                            required>
+                        <input type="password" [(ngModel)]="confirmPassword" minlength="8" id="confirmPassword" name="candidateName"
+                            placeholder="Password"  required autocomplete="off">
                     </td>
                 </tr>
             </table>

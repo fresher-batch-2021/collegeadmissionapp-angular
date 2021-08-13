@@ -1,97 +1,98 @@
 <div class="name">
+    <strong id="userName"></strong>
     <h1>Personal-Information</h1>
-    <form action="academic.html" onsubmit="personal()">
-        <table class="table" cellpadding="10">
-            <caption></caption>
+    <form (ngSubmit)="personalInformation()">
+        <table class="table" aria-describedby="mydesc">
             <tr>
+                <th scope="col">
+                    <label>First Name </label>
+                </th>
                 <td>
-                    <label>First Name *</label>
+                    <input type="text" [(ngModel)]="firstName" name="firstName" id="firstName" placeholder="FirstName" required
+                        autocomplete="off">
                 </td>
+                <th scope="col">
+                    <label>Last Name </label>
+                </th>
                 <td>
-                    <input type="text" id="first_name" placeholder="FirstName" required>
-                </td>
-                <td>
-                    <label>Last Name *</label>
-                </td>
-                <td>
-                    <input type="text" id="last_name" placeholder="Lastname" required>
+                    <input type="text" [(ngModel)]="lastName" name="lastName" id="lastName" placeholder="Lastname" autocomplete="off"
+                        required>
                 </td>
             </tr>
             <tr>
+                <th scope="col">
+                    <label>Father Name </label>
+                </th>
                 <td>
-                    <label>Father Name *</label>
+                    <input type="text" [(ngModel)]="fatherName" name="fatherName" id="fatherName" placeholder="Fathername"
+                        autocomplete="off" required>
                 </td>
+                <th scope="col">
+                    <label>Mother Name </label>
+                </th>
                 <td>
-                    <input type="text" id="father_name" placeholder="Fathername" required>
-                </td>
-                <td>
-                    <label>Mother Name *</label>
-                </td>
-                <td>
-                    <input type="text" id="mother_name" placeholder="Mothername" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Date Of Birth *</label>
-                </td>
-                <td>
-                    <input type="date" id="dob" placeholder="DOB" required>
-                </td>
-                <td>
-                    Gender *
-                </td>
-                <td>
-                    <input type="radio" id="gender" name="gender" value="Male" required>Male
-                    <input type="radio" id="gender" name="gender" value="Female" required>Female
+                    <input type="text" [(ngModel)]="motherName" name="motherName" id="motherName" placeholder="Mothername"
+                        autocomplete="off" required>
                 </td>
             </tr>
             <tr>
+                <th scope="col">
+                    <label>Date Of Birth </label>
+                </th>
                 <td>
+                    <input type="date" [(ngModel)]="dob" name="dob" id="dob" placeholder="DOB" required>
+                </td>
+                <th scope="col">
+                    Gender
+                </th>
+                <td>
+                    <input type="radio" [(ngModel)]="gender" id="gender" name="gender" value="Male" required>Male
+                    <input type="radio" [(ngModel)]="gender" id="gender" name="gender" value="Female" required>Female
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">
                     <label>Communicatio-Address</label>
-                </td>
+                </th>
                 <td>
-                    <textarea rows="4" cols="25" id="addr_1" placeholder="Address"></textarea>
+                    <textarea rows="4" cols="25" [(ngModel)]="communicationAddress" name="communicationAddress" id="communicationAddress"
+                        placeholder="Address" autocomplete="off"></textarea>
                 </td>
+                <th scope="col">
+                    <label>State </label>
+                </th>
                 <td>
-                    <label>State *</label>
-                </td>
-                <td>
-                    <input type="radio" name="state" id="state" value="Tamil Nadu"  />
-                    Tamil Nadu
-                    <input type="radio" name="state" id="state" value="Others"  />
-                    Others
+                    <input type="radio" [(ngModel)]="state" id="state" name="state" value="TamilNadu">TamilNadu
+                    <input type="radio" [(ngModel)]="state" id="state" name="state" value="Others">Others
                 </td>
             </tr>
             <tr>
-                <td>
+                <th scope="col">
                     <label>Same as Communication address</label>
-                </td>
+                </th>
                 <td>
-                    <input type="checkbox" id="check" onchange="address()" value="Same as Communication address">
+                    <input type="checkbox" id="check" value="Same as Communication address">
                 </td>
+                <th scope="col">
+                    <label>If Others</label>
+                </th>
                 <td>
-
+                    <input type="text" placeholder="Enter State Name">
                 </td>
-                <td>
-                    <div id="div1" class="hide">
-                        <input type="text" placeholder="Enter State Name">
-                    </div>
-                </td>
-
             </tr>
             <tr>
+                <th scope="col">
+                    <label>Permanent Address </label>
+                </th>
                 <td>
-                    <label>Permanent Address *</label>
+                    <textarea rows="4" cols="25" [(ngModel)]="permanentAddress" name="permanentAddress" id="permanentAddress"
+                        placeholder="Address" autocomplete="off" required></textarea>
                 </td>
-                <td>
-                    <textarea rows="4" cols="25" id="addr_2" placeholder="Address"></textarea>
-                </td>
-                <td>
+                <th scope="col">
                     <label>District *</label>
-                </td>
+                </th>
                 <td>
-                    <select name="District" id="district">
+                    <select name="District" [(ngModel)]="district" id="district">
                         <option value="">--select--</option>
                         <option value="Chennai">Chennai</option>
                         <option value="Salem">Salem</option>
@@ -104,20 +105,20 @@
             </tr>
 
             <tr>
-                <td>
+                <th scope="col">
                     <label>Religion *</label>
-                </td>
+                </th>
                 <td>
-                    <input type="radio" id="religion" onclick="show4()" name="Relogion" value="Hindu">Hindu
-                    <input type="radio" id="religion" onclick="show3()" name="Relogion" value="Christian">Christian
-                    <input type="radio" id="religion" onclick="show3()" name="Relogion" value="Muslim">Muslim
+                    <input type="radio" [(ngModel)]="religion" id="religion" name="Relogion" value="Hindu">Hindu
+                    <input type="radio" [(ngModel)]="religion" id="religion" name="Relogion" value="Christian">Christian
+                    <input type="radio" [(ngModel)]="religion" id="religion" name="Relogion" value="Muslim">Muslim
                 </td>
-                <td>
-
-                </td>
+                <th scope="col">
+                    <label>Community</label>
+                </th>
                 <td>
                     <div id="div2" class="hide">
-                        <select name="Community" id="community">
+                        <select name="Community" [(ngModel)]="community" id="community">
                             <option value="">--select--</option>
                             <option value="BC">BC</option>
                             <option value="MBC">MBC</option>
@@ -129,14 +130,12 @@
                 </td>
             </tr>
             <tr>
-
-            </tr>
-            <tr>
-                <td>
+                <th scope="col">
                     <label>Aadhar Number *</label>
-                </td>
+                </th>
                 <td>
-                    <input type="number" id="aadhar" maxlength="12" placeholder="Enter aadhar number">
+                    <input type="number" [(ngModel)]="aadhar" id="aadhar" pattern="[1-9][0-9]{11}"
+                        placeholder="Enter aadhar number" autocomplete="off" required>
                 </td>
             </tr>
         </table>

@@ -1,6 +1,7 @@
 import { ɵNullViewportScroller } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-    this.getApi();
+  constructor() {
+
   }
 
   ngOnInit(): void {
@@ -21,44 +22,50 @@ export class RegisterComponent implements OnInit {
   dob: string = "";
   email: string = "";
   userName: string = "";
-  password: string = "";
+  userPassword: string = "";
   confirmPassword: string = "";
 
   register() {
     if (this.candidateName == "" || this.candidateName == null) {
-      alert("Invalid Name");
-
+      alert("Candidate Name cannot be blank");
     }
-    else if (this.contactNumber == "" || this.contactNumber == null || this.contactNumber.length != 10) {
-      alert("Invalid Contact Number");
+    else if (this.contactNumber == "" || this.contactNumber == null || this.contactNumber.length !=10) {
+      alert("Contact Number contain 10 digits");
     }
     else if (this.dob == "" || this.dob == null) {
-      alert("Invalid Date of Birth");
+      alert("Date of Birth cannot be blank");
     }
     else if (this.email == "" || this.email == null) {
-      alert("Invalid Email address");
+      alert("Please enter valid email address");
     }
     else if (this.userName == "" || this.userName == null) {
-      alert("Invalid User Name");
+      alert("User Name cannot be blank");
     }
-    else if (this.password == "" || this.password.length <= 8) {
-      alert("Invalid Password");
+    else if (this.userPassword == "" || this.userPassword.length < 8) {
+      alert("Password contain atleast 8 characters");
     }
-    else if (this.confirmPassword == "" || this.confirmPassword.length <= 8) {
-      alert("invalid password");
+    else if (this.confirmPassword == "") {
+      alert("Confirm-Password contain atleast 8 characters");
     }
     else {
-      alert("Registration Successfull");
-      window.location.href = "login";
+      let url = "https://product-mock-api.herokuapp.com/collegeadmissionapp/api/v1/auth/register";
+      let formData = {
+        name: this.candidateName,
+        username: this.userName,
+        dob: this.dob,
+        email: this.email,
+        contactNo: this.contactNumber,
+        password: this.userPassword,
+      }
+      axios.post(url, formData).then(res => {
+        let data = res.data;
+        console.log(data);
+        alert("Successffully Register");
+        window.location.href = "login";
+      }).catch(err => {
+        console.error(err);
+        alert("Unable to register");
+      });
     }
-  }
-
-
-  getApi() {
-    this.http.get("https://reqres.in/api/users?page=2").subscribe((res) => {
-      console.log("result", res);
-      var listUsers = res;
-      console.log("listusers", listUsers);
-    })
   }
 }
