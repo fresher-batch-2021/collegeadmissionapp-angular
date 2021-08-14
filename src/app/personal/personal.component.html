@@ -8,15 +8,15 @@
                     <label>First Name </label>
                 </th>
                 <td>
-                    <input type="text" [(ngModel)]="firstName" name="firstName" id="firstName" placeholder="FirstName" required
-                        autocomplete="off">
+                    <input type="text" [(ngModel)]="firstName" name="firstName" id="firstName" placeholder="FirstName"
+                        required autocomplete="off">
                 </td>
                 <th scope="col">
                     <label>Last Name </label>
                 </th>
                 <td>
-                    <input type="text" [(ngModel)]="lastName" name="lastName" id="lastName" placeholder="Lastname" autocomplete="off"
-                        required>
+                    <input type="text" [(ngModel)]="lastName" name="lastName" id="lastName" placeholder="Lastname"
+                        autocomplete="off" required>
                 </td>
             </tr>
             <tr>
@@ -24,15 +24,15 @@
                     <label>Father Name </label>
                 </th>
                 <td>
-                    <input type="text" [(ngModel)]="fatherName" name="fatherName" id="fatherName" placeholder="Fathername"
-                        autocomplete="off" required>
+                    <input type="text" [(ngModel)]="fatherName" name="fatherName" id="fatherName"
+                        placeholder="Fathername" autocomplete="off" required>
                 </td>
                 <th scope="col">
                     <label>Mother Name </label>
                 </th>
                 <td>
-                    <input type="text" [(ngModel)]="motherName" name="motherName" id="motherName" placeholder="Mothername"
-                        autocomplete="off" required>
+                    <input type="text" [(ngModel)]="motherName" name="motherName" id="motherName"
+                        placeholder="Mothername" autocomplete="off" required>
                 </td>
             </tr>
             <tr>
@@ -55,8 +55,8 @@
                     <label>Communicatio-Address</label>
                 </th>
                 <td>
-                    <textarea rows="4" cols="25" [(ngModel)]="communicationAddress" name="communicationAddress" id="communicationAddress"
-                        placeholder="Address" autocomplete="off"></textarea>
+                    <textarea rows="4" cols="25" [(ngModel)]="communicationAddress" name="communicationAddress"
+                        id="communicationAddress" placeholder="Address" autocomplete="off"></textarea>
                 </td>
                 <th scope="col">
                     <label>State </label>
@@ -85,8 +85,8 @@
                     <label>Permanent Address </label>
                 </th>
                 <td>
-                    <textarea rows="4" cols="25" [(ngModel)]="permanentAddress" name="permanentAddress" id="permanentAddress"
-                        placeholder="Address" autocomplete="off" required></textarea>
+                    <textarea rows="4" cols="25" [(ngModel)]="permanentAddress" name="permanentAddress"
+                        id="permanentAddress" placeholder="Address" autocomplete="off" required></textarea>
                 </td>
                 <th scope="col">
                     <label>District *</label>
@@ -134,7 +134,7 @@
                     <label>Aadhar Number *</label>
                 </th>
                 <td>
-                    <input type="number" [(ngModel)]="aadhar" id="aadhar" pattern="[1-9][0-9]{11}"
+                    <input type="number" [(ngModel)]="aadhar" id="aadhar" name="aadhar" minlength="12" maxlength="12"
                         placeholder="Enter aadhar number" autocomplete="off" required>
                 </td>
             </tr>

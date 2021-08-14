@@ -63,11 +63,28 @@ export class PersonalComponent implements OnInit {
     else if (this.community == "" || this.community == null) {
       alert("Community Cannot be blank");
     }
-    else if (this.aadhar == "" || this.aadhar.length != 12) {
+    else if (this.aadhar == "" || this.aadhar.length < 12) {
       alert("Aadhar number must be 12 digits ");
     }
     else {
-      alert("Registration Successfull")
+      let personalDataObj = {
+        "firstName": this.firstName,
+        "lastName": this.lastName,
+        "fatherName": this.fatherName,
+        "motherName": this.motherName,
+        "dateOfBirth": this.dob,
+        "gender": this.gender,
+        "communicationAddress": this.communicationAddress,
+        "permanentAddress": this.permanentAddress,
+        "state": this.state,
+        "district": this.district,
+        "religion": this.religion,
+        "community": this.community,
+        "aadhar": this.aadhar
+      };
+      console.log(personalDataObj);
+      alert("Registration Successfull");
+      window.location.href = "academic"
     }
   }
 }

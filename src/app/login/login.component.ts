@@ -18,8 +18,12 @@ export class LoginComponent implements OnInit {
   password: string = "";
 
   login() {
-    if (this.email == "" && this.password == "") {
-      alert("Invalid details");
+    if (this.email == "" || this.email == undefined) {
+      alert("UserName cannot be blank");
+    } else if (this.password == "" || this.password == null) {
+      alert("Password cannot be blank");
+    } else if (this.password.length < 8 || this.password.length > 15) {
+      alert("Password must be 8 to 15 characters");
     } else {
       let url = "https://product-mock-api.herokuapp.com/collegeadmissionapp/api/v1/auth/login";
       let formData = {
