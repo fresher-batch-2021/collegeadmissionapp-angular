@@ -1,9 +1,8 @@
 <div class="back-img">
     <div class="academic">
-        <form action="preview.html" onsubmit="academic()">
+        <form (ngSubmit)="academic()">
             <h1>Academic Information</h1>
             <table class="table" cellpadding="10">
-                <caption></caption>
                 <tr>
                     <th>
                         <label>Qualifying Examination</label>
@@ -81,12 +80,12 @@
                         <label>HSC Obtained(Total)Marks</label>
                     </th>
                     <td>
-                        <input type="number" id="mark2" placeholder="Enter Marks">
+                        <input type="number" id="mark2" placeholder="Enter Percentage">
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <label>SSLC Maximum(Total)Marks</label>
+                        <label>Cut-Off Marks(100)</label>
                     </th>
                     <td>
                         <input type="number" id="mark3" placeholder="Enter Marks">
@@ -94,10 +93,18 @@
                 </tr>
                 <tr>
                     <th>
-                        <label>SSLC Obtained(Total)Marks</label>
+                        <label>SSLC Maximum(Total)Marks</label>
                     </th>
                     <td>
                         <input type="number" id="mark4" placeholder="Enter Marks">
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label>SSLC Obtained(Total)Marks</label>
+                    </th>
+                    <td>
+                        <input type="number" id="mark5" placeholder="Enter Marks">
                     </td>
                 </tr>
                 <tr>
@@ -107,13 +114,11 @@
                     <td>
                         <select id="branch">
                             <option value="">--select--</option>
-                            <option value="Electrical and Electronics Engineering">Electrical and Electronics
-                                Engineering</option>
-                            <option value="Electronics and Communication Engineering">Electronics and Communication
-                                Engineering</option>
-                            <option value="Computer Science Engineering">Computer Science Engineering</option>
-                            <option value="Civil Engineering">Civil Engineering</option>
-                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="EEE">EEE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="CSE">CSE</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="MECHANICAL">MECHANICAL</option>
                         </select>
                     </td>
                 </tr>

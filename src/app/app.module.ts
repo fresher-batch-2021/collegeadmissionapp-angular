@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ProgramComponent } from './program/program.component';
 import { PersonalComponent } from './personal/personal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     AcademicComponent,
     ProgramComponent,
-    PersonalComponent
+    PersonalComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,

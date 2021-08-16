@@ -84,6 +84,7 @@ export class PersonalComponent implements OnInit {
       };
       console.log(personalDataObj);
       alert("Registration Successfull");
+      localStorage.setItem('personalForm', JSON.stringify(personalDataObj));
       window.location.href = "academic"
     }
   }
