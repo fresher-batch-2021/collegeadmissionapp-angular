@@ -1,32 +1,21 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-
-}
-.body {
-    font-family: Roboto,sans-serif;
-    background-color:lightslategray;    
-    margin:0px;
- 
 }
 .menubar {
+    font-family: sans-serif;
     background-color:rgb(0,100,0); 
     text-align: center;
 }
-h1 {
-    text-align: center;
-    color: blue;
-    background-color: gold;
-}
+
 .menubar ul{
     display: inline-flex;
     list-style: none;
     color: #fff;
 }
 .menubar ul li{
-    width: 180px;
-    margin: 15px;
+    width: 140px;
+    margin: 10px;
     padding: 10px;
 }
 .menubar ul li a{

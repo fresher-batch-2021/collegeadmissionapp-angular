@@ -13,6 +13,7 @@ import { ProgramComponent } from './program/program.component';
 import { PersonalComponent } from './personal/personal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreviewComponent } from './preview/preview.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PreviewComponent } from './preview/preview.component';
     AcademicComponent,
     ProgramComponent,
     PersonalComponent,
-    PreviewComponent
+    PreviewComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

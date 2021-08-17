@@ -1,6 +1,6 @@
 <div class="back-img">
     <div class="academic">
-        <form (ngSubmit)="academic()">
+        <form (ngSubmit)="academicInformation()">
             <h1>Academic Information</h1>
             <table class="table" cellpadding="10">
                 <tr>
@@ -8,7 +8,7 @@
                         <label>Qualifying Examination</label>
                     </th>
                     <td>
-                        <select name="exam" id="exam">
+                        <select name="qualifiedExam" [(ngModel)]="qualifiedExam" id="exam">
                             <option value="">--select--</option>
                             <option value="HSC">HSC</option>
                             <option value="Diplomo">Diplomo</option>
@@ -20,7 +20,7 @@
                         <label>Name Of Board</label>
                     </th>
                     <td>
-                        <select name="board" id="board">
+                        <select name="examinationBoard" [(ngModel)]="examinationBoard" id="board">
                             <option value="">--select--</option>
                             <option value="State Board">State Board</option>
                             <option value="CBSE">CBSE</option>
@@ -33,7 +33,8 @@
                         <label>HSC Reg-No</label>
                     </th>
                     <td>
-                        <input type="tel" id="regno" maxlength="6" placeholder="Enter RegNo">
+                        <input type="tel" id="regno" name="registerNumber" [(ngModel)]="registerNumber" maxlength="6"
+                            placeholder="Enter RegNo">
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +42,8 @@
                         <label>Qualifying Year</label>
                     </th>
                     <td>
-                        <input type="month" id="year" placeholder="YOP">
+                        <input type="month" id="year" name="yearOfPassing" [(ngModel)]="yearOfPassing"
+                            placeholder="YOP">
                     </td>
                 </tr>
                 <tr>
@@ -49,7 +51,7 @@
                         <label>HSC Group Code</label>
                     </th>
                     <td>
-                        <select name="group" id="group">
+                        <select name="groupCode" [(ngModel)]="groupCode" id="group">
                             <option value="">--select--</option>
                             <option value="Maths Biology">Maths Biology</option>
                             <option value="Maths Computer">Maths Computer</option>
@@ -62,9 +64,9 @@
                         <label>Medium of Instructions</label>
                     </th>
                     <td>
-                        <input type="radio" id="medium" name="Medium" value="Tamil">Tamil &nbsp;
-                        <input type="radio" id="medium" name="Medium" value="English">English&nbsp;
-                        <input type="radio" id="medium" name="Medium" value="Others">Others
+                        <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="Tamil">Tamil &nbsp;
+                        <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="English">English&nbsp;
+                        <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="Others">Others
                     </td>
                 </tr>
                 <tr>
@@ -72,7 +74,8 @@
                         <label>HSC Maximum(Total)Marks</label>
                     </th>
                     <td>
-                        <input type="number" id="mark1" placeholder="Enter Marks">
+                        <input type="number" [(ngModel)]="hscMaxMarks" name="hscMaxMarks" id="mark1"
+                            placeholder="Enter Marks">
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +83,8 @@
                         <label>HSC Obtained(Total)Marks</label>
                     </th>
                     <td>
-                        <input type="number" id="mark2" placeholder="Enter Percentage">
+                        <input type="number" [(ngModel)]="hscTotalMarks" name="hscTotalMarks" id="mark2"
+                            placeholder="Enter Percentage">
                     </td>
                 </tr>
                 <tr>
@@ -88,7 +92,8 @@
                         <label>Cut-Off Marks(100)</label>
                     </th>
                     <td>
-                        <input type="number" id="mark3" placeholder="Enter Marks">
+                        <input type="number" [(ngModel)]="percentage" name="percentage" id="mark3"
+                            placeholder="Enter Marks">
                     </td>
                 </tr>
                 <tr>
@@ -96,7 +101,8 @@
                         <label>SSLC Maximum(Total)Marks</label>
                     </th>
                     <td>
-                        <input type="number" id="mark4" placeholder="Enter Marks">
+                        <input type="number" [(ngModel)]="ssclMaxMarks" name="ssclMaxMarks" id="mark4"
+                            placeholder="Enter Marks">
                     </td>
                 </tr>
                 <tr>
@@ -104,7 +110,8 @@
                         <label>SSLC Obtained(Total)Marks</label>
                     </th>
                     <td>
-                        <input type="number" id="mark5" placeholder="Enter Marks">
+                        <input type="number" [(ngModel)]="sslcTotalMarks" name="sslcTotalMarks" id="mark5"
+                            placeholder="Enter Marks">
                     </td>
                 </tr>
                 <tr>
@@ -112,7 +119,7 @@
                         <label>Choose Branch(Stream)</label>
                     </th>
                     <td>
-                        <select id="branch">
+                        <select id="branch" [(ngModel)]="branch" name="branch">
                             <option value="">--select--</option>
                             <option value="EEE">EEE</option>
                             <option value="ECE">ECE</option>

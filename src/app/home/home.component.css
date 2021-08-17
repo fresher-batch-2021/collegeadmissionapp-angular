@@ -1,53 +1,11 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
    
 }
-
-body {
-    font-family: Verdana, sans-serif;
-    
+.logo {
+    margin: auto;
+    margin-top: 10px;
+    max-width: 100%;
+    font-family: sans-serif; 
 }
-h2 {
-    margin-top: 20px;
-    text-align: center;
-    text-decoration: underline;
-}
-
-aside {
-    width: 30%;
-    height: 320px;
-    padding-left: 15px;
-    margin-top: 40px;
-    margin-left: 15px;
-    margin-right: 30px;
-    float: right;
-    font-style: italic;
-    background: rgba(255, 255, 255, 0.39);
-}
-
-fieldset {
-    border-radius: 10px;
-    width: 330px;
-    margin-left: 25px;
-    margin-right: 25px;
-}
-legend{
-    text-align: center;
-}
-
-marquee {
-    margin-top: 20px;
-}
-
-h3 {
-    margin-top: 20px;
-    text-align: center;
-}
-
-p {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
