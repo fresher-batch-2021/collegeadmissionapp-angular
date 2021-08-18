@@ -2,7 +2,7 @@
     <div class="name">
         <img src="assets/images/user.png" alt="UserImage" class="user">
         <h1>Registration Form</h1>
-        <form action="login.html" (ngSubmit)="register()">
+        <form (ngSubmit)="register()">
             <table cellpadding="10">
                 <caption></caption>
                 <tr>
@@ -11,7 +11,7 @@
                     </th>
                     <td>
                         <input type="text" [(ngModel)]="candidateName" name="candidateName" id="name"
-                            placeholder="Candidate Name" required autocomplete="off">
+                            placeholder="Candidate Name" required autocomplete="off" autofocus>
                     </td>
                 </tr>
                 <tr>
@@ -22,7 +22,7 @@
 
                     <td>
                         <input type="tel" id="contact" [(ngModel)]="contactNumber" name="candidateName"
-                            placeholder="Mobile number"  pattern="[6789][0-9]{9}" required autocomplete="off">
+                            placeholder="Mobile number" pattern="[6789][0-9]{9}" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -38,8 +38,8 @@
                         <label>Email-ID</label>
                     </th>
                     <td>
-                        <input type="email" [(ngModel)]="email" name="candidateName" id="email" placeholder="Email-ID" required
-                            autocomplete="off">
+                        <input type="email" [(ngModel)]="email" name="candidateName" id="email" placeholder="Email-ID"
+                            required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -47,8 +47,8 @@
                         <label>UserName</label>
                     </th>
                     <td>
-                        <input type="text" [(ngModel)]="userName" name="candidateName" id="userName" placeholder="Username"
-                            required autocomplete="off">
+                        <input type="text" [(ngModel)]="userName" name="candidateName" id="userName"
+                            placeholder="Username" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -65,8 +65,8 @@
                         <label>Confirm Password</label>
                     </th>
                     <td>
-                        <input type="password" [(ngModel)]="confirmPassword" minlength="8" id="confirmPassword" name="candidateName"
-                            placeholder="Password"  required autocomplete="off">
+                        <input type="password" [(ngModel)]="confirmPassword" minlength="8" id="confirmPassword"
+                            name="candidateName" placeholder="Password" required autocomplete="off">
                     </td>
                 </tr>
             </table>

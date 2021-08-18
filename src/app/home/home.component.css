@@ -5,7 +5,9 @@
 }
 .logo {
     margin: auto;
+    height: 400px;
     margin-top: 10px;
     max-width: 100%;
     font-family: sans-serif; 
+    background-color: gray;
 }

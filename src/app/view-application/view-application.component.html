@@ -1,0 +1,31 @@
+<div class="searchBar">
+    <h1>Submitted-Applications</h1>
+    <table border="1" aria-describedby="mydesc" name="myTable" id="myTable">
+        <thead>
+            <tr>
+                <th id="searchBar">Application-ID</th>
+                <th id="searchBar">Name</th>
+                <th id="searchBar">Branch</th>
+                <th id="searchBar">Percentage</th>
+                <th id="searchBar">Address</th>
+                <th id="searchBar">Email-ID</th>
+                <th id="searchBar">Status</th>
+                <th id="searchBar">Action</th>
+            </tr>
+        </thead>
+        <tbody id="applicationTable" *ngFor="let taskObj of tableData">
+            <tr name="tablerow">
+                <td>{{taskObj.doc._id}}</td>
+                <td>{{taskObj.doc.name}}</td>
+                <td>{{taskObj.doc.branch}}</td>
+                <td>{{taskObj.doc.percentage}}</td>
+                <td>{{taskObj.doc.district}}</td>
+                <td>{{taskObj.doc.email}}</td>
+                <td>{{taskObj.doc.status}}</td>
+                <td><button type='button' (click)="updateStatus(taskObj.doc._id,'ACCEPTED')">Accept
+                    </button>&nbsp;&nbsp;&nbsp;<button type='button'
+                        (click)="updateStatus(taskObj.doc._id,'REJECTED')">Reject</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

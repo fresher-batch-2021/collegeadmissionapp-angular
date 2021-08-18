@@ -25,15 +25,29 @@ export class LoginComponent implements OnInit {
     } else if (this.password.length < 8 || this.password.length > 15) {
       alert("Password must be 8 to 15 characters");
     } else {
-      let url = "https://product-mock-api.herokuapp.com/collegeadmissionapp/api/v1/auth/login";
+      const selectedData = {
+        selector: {
+          username: this.email,
+          password: this.password
+        },
+        fields: ["_id", "name", "contactNo", "email"]
+      };
+
       let formData = {
         username: this.email,
         password: this.password
       }
-      axios.post(url, formData).then(res => {
+      const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
+      const dbPassword = "163671d490ddeef138fc61e470881715";
+      const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
+      let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/collegeadmissionapp_user/_find";
+
+      axios.post(url, selectedData, { headers: { 'Authorization': basicAuth } }).then(res => {
+
         let data = res.data;
         console.log(data);
         alert("Login Successful");
+        localStorage.setItem("registerData", JSON.stringify(data.docs));
         window.location.href = "personal";
       }).catch(err => {
         let errorMessage = err.response.data.errorMessage;

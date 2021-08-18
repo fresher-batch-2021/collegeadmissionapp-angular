@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     if (this.candidateName == "" || this.candidateName == null) {
       alert("Candidate Name cannot be blank");
     }
-    else if (this.contactNumber == "" || this.contactNumber == null || this.contactNumber.length !=10) {
+    else if (this.contactNumber == "" || this.contactNumber == null || this.contactNumber.length != 10) {
       alert("Contact Number contain 10 digits");
     }
     else if (this.dob == "" || this.dob == null) {
@@ -48,7 +48,12 @@ export class RegisterComponent implements OnInit {
       alert("Confirm-Password contain atleast 8 characters");
     }
     else {
-      let url = "https://product-mock-api.herokuapp.com/collegeadmissionapp/api/v1/auth/register";
+      //let url = "https://product-mock-api.herokuapp.com/collegeadmissionapp/api/v1/auth/register";
+      let registerData = {
+        "regName": this.candidateName,
+        "regMobileNumber": this.contactNumber,
+        "regEmail": this.email
+      };
       let formData = {
         name: this.candidateName,
         username: this.userName,
@@ -57,10 +62,16 @@ export class RegisterComponent implements OnInit {
         contactNo: this.contactNumber,
         password: this.userPassword,
       }
-      axios.post(url, formData).then(res => {
+      const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
+      const dbPassword = "163671d490ddeef138fc61e470881715";
+      const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
+
+      let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/collegeadmissionapp_user";
+      axios.post(url, formData, { headers: { 'Authorization': basicAuth } }).then(res => {
         let data = res.data;
         console.log(data);
         alert("Successffully Register");
+       // localStorage.setItem('registerData', JSON.stringify(registerData));
         window.location.href = "login";
       }).catch(err => {
         console.error(err);

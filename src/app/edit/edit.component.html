@@ -1,13 +1,13 @@
 <div class="userDetails">
     <form>
-        <h1>Application-Details</h1>
+        <h1>Student-Information</h1>
         <table aria-describedby="mydesc" class="table">
             <tr>
                 <th scope="col">
                     <label>Name</label>
                 </th>
                 <td>
-                    <label id="firstName">{{regData[0].name}}</label>
+                    <input type="text" id="firstName" {{regData[0].name}}>
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                     <label>Address</label>
                 </th>
                 <td>
-                    <label id="district">{{data.district}}</label>
+                    <label id="district">{{personaldata.district}}</label>
                 </td>
 
             </tr>
@@ -40,7 +40,7 @@
                     <label>Email-ID</label>
                 </th>
                 <td>
-                    <label id="email">{{regData[0].email}}</label>
+                    <label id="email">{{regData.email}}</label>
                 </td>
             </tr>
             <tr>
@@ -48,15 +48,13 @@
                     <label>Contact Number</label>
                 </th>
                 <td>
-                    <label id="contactNumber">{{regData[0].contactNo}}</label>
+                    <label id="contactNumber">{{regData.contactNo}}</label>
                 </td>
             </tr>
 
         </table>
         <div class="submit">
-            <a routerLink="/edit" id="submit">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <input type="submit" id="submit" value="Next">
+            <button type="submit">Update</button>
         </div>
 
     </form>

@@ -14,6 +14,10 @@ import { PersonalComponent } from './personal/personal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreviewComponent } from './preview/preview.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ListApplicationComponent } from './list-application/list-application.component';
+import { EditComponent } from './edit/edit.component';
+import { AdminComponent } from './admin/admin.component';
+import { ViewApplicationComponent } from './view-application/view-application.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { ProfileComponent } from './profile/profile.component';
     ProgramComponent,
     PersonalComponent,
     PreviewComponent,
-    ProfileComponent
+    ProfileComponent,
+    ListApplicationComponent,
+    EditComponent,
+    AdminComponent,
+    ViewApplicationComponent
   ],
   imports: [
     BrowserModule,

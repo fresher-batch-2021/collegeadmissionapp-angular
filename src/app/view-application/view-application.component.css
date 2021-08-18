@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 20px;
+    background-color: blue;
+}
+
+.searchBar {
+    margin: auto;
+    margin-top: 100px;
+    width: 90%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+.searchBar table {
+    margin: auto;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    text-align: center;
+}

@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    margin-top: 20px;
+    background-color: blue;
+}
+
+.searchBar {
+    margin: auto;
+    margin-top: 100px;
+    width: 80%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+.myInput {
+    margin-left: 300px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 30%;
+    background: #f1f1f1;
+}
+
+.searchBar select {
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 10%;
+    background: #f1f1f1;
+}
+
+.searchBar table {
+    margin: auto;
+    width: 100%;
+    margin-top: 10%;
+    text-align: center;
+}

@@ -68,8 +68,7 @@ export class AcademicComponent implements OnInit {
       console.log(academicData);
       localStorage.setItem('academicForm', JSON.stringify(academicData));
       alert("Register successfull");
-      window.location.href="preview";
-
+      window.location.href = "preview";
     }
   }
 }
