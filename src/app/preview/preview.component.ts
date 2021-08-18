@@ -1,4 +1,6 @@
+import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-preview',
@@ -30,9 +32,34 @@ export class PreviewComponent implements OnInit {
     console.log("academicData", this.acadData);
   }
 
+
   ngOnInit(): void {
   }
 
+  update() {
+    let registerObj = {
+      "name": this.regData.name,
+      "branch": this.acadData.branch,
+      "percentage": this.acadData.percentage,
+      "district": this.data.district,
+      "email": this.regData.email,
+      "status": "pending"
+    };
+    const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
+    const dbPassword = "163671d490ddeef138fc61e470881715";
+    const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
 
-
+    let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication";
+    axios.post(url, registerObj, { headers: { 'Authorization': basicAuth } }).then(res => {
+      let data = res.data;
+      console.log(data);
+      alert("Please Logout Before Leaving");
+    })
+      .catch(err => {
+        let errorMessage = err.response.data.errorMessage;
+        console.error(errorMessage);
+        alert("Error-" + errorMessage);
+      });
+    console.log(registerObj);
+  }
 }

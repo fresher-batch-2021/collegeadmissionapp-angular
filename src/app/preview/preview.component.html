@@ -1,5 +1,6 @@
+<app-header1></app-header1>
 <div class="userDetails">
-    <form>
+    <form (ngSubmit)="update()">
         <h1>Application-Details</h1>
         <table aria-describedby="mydesc" class="table">
             <tr>
@@ -7,7 +8,7 @@
                     <label>Name</label>
                 </th>
                 <td>
-                    <label id="firstName">{{regData[0].name}}</label>
+                    <label id="firstName">{{regData.name}}</label>
                 </td>
             </tr>
             <tr>
@@ -40,7 +41,7 @@
                     <label>Email-ID</label>
                 </th>
                 <td>
-                    <label id="email">{{regData[0].email}}</label>
+                    <label id="email">{{regData.email}}</label>
                 </td>
             </tr>
             <tr>
@@ -48,15 +49,13 @@
                     <label>Contact Number</label>
                 </th>
                 <td>
-                    <label id="contactNumber">{{regData[0].contactNo}}</label>
+                    <label id="contactNumber">{{regData.contactNo}}</label>
                 </td>
             </tr>
 
         </table>
         <div class="submit">
-            <a routerLink="/edit" id="submit">Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <input type="submit" id="submit" value="Next">
+            <input type="submit" id="submit" value="Submit">
         </div>
 
     </form>

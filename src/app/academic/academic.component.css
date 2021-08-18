@@ -2,9 +2,7 @@
     margin: 0;
     padding: 0;
 }
-
-
-.back-img{
+.academic{
     background-image: url(image.jpg);
     max-width: 100%;
     background-size: cover;

@@ -18,6 +18,8 @@ import { ListApplicationComponent } from './list-application/list-application.co
 import { EditComponent } from './edit/edit.component';
 import { AdminComponent } from './admin/admin.component';
 import { ViewApplicationComponent } from './view-application/view-application.component';
+import { Header1Component } from './header1/header1.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ViewApplicationComponent } from './view-application/view-application.co
     ListApplicationComponent,
     EditComponent,
     AdminComponent,
-    ViewApplicationComponent
+    ViewApplicationComponent,
+    Header1Component,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,140 +1,138 @@
-<div class="back-img">
-    <div class="academic">
-        <form (ngSubmit)="academicInformation()">
-            <h1>Academic Information</h1>
-            <table class="table" cellpadding="10">
-                <tr>
-                    <th>
-                        <label>Qualifying Examination</label>
-                    </th>
-                    <td>
-                        <select name="qualifiedExam" [(ngModel)]="qualifiedExam" id="exam">
-                            <option value="">--select--</option>
-                            <option value="HSC">HSC</option>
-                            <option value="Diplomo">Diplomo</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Name Of Board</label>
-                    </th>
-                    <td>
-                        <select name="examinationBoard" [(ngModel)]="examinationBoard" id="board">
-                            <option value="">--select--</option>
-                            <option value="State Board">State Board</option>
-                            <option value="CBSE">CBSE</option>
-                            <option value="Others">Others</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>HSC Reg-No</label>
-                    </th>
-                    <td>
-                        <input type="tel" id="regno" name="registerNumber" [(ngModel)]="registerNumber" maxlength="6"
-                            placeholder="Enter RegNo">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Qualifying Year</label>
-                    </th>
-                    <td>
-                        <input type="month" id="year" name="yearOfPassing" [(ngModel)]="yearOfPassing"
-                            placeholder="YOP">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>HSC Group Code</label>
-                    </th>
-                    <td>
-                        <select name="groupCode" [(ngModel)]="groupCode" id="group">
-                            <option value="">--select--</option>
-                            <option value="Maths Biology">Maths Biology</option>
-                            <option value="Maths Computer">Maths Computer</option>
-                            <option value="Vocational">Vocational</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Medium of Instructions</label>
-                    </th>
-                    <td>
-                        <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="Tamil">Tamil &nbsp;
-                        <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="English">English&nbsp;
-                        <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="Others">Others
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>HSC Maximum(Total)Marks</label>
-                    </th>
-                    <td>
-                        <input type="number" [(ngModel)]="hscMaxMarks" name="hscMaxMarks" id="mark1"
-                            placeholder="Enter Marks">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>HSC Obtained(Total)Marks</label>
-                    </th>
-                    <td>
-                        <input type="number" [(ngModel)]="hscTotalMarks" name="hscTotalMarks" id="mark2"
-                            placeholder="Enter Percentage">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Cut-Off Marks(100)</label>
-                    </th>
-                    <td>
-                        <input type="number" [(ngModel)]="percentage" name="percentage" id="mark3"
-                            placeholder="Enter Marks">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>SSLC Maximum(Total)Marks</label>
-                    </th>
-                    <td>
-                        <input type="number" [(ngModel)]="ssclMaxMarks" name="ssclMaxMarks" id="mark4"
-                            placeholder="Enter Marks">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>SSLC Obtained(Total)Marks</label>
-                    </th>
-                    <td>
-                        <input type="number" [(ngModel)]="sslcTotalMarks" name="sslcTotalMarks" id="mark5"
-                            placeholder="Enter Marks">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Choose Branch(Stream)</label>
-                    </th>
-                    <td>
-                        <select id="branch" [(ngModel)]="branch" name="branch">
-                            <option value="">--select--</option>
-                            <option value="EEE">EEE</option>
-                            <option value="ECE">ECE</option>
-                            <option value="CSE">CSE</option>
-                            <option value="CIVIL">CIVIL</option>
-                            <option value="MECHANICAL">MECHANICAL</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <div class="submit">
-                <input type="reset" id="submit" value="Reset">&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" id="reset" value="Save & Continue">
-            </div>
-        </form>
+<app-header1></app-header1>
+<div class="academic">
+    <h1>Academic Information</h1>
+    <form (ngSubmit)="academicInformation()">
+        <table class="table" cellpadding="10">
+            <tr>
+                <th>
+                    <label>Qualifying Examination</label>
+                </th>
+                <td>
+                    <select name="qualifiedExam" [(ngModel)]="qualifiedExam" id="exam">
+                        <option value="">--select--</option>
+                        <option value="HSC">HSC</option>
+                        <option value="Diplomo">Diplomo</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Name Of Board</label>
+                </th>
+                <td>
+                    <select name="examinationBoard" [(ngModel)]="examinationBoard" id="board">
+                        <option value="">--select--</option>
+                        <option value="State Board">State Board</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>HSC Reg-No</label>
+                </th>
+                <td>
+                    <input type="tel" id="regno" name="registerNumber" [(ngModel)]="registerNumber" maxlength="6"
+                        placeholder="Enter RegNo">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Qualifying Year</label>
+                </th>
+                <td>
+                    <input type="month" id="year" name="yearOfPassing" [(ngModel)]="yearOfPassing" placeholder="YOP">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>HSC Group Code</label>
+                </th>
+                <td>
+                    <select name="groupCode" [(ngModel)]="groupCode" id="group">
+                        <option value="">--select--</option>
+                        <option value="Maths Biology">Maths Biology</option>
+                        <option value="Maths Computer">Maths Computer</option>
+                        <option value="Vocational">Vocational</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Medium of Instructions</label>
+                </th>
+                <td>
+                    <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="Tamil">Tamil &nbsp;
+                    <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="English">English&nbsp;
+                    <input type="radio" id="medium" [(ngModel)]="medium" name="medium" value="Others">Others
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>HSC Maximum(Total)Marks</label>
+                </th>
+                <td>
+                    <input type="number" [(ngModel)]="hscMaxMarks" name="hscMaxMarks" id="mark1"
+                        placeholder="Enter Marks">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>HSC Obtained(Total)Marks</label>
+                </th>
+                <td>
+                    <input type="number" [(ngModel)]="hscTotalMarks" name="hscTotalMarks" id="mark2"
+                        placeholder="Enter Percentage">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Cut-Off Marks(100)</label>
+                </th>
+                <td>
+                    <input type="number" [(ngModel)]="percentage" name="percentage" id="mark3"
+                        placeholder="Enter Marks">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>SSLC Maximum(Total)Marks</label>
+                </th>
+                <td>
+                    <input type="number" [(ngModel)]="ssclMaxMarks" name="ssclMaxMarks" id="mark4"
+                        placeholder="Enter Marks">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>SSLC Obtained(Total)Marks</label>
+                </th>
+                <td>
+                    <input type="number" [(ngModel)]="sslcTotalMarks" name="sslcTotalMarks" id="mark5"
+                        placeholder="Enter Marks">
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Choose Branch(Stream)</label>
+                </th>
+                <td>
+                    <select id="branch" [(ngModel)]="branch" name="branch">
+                        <option value="">--select--</option>
+                        <option value="EEE">EEE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="MECHANICAL">MECHANICAL</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div class="submit">
+            <input type="reset" id="submit" value="Reset">&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" id="reset" value="Save & Continue">
+        </div>
+    </form>
 
-    </div>
 </div>

@@ -44,11 +44,17 @@ export class LoginComponent implements OnInit {
 
       axios.post(url, selectedData, { headers: { 'Authorization': basicAuth } }).then(res => {
 
-        let data = res.data;
+        let data = res.data.docs;
         console.log(data);
-        alert("Login Successful");
-        localStorage.setItem("registerData", JSON.stringify(data.docs));
+       
+        if(data.length==0){
+          alert ("Invalid Login Credentials")
+        }
+        else{
+          alert("Login Successful");
+        localStorage.setItem("registerData", JSON.stringify(data[0]));
         window.location.href = "personal";
+        }
       }).catch(err => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
