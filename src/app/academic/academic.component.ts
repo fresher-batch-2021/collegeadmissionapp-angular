@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ValidatorService } from '../validator.service';
 
 @Component({
   selector: 'app-academic',
@@ -25,32 +26,22 @@ export class AcademicComponent implements OnInit {
   branch: string = "";
 
   academicInformation() {
-    if (this.qualifiedExam == "" || this.qualifiedExam == null) {
-      alert("Qualified Exam cannot be blank");
-    } else if (this.examinationBoard == "" || this.examinationBoard == null) {
-      alert("Examination Board is Mandatory");
-    } else if (this.registerNumber == "" || this.registerNumber == null) {
-      alert("Register Number is Mandatory");
-    } else if (this.yearOfPassing == "" || this.yearOfPassing == null) {
-      alert("YearOfPassing is Mandatory");
-    } else if (this.groupCode == "" || this.groupCode == null) {
-      alert("GroupCode is Mandatory");
-    } else if (this.medium == "" || this.medium == null) {
-      alert("Medium is Mandatory");
-    } else if (this.hscMaxMarks == "" || this.hscMaxMarks == null) {
-      alert("HscMaxMarks is Mandatory");
-    } else if (this.hscTotalMarks == "" || this.hscTotalMarks == null) {
-      alert("HscTotalMarks is Mandatory");
-    } else if (this.percentage == "" || this.percentage == null) {
-      alert("Percentage is Mandatory");
-    } else if (this.ssclMaxMarks == "" || this.ssclMaxMarks == null) {
-      alert("SSLCMaxMarks is Mandatory");
-    }
-    else if (this.sslcTotalMarks == "" || this.sslcTotalMarks == null) {
-      alert("SSLCtotalMarks is Mandatory");
-    } else if (this.branch == "" || this.branch == null) {
-      alert("Branch is Mandatory");
-    } else {
+    const validatorService = new ValidatorService();
+
+    try {
+      validatorService.isValidString(this.qualifiedExam, "Qualified Exam cannot be blank");
+      validatorService.isValidString(this.examinationBoard, "Examination Board is Mandatory");
+      validatorService.isValidString(this.registerNumber, "Register Number is Mandatory");
+      validatorService.isValidString(this.yearOfPassing, "YearOfPassing is Mandatory");
+      validatorService.isValidString(this.groupCode, "GroupCode is Mandatory");
+      validatorService.isValidString(this.medium, "Medium is Mandatory");
+      validatorService.isValidMarks(this.hscMaxMarks, "HscMaxMarks is Mandatory");
+      validatorService.isValidMarks(this.hscTotalMarks, "HscTotalMarks is Mandatory");
+      validatorService.isValidMarks(this.percentage, "Percentage is Mandatory");
+      validatorService.isValidMarks(this.ssclMaxMarks, "SSLCMaxMarks is Mandatory");
+      validatorService.isValidMarks(this.sslcTotalMarks, "SSLCtotalMarks is Mandatory");
+      validatorService.isValidString(this.sslcTotalMarks, "Branch is Mandatory");
+
       let academicData = {
         "qualifiedExam": this.qualifiedExam,
         "examinationBoard": this.examinationBoard,
@@ -69,6 +60,10 @@ export class AcademicComponent implements OnInit {
       localStorage.setItem('academicForm', JSON.stringify(academicData));
       alert("Register successfull");
       window.location.href = "preview";
+    } catch (err) {
+      console.error(err.message);
+      alert(err.message);
+      alert("Unable to register");
     }
   }
 }

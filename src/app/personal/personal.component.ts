@@ -67,6 +67,11 @@ export class PersonalComponent implements OnInit {
       alert(err.message);
       alert("Unable to register");
     }
+  }
 
+  eventChange() {
+    const area = this.communicationAddress;
+    this.permanentAddress = area;
+    console.log(area);
   }
 }

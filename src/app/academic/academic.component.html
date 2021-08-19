@@ -8,7 +8,7 @@
                     <label>Qualifying Examination</label>
                 </th>
                 <td>
-                    <select name="qualifiedExam" [(ngModel)]="qualifiedExam" id="exam">
+                    <select name="qualifiedExam" [(ngModel)]="qualifiedExam" id="exam" autofocus>
                         <option value="">--select--</option>
                         <option value="HSC">HSC</option>
                         <option value="Diplomo">Diplomo</option>
@@ -34,7 +34,7 @@
                 </th>
                 <td>
                     <input type="tel" id="regno" name="registerNumber" [(ngModel)]="registerNumber" maxlength="6"
-                        placeholder="Enter RegNo">
+                        placeholder="Enter RegNo" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -42,7 +42,8 @@
                     <label>Qualifying Year</label>
                 </th>
                 <td>
-                    <input type="month" id="year" name="yearOfPassing" [(ngModel)]="yearOfPassing" placeholder="YOP">
+                    <input type="month" id="year" name="yearOfPassing" [(ngModel)]="yearOfPassing" placeholder="YOP"
+                        autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -74,7 +75,7 @@
                 </th>
                 <td>
                     <input type="number" [(ngModel)]="hscMaxMarks" name="hscMaxMarks" id="mark1"
-                        placeholder="Enter Marks">
+                        placeholder="Enter Marks" required maxlength="4" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -83,7 +84,7 @@
                 </th>
                 <td>
                     <input type="number" [(ngModel)]="hscTotalMarks" name="hscTotalMarks" id="mark2"
-                        placeholder="Enter Percentage">
+                        placeholder="Enter Marks" maxlength="4" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -92,7 +93,7 @@
                 </th>
                 <td>
                     <input type="number" [(ngModel)]="percentage" name="percentage" id="mark3"
-                        placeholder="Enter Marks">
+                        placeholder="Enter Percentage" maxlength="3" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -101,7 +102,7 @@
                 </th>
                 <td>
                     <input type="number" [(ngModel)]="ssclMaxMarks" name="ssclMaxMarks" id="mark4"
-                        placeholder="Enter Marks">
+                        placeholder="Enter Marks" maxlength="3" autocomplete="off">
                 </td>
             </tr>
             <tr>
@@ -110,7 +111,7 @@
                 </th>
                 <td>
                     <input type="number" [(ngModel)]="sslcTotalMarks" name="sslcTotalMarks" id="mark5"
-                        placeholder="Enter Marks">
+                        placeholder="Enter Marks" maxlength="3" autocomplete="off">
                 </td>
             </tr>
             <tr>
