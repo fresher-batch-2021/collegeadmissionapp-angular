@@ -6,9 +6,25 @@ import { Injectable } from '@angular/core';
 export class ValidatorService {
 
   constructor() { }
-  isEmpty(value: any, errorMessage: any) {
+  isValidString(value: any, errorMessage: any) {
     if (value == null || value.trim() == "" || value == undefined) {
       throw new Error(errorMessage);
     }
   }
+  isValidNumber(value: any, errorMessage: any) {
+    if (value.length < 10 || value.length > 10) {
+      throw new Error(errorMessage);
+    }
+  }
+  isValidPassword(value: any, errorMessage: any) {
+    if (value == null || value.length == null) {
+      throw new Error(errorMessage);
+    }
+  }
+  isValidPasswordLength(value: any, errorMessage: any) {
+    if (value.length < 8 || value.length > 15) {
+      throw new Error(errorMessage);
+    }
+  }
+
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +9,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AcademicComponent } from './academic/academic.component';
-import { FormsModule } from '@angular/forms';
 import { ProgramComponent } from './program/program.component';
 import { PersonalComponent } from './personal/personal.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,13 +38,14 @@ import { LogoutComponent } from './logout/logout.component';
     AdminComponent,
     ViewApplicationComponent,
     Header1Component,
-    LogoutComponent
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

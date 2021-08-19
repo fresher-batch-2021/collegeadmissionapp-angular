@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'viewApplication', component: ViewApplicationComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'header1', component: Header1Component },
+  // { path: 'header1', component: Header1Component },
   { path: 'personal', component: PersonalComponent },
   { path: 'academic', component: AcademicComponent },
   { path: 'preview', component: PreviewComponent },
