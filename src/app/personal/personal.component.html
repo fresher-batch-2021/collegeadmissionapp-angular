@@ -10,7 +10,7 @@
                 </th>
                 <td>
                     <input type="text" [(ngModel)]="firstName" name="firstName" id="firstName" placeholder="FirstName"
-                        required autocomplete="off">
+                        required autocomplete="off" autofocus>
                 </td>
                 <th scope="col">
                     <label>Last Name </label>
@@ -53,7 +53,7 @@
             </tr>
             <tr>
                 <th scope="col">
-                    <label>Communicatio-Address</label>
+                    <label>Communication-Address</label>
                 </th>
                 <td>
                     <textarea rows="4" cols="25" [(ngModel)]="communicationAddress" name="communicationAddress"
@@ -102,9 +102,7 @@
                         <option value="Trichy">Trichy</option>
                     </select>
                 </td>
-
             </tr>
-
             <tr>
                 <th scope="col">
                     <label>Religion *</label>
@@ -114,22 +112,6 @@
                     <input type="radio" [(ngModel)]="religion" id="religion" name="Relogion" value="Christian">Christian
                     <input type="radio" [(ngModel)]="religion" id="religion" name="Relogion" value="Muslim">Muslim
                 </td>
-                <th scope="col">
-                    <label>Community</label>
-                </th>
-                <td>
-                    <div id="div2" class="hide">
-                        <select name="Community" [(ngModel)]="community" id="community">
-                            <option value="">--select--</option>
-                            <option value="BC">BC</option>
-                            <option value="MBC">MBC</option>
-                            <option value="ST">ST</option>
-                            <option value="SC">SC</option>
-                        </select>
-                    </div>
-                </td>
-            </tr>
-            <tr>
                 <th scope="col">
                     <label>Aadhar Number *</label>
                 </th>

@@ -26,5 +26,9 @@ export class ValidatorService {
       throw new Error(errorMessage);
     }
   }
-
+  isValidAadhar(value: any, errorMessage: any) {
+    if (value.length < 12 || value.length > 12) {
+      throw new Error(errorMessage);
+    }
+  }
 }
