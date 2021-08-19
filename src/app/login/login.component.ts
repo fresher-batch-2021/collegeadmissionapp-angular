@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { ValidatorService } from '../validator.service';
 
 @Component({
   selector: 'app-login',
@@ -12,19 +13,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
   email: string = "";
   password: string = "";
 
   login() {
-    if (this.email == "" || this.email == undefined) {
-      alert("UserName cannot be blank");
-    } else if (this.password == "" || this.password == null) {
-      alert("Password cannot be blank");
-    } else if (this.password.length < 8 || this.password.length > 15) {
-      alert("Password must be 8 to 15 characters");
-    } else {
+    const validatorService = new ValidatorService();
+    try {
+      validatorService.isValidString(this.email, "UserName cannot be blank");
+      validatorService.isValidPassword(this.password, "Password cannot be blank");
       const selectedData = {
         selector: {
           username: this.email,
@@ -46,20 +42,24 @@ export class LoginComponent implements OnInit {
 
         let data = res.data.docs;
         console.log(data);
-       
-        if(data.length==0){
-          alert ("Invalid Login Credentials")
+
+        if (data.length == 0) {
+          alert("Invalid Login Credentials")
         }
-        else{
+        else {
           alert("Login Successful");
-        localStorage.setItem("registerData", JSON.stringify(data[0]));
-        window.location.href = "personal";
+          localStorage.setItem("registerData", JSON.stringify(data[0]));
+          window.location.href = "personal";
         }
       }).catch(err => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         alert("Error-" + errorMessage);
       });
+    } catch (err) {
+      console.error(err.message);
+      alert(err.message);
+      alert("Unable to register");
     }
   }
 }

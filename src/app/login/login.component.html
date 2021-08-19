@@ -4,9 +4,11 @@
         <h1>Login Here</h1>
         <form (ngSubmit)="login()">
             <label>email</label>
-            <input type="email" [(ngModel)]="email" name="email" id="userName" placeholder="Enter_Username" required>
+            <input type="email" [(ngModel)]="email" name="email" id="userName" placeholder="Enter_Username" required
+                autocomplete="off">
             <label>password</label>
-            <input type="password" [(ngModel)]="password" minlength="8" maxlength="15" name="password" id="password" placeholder="Enter_Password" required>
+            <input type="password" [(ngModel)]="password" minlength="8" maxlength="15" name="password" id="password"
+                autocomplete="off" placeholder="Enter_Password" required>
             <input type="submit" name="submit" value="Login">
             <a href="#">Forgot Password ?</a>
             <br>
