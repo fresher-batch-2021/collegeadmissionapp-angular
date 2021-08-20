@@ -25,6 +25,7 @@
                 <td><button type='button' (click)="updateStatus(taskObj.doc._id,'ACCEPTED')">Accept
                     </button>&nbsp;&nbsp;&nbsp;<button type='button'
                         (click)="updateStatus(taskObj.doc._id,'REJECTED')">Reject</button></td>
+                <td><button type='button' (click)="deleteFun(taskObj.doc._id,taskObj.doc._rev)">Delete</button></td>
             </tr>
         </tbody>
     </table>

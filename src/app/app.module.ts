@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ViewApplicationComponent } from './view-application/view-application.component';
 import { Header1Component } from './header1/header1.component';
 import { LogoutComponent } from './logout/logout.component';
+import { SampleformComponent } from './sampleform/sampleform.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LogoutComponent } from './logout/logout.component';
     ViewApplicationComponent,
     Header1Component,
     LogoutComponent,
+    SampleformComponent,
   ],
   imports: [
     BrowserModule,
