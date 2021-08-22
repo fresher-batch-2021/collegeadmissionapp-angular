@@ -13,24 +13,24 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  email: string = "";
+  userName: string = "";
   password: string = "";
 
   login() {
     const validatorService = new ValidatorService();
     try {
-      validatorService.isValidString(this.email, "UserName cannot be blank");
+      validatorService.isValidString(this.userName, "UserName cannot be blank");
       validatorService.isValidPassword(this.password, "Password cannot be blank");
       const selectedData = {
         selector: {
-          username: this.email,
+          username: this.userName,
           password: this.password
         },
         fields: ["_id", "name", "contactNo", "email"]
       };
 
       let formData = {
-        username: this.email,
+        username: this.userName,
         password: this.password
       }
       const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";

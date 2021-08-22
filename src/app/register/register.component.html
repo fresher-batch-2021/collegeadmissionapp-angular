@@ -2,7 +2,7 @@
     <div class="name">
         <img src="assets/images/user.png" alt="UserImage" class="user">
         <h1>Registration Form</h1>
-        <form (ngSubmit)="register()">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
             <table cellpadding="10">
                 <caption></caption>
                 <tr>
@@ -10,7 +10,7 @@
                         <label for="candidateName">Candidate Name</label>
                     </th>
                     <td>
-                        <input type="text" [(ngModel)]="candidateName" name="candidateName" id="name"
+                        <input type="text" formControlName="candidateName" name="candidateName" id="name"
                             placeholder="Candidate Name" required autocomplete="off" autofocus>
                     </td>
                 </tr>
@@ -21,7 +21,7 @@
                     </th>
 
                     <td>
-                        <input type="tel" id="contact" [(ngModel)]="contactNumber" name="candidateName"
+                        <input type="tel" id="contact" formControlName="contactNumber" name="candidateName"
                             placeholder="Mobile number" minlength="10" maxlength="10" required autocomplete="off">
                     </td>
                 </tr>
@@ -30,7 +30,7 @@
                         Date of Birth
                     </th>
                     <td>
-                        <input type="date" [(ngModel)]="dob" name="candidateName" id="dob" name="date" required>
+                        <input type="date" formControlName="dob" name="candidateName" id="dob" name="date" required>
                     </td>
                 </tr>
                 <tr>
@@ -38,8 +38,8 @@
                         <label>Email-ID</label>
                     </th>
                     <td>
-                        <input type="email" [(ngModel)]="email" name="candidateName" id="email" placeholder="Email-ID"
-                            required autocomplete="off">
+                        <input type="email" formControlName="email" name="candidateName" id="email"
+                            placeholder="Email-ID" required autocomplete="off">
                     </td>
                 </tr>
                 <tr>
@@ -47,7 +47,7 @@
                         <label>UserName</label>
                     </th>
                     <td>
-                        <input type="text" [(ngModel)]="userName" name="candidateName" id="userName"
+                        <input type="text" formControlName="userName" name="candidateName" id="userName"
                             placeholder="Username" required autocomplete="off">
                     </td>
                 </tr>
@@ -56,7 +56,7 @@
                         <label>Password</label>
                     </th>
                     <td>
-                        <input type="password" [(ngModel)]="userPassword" name="candidateName" minlength="8"
+                        <input type="password" formControlName="userPassword" name="candidateName" minlength="8"
                             id="userPassword" placeholder="Password" minlength="8" required autocomplete="off">
                     </td>
                 </tr>
@@ -65,14 +65,14 @@
                         <label>Confirm Password</label>
                     </th>
                     <td>
-                        <input type="password" [(ngModel)]="confirmPassword" minlength="8" id="confirmPassword"
+                        <input type="password" formControlName="confirmPassword" minlength="8" id="confirmPassword"
                             name="candidateName" placeholder="Password" required autocomplete="off">
                     </td>
                 </tr>
             </table>
             <div class="buttons">
                 <input type="reset" id="reset" value="Reset">&nbsp;&nbsp;&nbsp;
-                <input type="Submit" id="submit" value="Submit">
+                <input type="Submit" [disabled]="!registerForm.valid" id="submit" value="Submit">
             </div>
         </form>
     </div>

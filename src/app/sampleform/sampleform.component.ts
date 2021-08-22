@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sampleform',
@@ -8,21 +8,23 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class SampleformComponent implements OnInit {
 
-  sampleForm : FormGroup;
 
-  constructor(private fb : FormBuilder) 
-  { 
-    this.sampleForm = this.fb.group({
-      name : new FormControl("", Validators.required),
-      email : new FormControl('', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
-    })
+  sampleForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
+    email: new FormControl('', [Validators.required, Validators.email])
+  })
+  get name() { return this.sampleForm.get('name') }
+  get email() { return this.sampleForm.get('email') }
+
+  constructor() {
+
   }
 
   ngOnInit(): void {
   }
 
-  sample()
-  {
+  sample() {
+    console.log(this.name);
     console.log("form values", this.sampleForm.value);
   }
 }
