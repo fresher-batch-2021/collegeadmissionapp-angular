@@ -1,79 +1,99 @@
-<div class="back_img">
-    <div class="name">
-        <img src="assets/images/user.png" alt="UserImage" class="user">
-        <h1>Registration Form</h1>
-        <form [formGroup]="registerForm" (ngSubmit)="register()">
-            <table cellpadding="10">
-                <caption></caption>
-                <tr>
-                    <th>
-                        <label for="candidateName">Candidate Name</label>
-                    </th>
-                    <td>
-                        <input type="text" formControlName="candidateName" name="candidateName" id="name"
-                            placeholder="Candidate Name" required autocomplete="off" autofocus>
-                    </td>
-                </tr>
-                <tr>
+<div class="name">
+    <h1>Registration Form</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <table class="table" cellpadding="10">
+            <tr>
+                <th>
+                    <label for="candidateName">Candidate Name</label>
+                </th>
+                <td>
+                    <input type="text" formControlName="candidateName" name="candidateName" id="name"
+                        placeholder="Candidate Name" required autocomplete="off" autofocus>
+                    <br>
+                    <span
+                        *ngIf="registerForm.controls.candidateName.errors && registerForm.controls.candidateName.dirty"
+                        class="danger" padding>Username is not valid.</span>
+                </td>
+            </tr>
+            <tr>
 
-                    <th>
-                        <label for="contactNumber">Mobile Number</label>
-                    </th>
+                <th>
+                    <label for="contactNumber">Mobile Number</label>
+                </th>
 
-                    <td>
-                        <input type="tel" id="contact" formControlName="contactNumber" name="candidateName"
-                            placeholder="Mobile number" minlength="10" maxlength="10" required autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        Date of Birth
-                    </th>
-                    <td>
-                        <input type="date" formControlName="dob" name="candidateName" id="dob" name="date" required>
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Email-ID</label>
-                    </th>
-                    <td>
-                        <input type="email" formControlName="email" name="candidateName" id="email"
-                            placeholder="Email-ID" required autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>UserName</label>
-                    </th>
-                    <td>
-                        <input type="text" formControlName="userName" name="candidateName" id="userName"
-                            placeholder="Username" required autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Password</label>
-                    </th>
-                    <td>
-                        <input type="password" formControlName="userPassword" name="candidateName" minlength="8"
-                            id="userPassword" placeholder="Password" minlength="8" required autocomplete="off">
-                    </td>
-                </tr>
-                <tr>
-                    <th>
-                        <label>Confirm Password</label>
-                    </th>
-                    <td>
-                        <input type="password" formControlName="confirmPassword" minlength="8" id="confirmPassword"
-                            name="candidateName" placeholder="Password" required autocomplete="off">
-                    </td>
-                </tr>
-            </table>
-            <div class="buttons">
-                <input type="reset" id="reset" value="Reset">&nbsp;&nbsp;&nbsp;
-                <input type="Submit" [disabled]="!registerForm.valid" id="submit" value="Submit">
-            </div>
-        </form>
-    </div>
+                <td>
+                    <input type="tel" id="contact" formControlName="contactNumber" name="candidateName"
+                        placeholder="Mobile number" minlength="10" maxlength="10" required autocomplete="off">
+                    <br>
+                    <span
+                        *ngIf="registerForm.controls.contactNumber.errors && registerForm.controls.contactNumber.dirty"
+                        class="danger" padding>Mobile Number is not valid.</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Date of Birth
+                </th>
+                <td>
+                    <input type="date" formControlName="dob" name="candidateName" id="dob" name="date" required>
+                    <br>
+                    <span *ngIf="registerForm.controls.dob.errors && registerForm.controls.dob.dirty" class="danger"
+                        padding>DateOfBirth is not valid.</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Email-ID</label>
+                </th>
+                <td>
+                    <input type="email" formControlName="email" name="candidateName" id="email" placeholder="Email-ID"
+                        required autocomplete="off">
+                    <br>
+                    <span *ngIf="registerForm.controls.email.errors && registerForm.controls.email.dirty" class="danger"
+                        padding>Email-ID is not valid.</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>UserName</label>
+                </th>
+                <td>
+                    <input type="text" formControlName="userName" name="candidateName" id="userName"
+                        placeholder="Username" required autocomplete="off">
+                    <br>
+                    <span *ngIf="registerForm.controls.userName.errors && registerForm.controls.userName.dirty"
+                        class="danger" padding>Username is not valid.</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Password</label>
+                </th>
+                <td>
+                    <input type="password" formControlName="userPassword" name="candidateName" minlength="8"
+                        id="userPassword" placeholder="Password" minlength="8" required autocomplete="off">
+                    <br>
+                    <span *ngIf="registerForm.controls.userPassword.errors && registerForm.controls.userPassword.dirty"
+                        class="danger" padding>Password is not valid.</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Confirm Password</label>
+                </th>
+                <td>
+                    <input type="password" formControlName="confirmPassword" minlength="8" id="confirmPassword"
+                        name="candidateName" placeholder="Password" required autocomplete="off">
+                    <br>
+                    <span
+                        *ngIf="registerForm.controls.confirmPassword.errors && registerForm.controls.confirmPassword.dirty"
+                        class="danger" padding>Confirm Password is not valid.</span>
+                </td>
+            </tr>
+        </table>
+        <div class="submit">
+            <input type="reset" id="reset" value="Reset">&nbsp;&nbsp;&nbsp;
+            <input type="Submit" [disabled]="!registerForm.valid" id="submit" value="Submit">
+        </div>
+    </form>
 </div>

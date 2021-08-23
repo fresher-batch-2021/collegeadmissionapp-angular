@@ -21,6 +21,7 @@ import { ViewApplicationComponent } from './view-application/view-application.co
 import { Header1Component } from './header1/header1.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SampleformComponent } from './sampleform/sampleform.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SampleformComponent } from './sampleform/sampleform.component';
     Header1Component,
     LogoutComponent,
     SampleformComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,

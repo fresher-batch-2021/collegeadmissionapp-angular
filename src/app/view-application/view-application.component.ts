@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { SearchPipe } from '../search.pipe';
 
 @Component({
   selector: 'app-view-application',
@@ -8,6 +9,8 @@ import axios from 'axios';
 })
 export class ViewApplicationComponent implements OnInit {
   tableData: any;
+  selectedCategory: any;
+
   constructor() {
     this.displayForms();
   }
@@ -33,6 +36,9 @@ export class ViewApplicationComponent implements OnInit {
       alert("Error-" + errorMessage);
     });
   }
+
+
+  
   updateStatus(id: any, status: any) {
     console.log('Update ' + id + ',status=' + status);
     //call backend api and update status
@@ -83,11 +89,6 @@ export class ViewApplicationComponent implements OnInit {
       alert("Error-" + errorMessage);
     });
   }
-  searchByDepartment(name: any, dept: any) {
-    const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
-    const dbPassword = "163671d490ddeef138fc61e470881715";
-    const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
 
-  }
 
 }

@@ -1,20 +1,26 @@
-<div class="back-img">
-    <div class="login_box">
-        <img src="assets/images/user.png" alt="LoginImage" class="user">
-        <h1>Login Here</h1>
-        <form (ngSubmit)="login()">
-            <label>email</label>
-            <input type="text" [(ngModel)]="userName" name="email" id="userName" placeholder="Enter_Username" required
-                autocomplete="off">
-            <label>password</label>
-            <input type="password" [(ngModel)]="password" minlength="8" maxlength="15" name="password" id="password"
-                autocomplete="off" placeholder="Enter_Password" required>
-            <input type="submit" name="submit" value="Login">
-            <a href="#">Forgot Password ?</a>
-            <br>
-            <br>
-            <label>New Registration</label>
-            <a routerLink="/register">Click Here</a>
-        </form>
-    </div>
+<div class="login">
+    <img src="assets/images/skcet.png" alt="user logo" class="logo">
+    <h1>Login Here</h1>
+    <form (ngSubmit)="login()">
+        <label><strong> User Name </strong></label>
+        <input type="text" [(ngModel)]="userName" name="username" id="userName" placeholder="UserName"
+            autocomplete="off" autofocus required>
+        <br>
+        <br>
+        <label>
+            <strong>
+                Password
+            </strong>
+        </label>
+
+        <input type="password" [(ngModel)]="password" name="password" id="password" minlength="8" autocomplete="off"
+            placeholder="Password" required>
+        <br>
+        <br>
+        <input type="submit" name="log" id="log" value="Log In Here">
+        <br>
+        <br>
+        <label><strong>New Registration</strong></label>
+        <a routerLink="/register">Click Here</a>
+    </form>
 </div>

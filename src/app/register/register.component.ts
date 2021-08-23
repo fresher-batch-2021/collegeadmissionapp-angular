@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
-      candidateName: new FormControl('', [Validators.required]),
+      candidateName: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z ]*')]),
       contactNumber: new FormControl('', [Validators.required, Validators.pattern('[789][0-9]{9}')]),
       dob: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
