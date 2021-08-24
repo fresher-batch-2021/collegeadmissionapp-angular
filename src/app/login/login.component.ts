@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { ServicelayerService } from '../servicelayer.service';
 import { ValidatorService } from '../validator.service';
 
 @Component({
@@ -33,13 +34,8 @@ export class LoginComponent implements OnInit {
         username: this.userName,
         password: this.password
       }
-      const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
-      const dbPassword = "163671d490ddeef138fc61e470881715";
-      const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
-      let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/collegeadmissionapp_user/_find";
-
-      axios.post(url, selectedData, { headers: { 'Authorization': basicAuth } }).then(res => {
-
+      const serviceObj = new ServicelayerService();
+      serviceObj.userLogin(selectedData).then(res => {
         let data = res.data.docs;
         console.log(data);
 
@@ -62,4 +58,8 @@ export class LoginComponent implements OnInit {
       alert("Unable to register");
     }
   }
+}
+
+function loginObj(loginObj: any) {
+  throw new Error('Function not implemented.');
 }

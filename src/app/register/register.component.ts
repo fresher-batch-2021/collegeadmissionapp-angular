@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ValidatorService } from '../validator.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ServicelayerService } from '../servicelayer.service';
 
 @Component({
   selector: 'app-register',
@@ -48,11 +49,9 @@ export class RegisterComponent implements OnInit {
         contactNo: this.registerForm.value.contactNumber,
         password: this.registerForm.value.userPassword,
       }
-      const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
-      const dbPassword = "163671d490ddeef138fc61e470881715";
-      const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
-      let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/collegeadmissionapp_user";
-      axios.post(url, formData, { headers: { 'Authorization': basicAuth } }).then(res => {
+
+      const registerObj = new ServicelayerService();
+      registerObj.userRegister(formData).then(res => {
         let data = res.data;
         console.log(data);
         alert("Successffully Register");

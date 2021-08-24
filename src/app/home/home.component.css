@@ -3,11 +3,12 @@
     padding: 0;
    
 }
-.logo {
+.logo{
+    background-color: darkgray;
+}
+.logo img {
     margin: auto;
-    height: 400px;
-    margin-top: 10px;
-    max-width: 100%;
+    height: 460px;
+    max-width: 70%;
     font-family: sans-serif; 
-    background-color: gray;
 }

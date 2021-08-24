@@ -32,7 +32,6 @@ h1 {
 .submit {
     margin-top: 20px;
     text-align: center;
-    
 }
 
 .name input[type="submit"],
@@ -40,10 +39,11 @@ input[type="reset"] {
     border: none;
     outline: none;
     height: 30px;
-    background: aqua;
-    color: blue;
+    background:blue;
+    color:white;
     font-size: 18px;
-    border-radius: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .submit input[type="submit"]:hover,

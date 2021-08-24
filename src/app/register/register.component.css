@@ -17,7 +17,7 @@
     text-decoration: underline;
 }
 
-.table {
+.name table {
     width: 500px;
     height: 500px;
     background: rgba(0, 0, 0, 0.5);
@@ -37,9 +37,10 @@ input[type="reset"] {
     border: none;
     outline: none;
     height: 30px;
-    background: aqua;
-    color: blue;
+    background:blue;
+    color: white;
     font-size: 18px;
-    border-radius: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 

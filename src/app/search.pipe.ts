@@ -13,5 +13,4 @@ export class SearchPipe implements PipeTransform {
       return tableValue.doc.branch.toLowerCase().indexOf(searchBy.toLocaleLowerCase()) != -1;
     });
   }
-
 }
