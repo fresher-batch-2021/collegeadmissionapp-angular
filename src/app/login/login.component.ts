@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         else {
           alert("Login Successful");
           localStorage.setItem("registerData", JSON.stringify(data[0]));
-          window.location.href = "personal";
+          window.location.href = "home";
         }
       }).catch(err => {
         let errorMessage = err.response.data.errorMessage;

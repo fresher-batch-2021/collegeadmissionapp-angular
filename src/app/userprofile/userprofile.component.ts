@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-program',
-  templateUrl: './program.component.html',
-  styleUrls: ['./program.component.css']
+  selector: 'app-userprofile',
+  templateUrl: './userprofile.component.html',
+  styleUrls: ['./userprofile.component.css']
 })
-export class ProgramComponent implements OnInit {
+export class UserprofileComponent implements OnInit {
 
   userData = localStorage.getItem('registerData');
   loginData: any;
@@ -13,17 +13,20 @@ export class ProgramComponent implements OnInit {
   constructor() {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     console.log("registerData", this.loginData);
+    this.userProfile();
   }
+
 
   ngOnInit(): void {
   }
 
-  applyFunction() {
+  userProfile() {
     if (this.loginData == null) {
       window.location.href = "login";
     }
     else {
-      window.location.href = "personal";
+      window.location.href = "listprofile";
     }
   }
+
 }

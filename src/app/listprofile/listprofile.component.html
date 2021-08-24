@@ -1,0 +1,25 @@
+<div class="searchBar">
+    <h1>Submitted-Applications</h1>
+    <table border="1" aria-describedby="mydesc" id="myTable">
+        <thead>
+            <tr>
+                <th id="searchBar">Application-ID</th>
+                <th id="searchBar">Name</th>
+                <th id="searchBar">Branch</th>
+                <th id="searchBar">Percentage</th>
+                <th id="searchBar">Email-ID</th>
+                <th id="searchBar">Status</th>
+            </tr>
+        </thead>
+        <tbody id="applicationTable" *ngFor="let taskObj of (tableData);">
+            <tr name="tablerow">
+                <td>{{taskObj._id}}</td>
+                <td>{{taskObj.name}}</td>
+                <td>{{taskObj.branch}}</td>
+                <td>{{taskObj.percentage}}</td>
+                <td>{{taskObj.email}}</td>
+                <td>{{taskObj.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

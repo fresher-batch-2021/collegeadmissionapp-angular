@@ -32,12 +32,20 @@
     margin-top: 20px; 
     text-align: center;
 }
-.name input[type="submit"],
-input[type="reset"] {
+.name input[type="submit"]{
     border: none;
     outline: none;
     height: 30px;
-    background:blue;
+    color: black;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.name input[type="reset"] {
+    border: none;
+    outline: none;
+    height: 30px;
+   background:blue;
     color: white;
     font-size: 18px;
     border-radius: 10px;

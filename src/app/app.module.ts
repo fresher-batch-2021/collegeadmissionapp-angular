@@ -22,6 +22,8 @@ import { Header1Component } from './header1/header1.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SampleformComponent } from './sampleform/sampleform.component';
 import { SearchPipe } from './search.pipe';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { ListprofileComponent } from './listprofile/listprofile.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { SearchPipe } from './search.pipe';
     LogoutComponent,
     SampleformComponent,
     SearchPipe,
+    UserprofileComponent,
+    ListprofileComponent,
   ],
   imports: [
     BrowserModule,

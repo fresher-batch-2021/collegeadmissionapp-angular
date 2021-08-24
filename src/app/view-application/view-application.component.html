@@ -1,9 +1,7 @@
 <div class="searchBar">
     <h1>Submitted-Applications</h1>
     <div class="text-center">
-        <input type="text" name="branch" id="branch" [(ngModel)]="selectedCategory"
-            placeholder="        Search Ex: EEE">
-
+        <input type="text" name="branch" id="branch" [(ngModel)]="selectedCategory" placeholder="Search by DEPT">
     </div>
     <table border="1" aria-describedby="mydesc" name="myTable" id="myTable">
         <thead>
@@ -16,6 +14,7 @@
                 <th id="searchBar">Email-ID</th>
                 <th id="searchBar">Status</th>
                 <th id="searchBar">Action</th>
+                <th id="searchBar">Delete</th>
             </tr>
         </thead>
         <tbody id="applicationTable" *ngFor="let taskObj of (tableData | searchterm:selectedCategory);">

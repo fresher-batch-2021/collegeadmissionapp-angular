@@ -6,6 +6,7 @@ import { EditComponent } from './edit/edit.component';
 import { HeaderComponent } from './header/header.component';
 import { Header1Component } from './header1/header1.component';
 import { HomeComponent } from './home/home.component';
+import { ListprofileComponent } from './listprofile/listprofile.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PersonalComponent } from './personal/personal.component';
@@ -14,6 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProgramComponent } from './program/program.component';
 import { RegisterComponent } from './register/register.component';
 import { SampleformComponent } from './sampleform/sampleform.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ViewApplicationComponent } from './view-application/view-application.component';
 
 const routes: Routes = [
@@ -31,7 +33,9 @@ const routes: Routes = [
   { path: 'preview', component: PreviewComponent },
   { path: 'edit', component: EditComponent },
   { path: 'logout', component: LogoutComponent },
-  {path: 'sampleform', component: SampleformComponent},
+  { path: 'sampleform', component: SampleformComponent },
+  { path: 'userprofile', component: UserprofileComponent },
+  { path: 'listprofile', component: ListprofileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
