@@ -10,7 +10,10 @@ import { ServicelayerService } from '../servicelayer.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup;
+  dateYesterday: any;
+
   constructor(private fb: FormBuilder) {
     this.registerForm = this.fb.group({
       candidateName: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z ]*')]),
@@ -21,10 +24,13 @@ export class RegisterComponent implements OnInit {
       userPassword: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required])
     })
-    
+
   }
 
   ngOnInit(): void {
+    this.dateYesterday = new Date();
+    this.dateYesterday = new Date(this.dateYesterday.setDate(this.dateYesterday.getDate() - 1));
+    console.log("Previous Date", this.dateYesterday);
   }
 
   register() {
@@ -68,14 +74,7 @@ export class RegisterComponent implements OnInit {
       alert("Unable to register");
     }
   }
-/*
-  setDate() {
-    let previousDay = dayjs().subtract(1, 'day').toDate();
-    let today = previousDay.toJSON().substr(0, 10);
-    document.querySelector("#dob").setAttribute("max", today);
 
-  }
-  */
 }
 
 
