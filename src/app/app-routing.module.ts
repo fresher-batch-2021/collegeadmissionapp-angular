@@ -14,7 +14,6 @@ import { PreviewComponent } from './preview/preview.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProgramComponent } from './program/program.component';
 import { RegisterComponent } from './register/register.component';
-import { SampleformComponent } from './sampleform/sampleform.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ViewApplicationComponent } from './view-application/view-application.component';
 
@@ -33,7 +32,6 @@ const routes: Routes = [
   { path: 'preview', component: PreviewComponent },
   { path: 'edit', component: EditComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'sampleform', component: SampleformComponent },
   { path: 'userprofile', component: UserprofileComponent },
   { path: 'listprofile', component: ListprofileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

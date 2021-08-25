@@ -2,6 +2,7 @@
     <nav>
         <div class="logo">
             <a routerLink="/home"><img src="assets/images/logo.png" alt="logo"></a>
+            <a class="userName" *ngIf="userName==true">Welcome - {{loginData.email}} </a>
             <a class="logout" routerLink="/logout">Logout</a>
         </div>
     </nav>

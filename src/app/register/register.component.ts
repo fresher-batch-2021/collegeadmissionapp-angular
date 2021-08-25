@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
       userPassword: new FormControl('', [Validators.required]),
       confirmPassword: new FormControl('', [Validators.required])
     })
+    
   }
 
   ngOnInit(): void {
@@ -67,5 +68,15 @@ export class RegisterComponent implements OnInit {
       alert("Unable to register");
     }
   }
+/*
+  setDate() {
+    let previousDay = dayjs().subtract(1, 'day').toDate();
+    let today = previousDay.toJSON().substr(0, 10);
+    document.querySelector("#dob").setAttribute("max", today);
+
+  }
+  */
 }
+
+
 
