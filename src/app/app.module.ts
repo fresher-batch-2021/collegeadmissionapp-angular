@@ -23,6 +23,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { SearchPipe } from './search.pipe';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ListprofileComponent } from './listprofile/listprofile.component';
+import { AddbranchComponent } from './addbranch/addbranch.component';
+import { DisplaybranchComponent } from './displaybranch/displaybranch.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { ListprofileComponent } from './listprofile/listprofile.component';
     SearchPipe,
     UserprofileComponent,
     ListprofileComponent,
+    AddbranchComponent,
+    DisplaybranchComponent,
   ],
   imports: [
     BrowserModule,

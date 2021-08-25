@@ -9,6 +9,7 @@ import { ValidatorService } from '../validator.service';
 })
 export class PersonalComponent implements OnInit {
   personalApplication: FormGroup;
+  dateYesterday: any;
   constructor(private fb: FormBuilder) {
     this.personalApplication = this.fb.group({
       firstName: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]*')]),
@@ -27,6 +28,9 @@ export class PersonalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dateYesterday = new Date();
+    this.dateYesterday = new Date(this.dateYesterday.setDate(this.dateYesterday.getDate() - 1));
+    console.log("Previous Date", this.dateYesterday);
   }
 
   personalInformation() {

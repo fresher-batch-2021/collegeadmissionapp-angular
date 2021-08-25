@@ -1,0 +1,27 @@
+<app-header></app-header>
+<main>
+    <div class="branch">
+        <h2>Available-Branches</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th id="searchBar">Degree</th>
+                    <th id="searchBar">Branch</th>
+                    <th id="searchBar">Total No of Seats</th>
+                    <th id="searchBar">Available Seats</th>
+                    <th id="searchBar">Apply</th>
+                </tr>
+            </thead>
+            <tbody id="programme" *ngFor="let branchObj of (branch);">
+                <tr name="tablerow">
+                    <td>{{branchObj.doc.degree}}</td>
+                    <td>{{branchObj.doc.branch}}</td>
+                    <td>{{branchObj.doc.totalSeats}}</td>
+                    <td>{{branchObj.doc.availableSeats}}</td>
+                    <td><button type='button' (click)="applyFunction()" value="apply" id="apply">Click to Apply
+                        </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

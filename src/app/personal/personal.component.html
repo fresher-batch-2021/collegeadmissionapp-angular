@@ -56,7 +56,8 @@
                     <label>Date Of Birth </label>
                 </th>
                 <td>
-                    <input type="date" formControlName="dob" name="dob" id="dob" placeholder="DOB" required>
+                    <input type="date" formControlName="dob" max="{{dateYesterday | date:'yyyy-MM-dd'}}" name="dob"
+                        id="dob" placeholder="DOB" required>
                     <br>
                     <span *ngIf="personalApplication.controls.dob.errors && personalApplication.controls.dob.dirty"
                         class="danger" padding>DateOfBirth is not valid.</span>

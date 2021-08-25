@@ -9,7 +9,7 @@ h2 {
     font-size: 30px;
 }
 
-.searchBar {
+.branch {
     margin: 7% 7% 7%;
     border: 2px solid ;
     padding-left: 3%;
@@ -26,7 +26,7 @@ td{
 tr:nth-child(even){
     background-color: #f2f2f2;
 }
-.searchBar table {
+.branch table {
     padding-left:5%;
     border-collapse: collapse ;
     height: 50px;

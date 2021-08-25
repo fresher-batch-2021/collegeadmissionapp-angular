@@ -1,0 +1,44 @@
+<div class="department">
+    <form>
+        <h2>Add-Departments</h2>
+        <table>
+            <tr>
+                <th><label>Degree</label></th>
+                <td><input type="text" [(ngModel)]="degree" name="degree" id="degree" placeholder="Enter Degree Name"
+                        autocomplete="off" autofocus required></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Branch</label>
+                </th>
+                <td>
+                    <input type="text" [(ngModel)]="branch" name="branch" id="branch" placeholder="Enter Branch Name"
+                        autocomplete="off" required>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Total Seats</label>
+                </th>
+                <td>
+                    <input type="text" [(ngModel)]="totalSeats" name="totalSeats" id="totalSeats"
+                        placeholder="Enter total number of seats" autocomplete="off" required>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Available Seats</label>
+                </th>
+                <td>
+                    <input type="text" [(ngModel)]="availableSeats" name="availableSeats" id="availableSeats"
+                        placeholder="Enter Available number of seats" autocomplete="off" required>
+                </td>
+            </tr>
+
+        </table>
+        <div class="submit">
+            <button type="reset" id="submit" value="Reset">Reset</button>&nbsp;&nbsp;
+            <button type="Submit" id="submit" (click)="addDepartment()" value="Submit">Submit</button>
+        </div>
+    </form>
+</div>
