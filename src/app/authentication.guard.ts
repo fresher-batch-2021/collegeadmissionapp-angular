@@ -14,16 +14,20 @@ export class AuthenticationGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    try {
+      let loginData = this.userData != null ? JSON.parse(this.userData) : null;
+      const emailId = loginData.email;
+      console.log("userdata", loginData);
 
-    let loginData = this.userData != null ? JSON.parse(this.userData) : null;
-    const emailId = loginData.email;
-    console.log("userdata", loginData);
 
-
-    if (emailId != null) {
-      return true;
-    }
-    else {
+      if (emailId != null) {
+        return true;
+      }
+      else {
+        alert("You are not authorized to access this page..Please try after login!!");
+        this.router.navigateByUrl("login");
+      }
+    } catch (err) {
       alert("You are not authorized to access this page..Please try after login!!");
       this.router.navigateByUrl("login");
     }

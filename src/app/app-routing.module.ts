@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AcademicComponent } from './academic/academic.component';
 import { AdminComponent } from './admin/admin.component';
+import { AuthenticationGuard } from './authentication.guard';
 import { EditComponent } from './edit/edit.component';
 import { HeaderComponent } from './header/header.component';
 import { Header1Component } from './header1/header1.component';
@@ -22,18 +23,19 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'program', component: ProgramComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'viewApplication', component: ViewApplicationComponent },
-  { path: 'admin', component: AdminComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'personal', component: PersonalComponent, canActivate: [AuthenticationGuard] },
+  { path: 'academic', component: AcademicComponent, canActivate: [AuthenticationGuard] },
+  { path: 'preview', component: PreviewComponent, canActivate: [AuthenticationGuard] },
+  { path: 'userprofile', component: UserprofileComponent, canActivate: [AuthenticationGuard] },
+  { path: 'listprofile', component: ListprofileComponent, canActivate: [AuthenticationGuard] },
+
+  { path: 'admin', component: AdminComponent },
+  { path: 'viewApplication', component: ViewApplicationComponent },
   // { path: 'header1', component: Header1Component },
-  { path: 'personal', component: PersonalComponent },
-  { path: 'academic', component: AcademicComponent },
-  { path: 'preview', component: PreviewComponent },
   { path: 'edit', component: EditComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'userprofile', component: UserprofileComponent },
-  { path: 'listprofile', component: ListprofileComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
