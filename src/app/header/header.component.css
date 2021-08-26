@@ -11,7 +11,6 @@
 .menubar ul{
     display: inline-flex;
     list-style: none;
-    color: #fff;
 }
 .menubar ul li{
     width: 140px;

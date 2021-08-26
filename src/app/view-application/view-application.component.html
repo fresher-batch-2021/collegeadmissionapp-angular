@@ -27,9 +27,9 @@
                 <td>{{taskObj.doc.district}}</td>
                 <td>{{taskObj.doc.email}}</td>
                 <td>{{taskObj.doc.status}}</td>
-                <td><button type='button' (click)="updateStatus(taskObj.doc._id,'ACCEPTED')">Accept
+                <td><button type='button' (click)="updateStatus(taskObj.doc._id,'ACCEPTED',taskObj.doc.branch)">Accept
                     </button>&nbsp;&nbsp;&nbsp;<button type='button'
-                        (click)="updateStatus(taskObj.doc._id,'REJECTED')">Reject</button></td>
+                        (click)="updateStatus(taskObj.doc._id,'REJECTED',taskObj.doc.branch)">Reject</button></td>
                 <td><button type='button' (click)="deleteFun(taskObj.doc._id,taskObj.doc._rev)">Delete</button></td>
             </tr>
         </tbody>

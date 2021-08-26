@@ -1,4 +1,3 @@
-import { registerLocaleData } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 
@@ -17,8 +16,6 @@ export class PreviewComponent implements OnInit {
   data: any;
   regData: any;
   acadData: any;
-
-  // userData = localStorage.getItem('registerData');
 
   constructor() {
     this.data = this.userData != null ? JSON.parse(this.userData) : null;
@@ -53,6 +50,7 @@ export class PreviewComponent implements OnInit {
     axios.post(url, registerObj, { headers: { 'Authorization': basicAuth } }).then(res => {
       let data = res.data;
       console.log(data);
+      alert("Your Application Submitted Successfully");
       alert("Please Logout Before Leaving");
     })
       .catch(err => {

@@ -22,6 +22,7 @@ export class ViewApplicationComponent implements OnInit {
     const dbPassword = "163671d490ddeef138fc61e470881715";
     const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
 
+
     let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/_all_docs?include_docs=true";
     axios.get(url, { headers: { 'Authorization': basicAuth } }).then(res => {
       let data = res.data;
@@ -38,13 +39,27 @@ export class ViewApplicationComponent implements OnInit {
   }
 
 
-  
-  updateStatus(id: any, status: any) {
+
+  updateStatus(id: any, status: any, branch: any) {
     console.log('Update ' + id + ',status=' + status);
     //call backend api and update status
     const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
     const dbPassword = "163671d490ddeef138fc61e470881715";
     const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
+
+    if (status == "ACCEPTED") {
+      const requestData = {
+        selector: {
+          branch: branch
+        },
+        fields: ["_id", "_rev", "degree", "branch", "totalSeats", "availableSeats"]
+      };
+      let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/_find";
+      axios.post(url, requestData, { headers: { 'Authorization': basicAuth } }).then(res => {
+        let data = res.data.docs[0];
+        this.update_seats(data);
+      })
+    }
 
     //get by id
     let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/" + id;
@@ -88,6 +103,26 @@ export class ViewApplicationComponent implements OnInit {
       console.log("failed");
       alert("Error-" + errorMessage);
     });
+  }
+
+  update_seats(data: any) {
+    let updateData = {
+      'degree': data.degree,
+      'branch': data.branch,
+      'availableSeats': parseInt(data.availableSeats) - 1,
+      'totalSeats': data.totalSeats
+    }
+    const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
+    const dbPassword = "163671d490ddeef138fc61e470881715";
+    const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
+    let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/";
+
+    axios.put(url + data._id + "?rev=" + data._rev, updateData, { headers: { 'Authorization': basicAuth } }).then(res => {
+      alert("updated success");
+      window.location.reload();
+    }).catch(err => {
+      alert("failed to update");
+    })
   }
 
 
