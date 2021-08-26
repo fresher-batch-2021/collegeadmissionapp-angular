@@ -12,18 +12,22 @@ h1 {
 
 .searchBar {
     margin: auto;
-    margin-top: 100px;
-    width: 90%;
+    margin-top: 50px;
+    width: 95%;
     border: 3px solid #73AD21;
     padding: 10px;
+    font-family: sans-serif;
 }
 
 .searchBar table {
     margin: auto;
-    width: 100%;
+    width: 95%;
     margin-top: 20px;
     margin-bottom: 3%;
     text-align: center;
+}
+.searchBar table th{
+    background-color: slategray;
 }
 .searchBar table tr{
     height: 50px;
@@ -39,4 +43,7 @@ h1 {
    text-align: center;
    font-size: 30px;
    border-radius: 10px;
+}
+.searchBar button{
+    background-color: cornflowerblue;
 }

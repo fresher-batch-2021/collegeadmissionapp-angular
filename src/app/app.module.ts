@@ -25,6 +25,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ListprofileComponent } from './listprofile/listprofile.component';
 import { AddbranchComponent } from './addbranch/addbranch.component';
 import { DisplaybranchComponent } from './displaybranch/displaybranch.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { DisplaybranchComponent } from './displaybranch/displaybranch.component'
     ListprofileComponent,
     AddbranchComponent,
     DisplaybranchComponent,
+    AdminpanelComponent,
   ],
   imports: [
     BrowserModule,

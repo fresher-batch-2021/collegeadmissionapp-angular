@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AcademicComponent } from './academic/academic.component';
 import { AddbranchComponent } from './addbranch/addbranch.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { DisplaybranchComponent } from './displaybranch/displaybranch.component';
 import { EditComponent } from './edit/edit.component';
@@ -32,9 +33,9 @@ const routes: Routes = [
   { path: 'preview', component: PreviewComponent, canActivate: [AuthenticationGuard] },
   { path: 'userprofile', component: UserprofileComponent, canActivate: [AuthenticationGuard] },
   { path: 'listprofile', component: ListprofileComponent, canActivate: [AuthenticationGuard] },
-
+  { path: 'adminpanel', component: AdminpanelComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'viewApplication', component: ViewApplicationComponent },
+  { path: 'viewapplication', component: ViewApplicationComponent },
   { path: 'addbranch', component: AddbranchComponent },
   { path: 'displaybranch', component: DisplaybranchComponent },
   // { path: 'header1', component: Header1Component },
