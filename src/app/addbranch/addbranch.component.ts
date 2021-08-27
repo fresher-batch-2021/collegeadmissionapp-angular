@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { AdminService } from '../admin.service';
 import { ValidatorService } from '../validator.service';
 
 @Component({
@@ -32,11 +33,8 @@ export class AddbranchComponent implements OnInit {
         totalSeats: this.totalSeats,
         availableSeats: this.availableSeats
       }
-      const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
-      const dbPassword = "163671d490ddeef138fc61e470881715";
-      const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
-      let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments";
-      axios.post(url, departmentData, { headers: { 'Authorization': basicAuth } }).then(res => {
+      const branchObj = new AdminService();
+      branchObj.addDepartment(departmentData).then(res => {
         let data = res.data;
         console.log(data);
         alert("Department Added Successfully");

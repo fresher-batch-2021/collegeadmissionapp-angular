@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-preview',
@@ -42,12 +43,16 @@ export class PreviewComponent implements OnInit {
       "email": this.regData.email,
       "status": "pending"
     };
+    /*
     const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
     const dbPassword = "163671d490ddeef138fc61e470881715";
     const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
 
     let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication";
     axios.post(url, registerObj, { headers: { 'Authorization': basicAuth } }).then(res => {
+*/
+    const applicationObj = new AdminService();
+    applicationObj.submitApplication(registerObj).then(res => {
       let data = res.data;
       console.log(data);
       alert("Your Application Submitted Successfully");
