@@ -9,7 +9,7 @@
                     <th id="searchBar">Branch</th>
                     <th id="searchBar">Total No of Seats</th>
                     <th id="searchBar">Available Seats</th>
-                    <th id="searchBar">Apply</th>
+                    <th id="searchBar">Action</th>
                 </tr>
             </thead>
             <tbody id="programme" *ngFor="let branchObj of this.branchList;">
@@ -18,8 +18,7 @@
                     <td>{{branchObj.branch}}</td>
                     <td>{{branchObj.totalSeats}}</td>
                     <td>{{branchObj.availableSeats}}</td>
-                    <td><button type='button' (click)="applyFunction()" value="apply" id="apply">Click to Apply
-                        </button>
+                    <td><button type='button' (click)="deleteFun(branchObj._id,branchObj._rev)">Delete</button></td>
                 </tr>
             </tbody>
         </table>

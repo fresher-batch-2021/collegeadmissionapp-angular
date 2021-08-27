@@ -5,6 +5,7 @@ import { AddbranchComponent } from './addbranch/addbranch.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { AuthenticationGuard } from './authentication.guard';
+import { DeletebranchComponent } from './deletebranch/deletebranch.component';
 import { DisplaybranchComponent } from './displaybranch/displaybranch.component';
 import { EditComponent } from './edit/edit.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'viewapplication', component: ViewApplicationComponent },
   { path: 'addbranch', component: AddbranchComponent },
   { path: 'displaybranch', component: DisplaybranchComponent },
+  { path: 'deletebranch', component: DeletebranchComponent },
   // { path: 'header1', component: Header1Component },
   { path: 'edit', component: EditComponent },
   { path: 'logout', component: LogoutComponent },

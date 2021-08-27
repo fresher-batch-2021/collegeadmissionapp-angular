@@ -11,6 +11,8 @@ export class DisplaybranchComponent implements OnInit {
   userData = localStorage.getItem('registerData');
   loginData: any;
   branch: any;
+  branchList: any;
+
   constructor() {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     console.log("registerData", this.loginData);
@@ -29,6 +31,7 @@ export class DisplaybranchComponent implements OnInit {
       console.log("response : ", data);
       this.branch = data.rows;
       console.log("table list :", this.branch);
+      this.branchList = this.branch.map((obj: any) => obj.doc);
     }).catch(err => {
       let errorMessage = err.response.data.errorMessage;
       console.error(errorMessage);
