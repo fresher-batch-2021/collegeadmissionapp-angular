@@ -29,6 +29,7 @@ import { DeletebranchComponent } from './deletebranch/deletebranch.component';
 import { AddfeesComponent } from './addfees/addfees.component';
 import { ViewfeesComponent } from './viewfees/viewfees.component';
 import { ListfeesComponent } from './listfees/listfees.component';
+import { ListalluserComponent } from './listalluser/listalluser.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ListfeesComponent } from './listfees/listfees.component';
     AddfeesComponent,
     ViewfeesComponent,
     ListfeesComponent,
+    ListalluserComponent,
   ],
   imports: [
     BrowserModule,

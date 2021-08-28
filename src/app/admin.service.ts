@@ -30,6 +30,9 @@ export class AdminService {
   listFees() {
     return axios.get(this.url + "addfees/_all_docs?include_docs=true", { headers: { 'Authorization': this.basicAuth } })
   }
+  listAllUser() {
+    return axios.get(this.url + "collegeadmissionapp_user/_all_docs?include_docs=true", { headers: { 'Authorization': this.basicAuth } })
+  }
 
 
 }

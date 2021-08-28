@@ -1,0 +1,23 @@
+<div class="userList">
+    <h1>User-List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th id="userList">Regeister-ID</th>
+                <th id="userList">Candidate-Name</th>
+                <th id="userList">Email-Id</th>
+                <th id="userList">Contact-Number</th>
+                <th id="userList">DOB</th>
+            </tr>
+        </thead>
+        <tbody id="userListTable" *ngFor="let userObj of this.allUserList;">
+            <tr name=" tablerow">
+                <td>{{userObj._id}}</td>
+                <td>{{userObj.name}}</td>
+                <td>{{userObj.email}}</td>
+                <td>{{userObj.contactNo}}</td>
+                <td>{{userObj.dob}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
