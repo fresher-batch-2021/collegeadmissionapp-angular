@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.feesDetails {
+    margin: 7% 7% 7%;
+    border: 2px solid ;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+th{
+    background-color: #ccc;
+    padding:1%;
+}
+td{
+    padding:1%;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.feesDetails table {
+    padding-left:5%;
+    border-collapse: collapse ;
+    height: 50px;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    text-align: center;
+}
+

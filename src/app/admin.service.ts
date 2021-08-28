@@ -27,6 +27,9 @@ export class AdminService {
   listApplication() {
     return axios.get(this.url + "viewapplication/_all_docs?include_docs=true", { headers: { 'Authorization': this.basicAuth } })
   }
- 
+  listFees() {
+    return axios.get(this.url + "addfees/_all_docs?include_docs=true", { headers: { 'Authorization': this.basicAuth } })
+  }
+
 
 }
