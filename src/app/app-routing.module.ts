@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AcademicComponent } from './academic/academic.component';
 import { AddbranchComponent } from './addbranch/addbranch.component';
+import { AddfeesComponent } from './addfees/addfees.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { AuthenticationGuard } from './authentication.guard';
@@ -11,6 +12,7 @@ import { EditComponent } from './edit/edit.component';
 import { HeaderComponent } from './header/header.component';
 import { Header1Component } from './header1/header1.component';
 import { HomeComponent } from './home/home.component';
+import { ListfeesComponent } from './listfees/listfees.component';
 import { ListprofileComponent } from './listprofile/listprofile.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -21,6 +23,7 @@ import { ProgramComponent } from './program/program.component';
 import { RegisterComponent } from './register/register.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ViewApplicationComponent } from './view-application/view-application.component';
+import { ViewfeesComponent } from './viewfees/viewfees.component';
 
 const routes: Routes = [
 
@@ -40,6 +43,9 @@ const routes: Routes = [
   { path: 'addbranch', component: AddbranchComponent },
   { path: 'displaybranch', component: DisplaybranchComponent },
   { path: 'deletebranch', component: DeletebranchComponent },
+  { path: 'addfees', component: AddfeesComponent },
+  { path: 'listfees', component: ListfeesComponent },
+  { path: 'viewfees', component: ViewfeesComponent },
   // { path: 'header1', component: Header1Component },
   { path: 'edit', component: EditComponent },
   { path: 'logout', component: LogoutComponent },

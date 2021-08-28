@@ -1,0 +1,36 @@
+<app-adminpanel></app-adminpanel>
+<div class="feesDetails">
+    <form [formGroup]="feesDetails" (ngSubmit)="addFees()">
+        <h1>Fees-Structure</h1>
+        <label>Admission-Fees</label>
+        <input type="number" formControlName="admissionFees" name="admissionFees" placeholder="Enter Admission Fees"
+            id="admissionFees" required autocomplete="off" autofocus>
+        <br>
+        <span *ngIf="feesDetails.controls.admissionFees.errors && feesDetails.controls.admissionFees.dirty"
+            class="danger" padding>Admission-Fees is not valid.</span>
+        <br>
+        <label>Tution-Fees(Per-Semester)</label>
+        <input type="number" formControlName="tutionFees" name="tutionFees" placeholder="Enter Tution Fees"
+            id="tutionFees" required autocomplete="off">
+        <br>
+        <span *ngIf="feesDetails.controls.tutionFees.errors && feesDetails.controls.tutionFees.dirty" class="danger"
+            padding>tution-Fees is not valid.</span>
+        <br>
+        <label>Exam-Fees(Per-Paper)</label>
+        <input type="number" formControlName="examFees" name="examFees" placeholder="Enter Exam Fees" id="examFees"
+            required autocomplete="off">
+        <br>
+        <span *ngIf="feesDetails.controls.examFees.errors && feesDetails.controls.examFees.dirty" class="danger"
+            padding>Exam-Fees is not valid.</span>
+        <br>
+        <label>Hostel-Fees(Per-Semester)</label>
+        <input type="number" formControlName="hostelFees" name="hostelFees" placeholder="Enter Fees" id="hostelFees"
+            required autocomplete="off">
+        <br>
+        <span *ngIf="feesDetails.controls.hostelFees.errors && feesDetails.controls.hostelFees.dirty" class="danger"
+            padding>Hostel-Fees is not valid.</span>
+
+        <a routerLink="/home"><button type="button">BACK</button></a>
+        <button type="submit">SUBMIT</button>
+
+    </form>

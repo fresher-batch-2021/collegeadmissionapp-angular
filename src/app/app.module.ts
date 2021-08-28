@@ -26,6 +26,9 @@ import { AddbranchComponent } from './addbranch/addbranch.component';
 import { DisplaybranchComponent } from './displaybranch/displaybranch.component';
 import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { DeletebranchComponent } from './deletebranch/deletebranch.component';
+import { AddfeesComponent } from './addfees/addfees.component';
+import { ViewfeesComponent } from './viewfees/viewfees.component';
+import { ListfeesComponent } from './listfees/listfees.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { DeletebranchComponent } from './deletebranch/deletebranch.component';
     DisplaybranchComponent,
     AdminpanelComponent,
     DeletebranchComponent,
+    AddfeesComponent,
+    ViewfeesComponent,
+    ListfeesComponent,
   ],
   imports: [
     BrowserModule,
