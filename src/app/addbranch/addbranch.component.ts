@@ -31,7 +31,8 @@ export class AddbranchComponent implements OnInit {
         degree: this.degree,
         branch: this.branch,
         totalSeats: this.totalSeats,
-        availableSeats: this.availableSeats
+        availableSeats: this.availableSeats,
+        appliedSeats: "0"
       }
       const branchObj = new AdminService();
       branchObj.addDepartment(departmentData).then(res => {

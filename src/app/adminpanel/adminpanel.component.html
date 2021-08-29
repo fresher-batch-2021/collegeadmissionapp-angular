@@ -1,13 +1,31 @@
-<header id="header">
-    <nav>
-        <div class="logo">
-            <a routerLink="/home"><img src="assets/images/logo1.png" alt="logo"></a>
-            <a>Welcome -{{loginData.adminEmail}} </a>
-            <a routerLink="/addfees">Add-Fees</a>
-            <a routerLink="/addbranch">Add-Branch</a>
-            <a routerLink="/listalluser">User-List</a>
-            <a routerLink="/viewapplication">View-Application</a>
-            <a routerLink="/logout">Logout</a>
-        </div>
-    </nav>
-</header>
+<div class="body">
+    <div class="logo">
+        <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
+
+    </div>
+
+    <div class="menubar">
+        <ul class="tag">
+            <li>
+                <a routerLink="/addfees">Add-Fees</a>
+            </li>
+            <li>
+                <a routerLink="/addbranch">Add-Branch</a>
+            </li>
+            <li>
+                <a routerLink="/listalluser">User-List</a>
+            </li>
+            <li>
+                <a routerLink="/viewapplication">View-Application</a>
+            </li>
+            <li>
+                <a>Welcome -{{loginData.adminEmail}} </a>
+            </li>
+            <li>
+                <a routerLink="/logout">Logout</a>
+            </li>
+        </ul>
+
+    </div>
+
+</div>

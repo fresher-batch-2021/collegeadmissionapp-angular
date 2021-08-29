@@ -10,6 +10,7 @@
                 <th id="searchBar">Percentage</th>
                 <th id="searchBar">Email-ID</th>
                 <th id="searchBar">Status</th>
+                <th id="searchBar">Action</th>
             </tr>
         </thead>
         <tbody id="applicationTable" *ngFor="let taskObj of (tableData);">
@@ -20,6 +21,8 @@
                 <td>{{taskObj.percentage}}</td>
                 <td>{{taskObj.email}}</td>
                 <td>{{taskObj.status}}</td>
+                <td><button type='button' (click)="withdraw(taskObj._id,'WITHDRAWED',taskObj.branch)">Withdraw
+                    </button>
             </tr>
         </tbody>
     </table>

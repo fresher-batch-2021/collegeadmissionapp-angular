@@ -9,6 +9,7 @@
                     <th id="searchBar">Branch</th>
                     <th id="searchBar">Total No of Seats</th>
                     <th id="searchBar">Available Seats</th>
+                    <th id="searchBar">No of Students Applied</th>
                     <th id="searchBar">Apply</th>
                 </tr>
             </thead>
@@ -18,6 +19,7 @@
                     <td>{{branchObj.branch}}</td>
                     <td>{{branchObj.totalSeats}}</td>
                     <td>{{branchObj.availableSeats}}</td>
+                    <td>{{branchObj.appliedSeats}}</td>
                     <td><button type='button' (click)="applyFunction()" value="apply" id="apply">Click to Apply
                         </button>
                 </tr>

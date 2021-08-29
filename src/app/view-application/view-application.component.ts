@@ -19,7 +19,7 @@ export class ViewApplicationComponent implements OnInit {
   ngOnInit(): void {
   }
   displayForms() {
-   
+
     const applicationObj = new AdminService();
     applicationObj.listApplication().then(res => {
       let data = res.data;
@@ -49,7 +49,7 @@ export class ViewApplicationComponent implements OnInit {
         selector: {
           branch: branch
         },
-        fields: ["_id", "_rev", "degree", "branch", "totalSeats", "availableSeats"]
+        fields: ["_id", "_rev", "degree", "branch", "totalSeats", "availableSeats", "appliedSeats"]
       };
       let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/_find";
       axios.post(url, requestData, { headers: { 'Authorization': basicAuth } }).then(res => {
@@ -109,7 +109,8 @@ export class ViewApplicationComponent implements OnInit {
       'degree': data.degree,
       'branch': data.branch,
       'availableSeats': parseInt(data.availableSeats) - 1,
-      'totalSeats': data.totalSeats
+      'totalSeats': data.totalSeats,
+      'appliedSeats': parseInt(data.appliedSeats) + 1
     }
     const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";
     const dbPassword = "163671d490ddeef138fc61e470881715";

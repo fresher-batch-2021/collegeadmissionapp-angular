@@ -1,28 +1,37 @@
 *{
     margin: 0;
     padding: 0;
-   
 }
-body {
-    font-family: Roboto,sans-serif;
-    background-color:#fff;    
+.menubar {
+    font-family: sans-serif;
+    background-color:rgb(0,100,0); 
+    text-align: center;
+}
+
+.menubar ul{
+    display: inline-flex;
+    list-style: none;
+}
+.menubar ul li{
+    width: 200px;
+    margin: 10px;
+    padding: 5px;
+}
+.menubar ul li a{
+    text-decoration: none;
+    color: white;
+}
+.menubar ul li:hover{
+    background: #2bab0d;
+    border-radius: 3px;
+
 }
 .logo{
     background-color: blue;
+   
 }
-.logo a img{
-    width: 130px;
-    height: 100px;
+.logo img{
+float: center;
+    margin: auto;
+    padding-right: 50px;
 }
-.logo a{
-    margin-right: 20px;
-    display: inline-flex;
-    list-style: none;
-    color: #fff;
-    text-decoration: none;
-    font-size: 30px;
-    padding-left: 30px;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
