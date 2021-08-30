@@ -35,7 +35,6 @@ export class DeletebranchComponent implements OnInit {
   }
 
   deleteFun(id: any, revId: any) {
-    alert("Function Works")
     console.log('Delete' + id + " " + revId);
 
     const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";

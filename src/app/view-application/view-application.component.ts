@@ -59,8 +59,8 @@ export class ViewApplicationComponent implements OnInit {
 
     //get by id
     let urlValue = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/" + id;
-    axios.get(urlValue, { headers: { 'Authorization': this.basicAuth } }).then(res => {
-      const applicationObj = res.data;
+    axios.get(urlValue, { headers: { 'Authorization': this.basicAuth } }).then(result => {
+      const applicationObj = result.data;
 
       applicationObj.status = status;
 

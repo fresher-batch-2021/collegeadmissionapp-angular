@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { AdminService } from '../admin.service';
 
 @Component({
