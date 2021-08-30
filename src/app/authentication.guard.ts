@@ -24,11 +24,11 @@ export class AuthenticationGuard implements CanActivate {
         return true;
       }
       else {
-        alert("You are not authorized to access this page..Please try after login!!");
+        alert("You are not authorized to access this page..Please try before login!!");
         this.router.navigateByUrl("login");
       }
     } catch (err) {
-      alert("You are not authorized to access this page..Please try after login!!");
+      alert("You are not authorized to access this page..Please try after login!!!");
       this.router.navigateByUrl("login");
     }
     return true;

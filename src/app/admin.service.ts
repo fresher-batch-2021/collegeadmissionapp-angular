@@ -33,6 +33,9 @@ export class AdminService {
   listAllUser() {
     return axios.get(this.url + "collegeadmissionapp_user/_all_docs?include_docs=true", { headers: { 'Authorization': this.basicAuth } })
   }
+  update(id: any, rev: any, updateFeesObj: any) {
+    return axios.put(this.url + "addfees/" + id + "?rev=" + rev, updateFeesObj, { headers: { 'Authorization': this.basicAuth } })
+  }
 
 
 }

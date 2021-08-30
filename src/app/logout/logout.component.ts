@@ -10,7 +10,6 @@ export class LogoutComponent implements OnInit {
 
   constructor(private router: Router) {
     localStorage.clear();
-    //window.location.href = "/login";
     this.router.navigateByUrl("login");
   }
 

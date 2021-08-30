@@ -40,7 +40,6 @@ export class AdminComponent implements OnInit {
     else {
       alert("Login Succesfull");
       localStorage.setItem('admin', JSON.stringify(adminObj));
-      //window.location.href = "adminpanel";
       this.router.navigateByUrl("adminpanel");
     }
   }

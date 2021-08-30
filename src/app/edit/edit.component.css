@@ -2,31 +2,44 @@
     margin: 0;
     padding: 0;
 }
-.table {
-    width: 30%;
-    height: 350px;
-    margin: auto;
-    margin-top: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-style: solid;
-    border-radius: 20px;
-    font-family: sans-serif;
+
+body {
+    background-color: lightgoldenrodyellow;
 }
 
-.submit {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
+label {
+    margin-left: 10px;
+    font-size: 20px;
 }
-.submit button[type="submit"]{
-    font-size: 30px;
-    cursor: pointer;
+
+.updateFees {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin-top: 6%;
+    border: 1px solid;
+    padding: 10px;
+    margin-left: 35%;
+    margin-right: 35%;
+    box-sizing: border-box;
 }
-h1{
-    margin:auto;
-    margin-top: 100px;
+
+input {
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+}
+
+button {
+    border-radius: 5px;
+    background-color: #ccc;
     text-align: center;
-    text-decoration: underline;
-    color: blue;
+    margin-left: 180px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
 }

@@ -1,62 +1,19 @@
-<div class="userDetails">
+<app-adminpanel></app-adminpanel>
+<div class="updateFees">
     <form>
-        <h1>Student-Information</h1>
-        <table aria-describedby="mydesc" class="table">
-            <tr>
-                <th scope="col">
-                    <label>Name</label>
-                </th>
-                <td>
-                    <label id="branch">{{acadData.branch}}</label>
-
-                </td>
-            </tr>
-            <tr>
-                <th scope="col">
-                    <label>Branch</label>
-                </th>
-                <td>
-                    <label id="branch">{{acadData.branch}}</label>
-                </td>
-            </tr>
-            <tr>
-                <th scope="col">
-                    <label>Percentage</label>
-                </th>
-                <td>
-                    <label id="percentage">{{acadData.percentage}}</label>
-                </td>
-            </tr>
-            <tr>
-                <th scope="col">
-                    <label>Address</label>
-                </th>
-                <td>
-                    <label id="district">{{personaldata.district}}</label>
-                </td>
-
-            </tr>
-            <tr>
-                <th scope="col">
-                    <label>Email-ID</label>
-                </th>
-                <td>
-                    <label id="email">{{regData.email}}</label>
-                </td>
-            </tr>
-            <tr>
-                <th scope="col">
-                    <label>Contact Number</label>
-                </th>
-                <td>
-                    <label id="contactNumber">{{regData.contactNo}}</label>
-                </td>
-            </tr>
-
-        </table>
-        <div class="submit">
-            <button type="submit">Update</button>
-        </div>
-
+                <h1>Update-Fees</h1>
+                <label>Admission Fees</label>
+                <input type="number" id="admissionFees" [(ngModel)]="admissionFees"  name="admissionFees">
+                <br>
+                <label>Tution-Fees</label>
+                <input type="number" id="tutionFees" [(ngModel)]="tutionFees" name="tutionFees" >
+                <br>
+                <label>Exam-Fees</label>
+                <input type="number" id="examFees" [(ngModel)]="examFees" name="examFees">
+                <br>
+                <label>Hostel-Fees</label>
+                <input type="number" id="hostelFees" [(ngModel)]="hostelFees" name="hostelFees">
+                <br>
+                <button (click)="updateFees()">update</button>
     </form>
 </div>

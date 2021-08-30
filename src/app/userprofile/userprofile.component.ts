@@ -23,11 +23,9 @@ export class UserprofileComponent implements OnInit {
 
   userProfile() {
     if (this.loginData == null) {
-      // window.location.href = "login";
       this.router.navigateByUrl("login");
     }
     else {
-      window.location.href = "listprofile";
       this.router.navigateByUrl("listprofile");
     }
   }

@@ -45,7 +45,6 @@ export class DisplaybranchComponent implements OnInit {
       window.location.href = "login";
     }
     else {
-      // window.location.href = "personal";
       this.router.navigateByUrl("personal");
     }
   }

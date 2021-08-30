@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
         else {
           alert("Login Successful");
           localStorage.setItem("registerData", JSON.stringify(data[0]));
-         // window.location.href = "home";
           this.router.navigateByUrl("home");
         }
       }).catch(err => {
@@ -58,6 +57,6 @@ export class LoginComponent implements OnInit {
   }
 }
 
-function loginObj(loginObj: any) {
-  throw new Error('Function not implemented.');
-}
+// function loginObj(loginObj: any) {
+//   throw new Error('Function not implemented.');
+// }
