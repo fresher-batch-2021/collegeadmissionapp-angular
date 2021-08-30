@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ValidatorService } from '../validator.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ValidatorService } from '../validator.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +40,8 @@ export class AdminComponent implements OnInit {
     else {
       alert("Login Succesfull");
       localStorage.setItem('admin', JSON.stringify(adminObj));
-      window.location.href = "adminpanel";
+      //window.location.href = "adminpanel";
+      this.router.navigateByUrl("adminpanel");
     }
   }
 

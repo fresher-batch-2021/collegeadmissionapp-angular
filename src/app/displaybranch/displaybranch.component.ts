@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class DisplaybranchComponent implements OnInit {
   branch: any;
   branchList: any;
 
-  constructor() {
+  constructor(private router: Router) {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     console.log("registerData", this.loginData);
     this.displayBranch();
@@ -44,7 +45,8 @@ export class DisplaybranchComponent implements OnInit {
       window.location.href = "login";
     }
     else {
-      window.location.href = "personal";
+      // window.location.href = "personal";
+      this.router.navigateByUrl("personal");
     }
   }
 

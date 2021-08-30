@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServicelayerService } from '../servicelayer.service';
 import { ValidatorService } from '../validator.service';
 
@@ -9,7 +10,7 @@ import { ValidatorService } from '../validator.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
         fields: ["_id", "name", "contactNo", "email"]
       };
 
-     
+
       const serviceObj = new ServicelayerService();
       serviceObj.userLogin(selectedData).then(res => {
         let data = res.data.docs;
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit {
         else {
           alert("Login Successful");
           localStorage.setItem("registerData", JSON.stringify(data[0]));
-          window.location.href = "home";
+         // window.location.href = "home";
+          this.router.navigateByUrl("home");
         }
       }).catch(err => {
         let errorMessage = err.response.data.errorMessage;
