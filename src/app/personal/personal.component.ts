@@ -34,7 +34,7 @@ export class PersonalComponent implements OnInit {
   }
 
   personalInformation() {
-    const validatorService = new ValidatorService();
+   
     try {
       let personalDataObj = {
         "firstName": this.personalApplication.value.firstName,

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { ServicelayerService } from '../servicelayer.service';
 import { ValidatorService } from '../validator.service';
 
@@ -30,10 +29,7 @@ export class LoginComponent implements OnInit {
         fields: ["_id", "name", "contactNo", "email"]
       };
 
-      let formData = {
-        username: this.userName,
-        password: this.password
-      }
+     
       const serviceObj = new ServicelayerService();
       serviceObj.userLogin(selectedData).then(res => {
         let data = res.data.docs;

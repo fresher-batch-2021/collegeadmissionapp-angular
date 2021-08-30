@@ -7,7 +7,7 @@ export class ValidatorService {
 
   constructor() { }
   isValidString(value: any, errorMessage: any) {
-    if (value == null  || value == undefined) {
+    if (value == null || value == undefined) {
       throw new Error(errorMessage);
     }
   }
@@ -31,9 +31,5 @@ export class ValidatorService {
       throw new Error(errorMessage);
     }
   }
-  isValidAadhar(value: any, errorMessage: any) {
-    if (value.length < 12 || value.length > 12) {
-      throw new Error(errorMessage);
-    }
-  }
+
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { ValidatorService } from '../validator.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServicelayerService } from '../servicelayer.service';

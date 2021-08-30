@@ -9,8 +9,6 @@ import { AuthenticationGuard } from './authentication.guard';
 import { DeletebranchComponent } from './deletebranch/deletebranch.component';
 import { DisplaybranchComponent } from './displaybranch/displaybranch.component';
 import { EditComponent } from './edit/edit.component';
-import { HeaderComponent } from './header/header.component';
-import { Header1Component } from './header1/header1.component';
 import { HomeComponent } from './home/home.component';
 import { ListalluserComponent } from './listalluser/listalluser.component';
 import { ListfeesComponent } from './listfees/listfees.component';
@@ -48,7 +46,6 @@ const routes: Routes = [
   { path: 'listfees', component: ListfeesComponent },
   { path: 'viewfees', component: ViewfeesComponent },
   { path: 'listalluser', component: ListalluserComponent },
-  // { path: 'header1', component: Header1Component },
   { path: 'edit', component: EditComponent },
   { path: 'logout', component: LogoutComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

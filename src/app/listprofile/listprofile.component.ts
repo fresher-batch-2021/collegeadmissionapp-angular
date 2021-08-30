@@ -60,8 +60,8 @@ export class ListprofileComponent implements OnInit {
       })
 
       let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/" + id;
-      axios.get(url, { headers: { 'Authorization': this.basicAuth } }).then(result => {
-        const applicationObj = result.data;
+      axios.get(url, { headers: { 'Authorization': this.basicAuth } }).then(res => {
+        const applicationObj = res.data;
 
         applicationObj.status = status;
 
