@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 import { ValidatorService } from '../validator.service';
 
@@ -9,7 +10,7 @@ import { ValidatorService } from '../validator.service';
 })
 export class AddbranchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
