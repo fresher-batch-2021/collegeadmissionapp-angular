@@ -33,11 +33,11 @@
             </tr>
             <tr>
                 <th scope="col">
-                    Date of Birth
+                    Date of Birth 
                 </th>
                 <td>
                     <input type="date" formControlName="dob" name="candidateName"
-                        max="{{dateYesterday | date:'yyyy-MM-dd'}}" id="dob" name="date" required>
+                        max="{{this.currentYear | date:'yyyy-MM-dd'}}" id="dob" name="date" required>
                     <br>
                     <span *ngIf="registerForm.controls.dob.errors && registerForm.controls.dob.dirty" class="danger"
                         padding>DateOfBirth is not valid.</span>

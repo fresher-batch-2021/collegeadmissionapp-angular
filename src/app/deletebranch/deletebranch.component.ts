@@ -1,5 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class DeletebranchComponent implements OnInit {
 
   branch: any;
   branchList: any;
-  constructor() {
+  constructor(private http: HttpClient, private departmentObj: AdminService) {
     this.displayBranch();
   }
 
@@ -19,14 +19,14 @@ export class DeletebranchComponent implements OnInit {
   }
   displayBranch() {
 
-    const departmentObj = new AdminService();
-    departmentObj.displayDepartment().then(res => {
-      let data = res.data;
+
+    this.departmentObj.displayDepartment().subscribe((res: any) => {
+      let data = res.rows;
       console.log("response : ", data);
-      this.branch = data.rows;
+      this.branch = data;
       console.log("table list :", this.branch);
       this.branchList = this.branch.map((obj: any) => obj.doc);
-    }).catch(err => {
+    }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
       let errorMessage = err.response.data.errorMessage;
       console.error(errorMessage);
       console.log("failed");
@@ -41,12 +41,12 @@ export class DeletebranchComponent implements OnInit {
     const dbPassword = "163671d490ddeef138fc61e470881715";
     const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
     let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/" + id + "?rev=" + revId;
-    axios.delete(url, { headers: { 'Authorization': basicAuth } }).then(res => {
+    this.http.delete(url, { headers: { 'Authorization': basicAuth } }).subscribe(res => {
 
 
       console.log("success");
       window.location.reload();
-    }).catch(err => {
+    }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
       let errorMessage = err.response.data.errorMessage;
       console.error(errorMessage);
       console.log("failed");

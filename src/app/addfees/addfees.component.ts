@@ -35,7 +35,7 @@ export class AddfeesComponent implements OnInit {
       const dbPassword = "163671d490ddeef138fc61e470881715";
       const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
       let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/addfees";
-      axios.post(url, feesObj, { headers: { 'Authorization': basicAuth } }).then(res => {
+      axios.post(url, feesObj, { headers: { 'Authorization': basicAuth } }).then((res: any) => {
         let data = res.data;
         console.log(data);
         localStorage.setItem('feesObj', JSON.stringify(feesObj));

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 
@@ -10,7 +11,7 @@ export class ListfeesComponent implements OnInit {
   fees: any;
   feesList: any;
 
-  constructor() {
+  constructor(private http: HttpClient, private feesObj: AdminService) {
     this.displayFees();
   }
 
@@ -18,14 +19,15 @@ export class ListfeesComponent implements OnInit {
   }
   displayFees() {
 
-    const feesObj = new AdminService();
-    feesObj.listFees().then(res => {
-      let data = res.data;
+
+    this.feesObj.listFees().subscribe((res: any) => {
+      console.log("Result", res.rows);
+      let data = res.rows;
       console.log("response : ", data);
-      this.fees = data.rows;
+      this.fees = data;
       console.log("table list :", this.fees);
       this.feesList = this.fees.map((obj: any) => obj.doc);
-    }).catch(err => {
+    }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
       let errorMessage = err.response.data.errorMessage;
       console.error(errorMessage);
       console.log("failed");

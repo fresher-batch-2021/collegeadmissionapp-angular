@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicelayerService } from '../servicelayer.service';
@@ -10,7 +11,7 @@ import { ValidatorService } from '../validator.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient, private serviceObj: ServicelayerService) { }
 
   ngOnInit(): void {
   }
@@ -30,10 +31,8 @@ export class LoginComponent implements OnInit {
         fields: ["_id", "name", "contactNo", "email"]
       };
 
-
-      const serviceObj = new ServicelayerService();
-      serviceObj.userLogin(selectedData).then(res => {
-        let data = res.data.docs;
+      this.serviceObj.userLogin(selectedData).subscribe((res: any) => {
+        let data = res.docs;
         console.log(data);
 
         if (data.length == 0) {
@@ -44,7 +43,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("registerData", JSON.stringify(data[0]));
           this.router.navigateByUrl("home");
         }
-      }).catch(err => {
+      }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         alert("Error-" + errorMessage);

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ValidatorService } from '../validator.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ServicelayerService } from '../servicelayer.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +13,12 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   dateYesterday: any;
+  lastYear: any;
+  currentYear: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private http: HttpClient,
+    private registerObj: ServicelayerService) {
     this.registerForm = this.fb.group({
       candidateName: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z ]*')]),
       contactNumber: new FormControl('', [Validators.required, Validators.pattern('[789][0-9]{9}')]),
@@ -27,9 +32,9 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dateYesterday = new Date();
-    this.dateYesterday = new Date(this.dateYesterday.setDate(this.dateYesterday.getDate() - 1));
-    console.log("Previous Date", this.dateYesterday);
+    this.currentYear = new Date();
+    this.currentYear.setYear(new Date().getFullYear() - 17);
+    console.log(this.currentYear);
   }
 
   register() {
@@ -56,13 +61,13 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.value.userPassword,
       }
 
-      const registerObj = new ServicelayerService();
-      registerObj.userRegister(formData).then(res => {
+      //const registerObj = new ServicelayerService();
+      this.registerObj.userRegister(formData).subscribe((res: any) => {
         let data = res.data;
         console.log(data);
         alert("Successffully Register");
         window.location.href = "login";
-      }).catch(err => {
+      }), ((err: any) => {
         console.error(err);
         alert("Unable to register");
       });

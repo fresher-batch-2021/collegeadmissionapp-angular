@@ -9,6 +9,7 @@
                 <th id="userList">Email-Id</th>
                 <th id="userList">Contact-Number</th>
                 <th id="userList">DOB</th>
+                <th id="userList">Action</th>
             </tr>
         </thead>
         <tbody id="userListTable" *ngFor="let userObj of this.allUserList;">
@@ -18,6 +19,7 @@
                 <td>{{userObj.email}}</td>
                 <td>{{userObj.contactNo}}</td>
                 <td>{{userObj.dob}}</td>
+                <td><button type='button' (click)="deleteFun(userObj._id,userObj._rev)">Delete</button></td>
             </tr>
         </tbody>
     </table>

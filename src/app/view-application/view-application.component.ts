@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { AdminService } from '../admin.service';
@@ -11,7 +12,7 @@ export class ViewApplicationComponent implements OnInit {
   tableData: any;
   selectedCategory: any;
 
-  constructor() {
+  constructor(private http: HttpClient, private applicationObj: AdminService) {
     this.displayForms();
   }
 
@@ -23,14 +24,14 @@ export class ViewApplicationComponent implements OnInit {
   url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/";
   displayForms() {
 
-    const applicationObj = new AdminService();
-    applicationObj.listApplication().then(res => {
-      let data = res.data;
+
+    this.applicationObj.listApplication().subscribe((res: any) => {
+      let data = res.rows;
       console.log("response : ", data);
-      this.tableData = data.rows;
+      this.tableData = data;
       console.log("table list :", this.tableData);
       console.log("success");
-    }).catch(err => {
+    }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
       let errorMessage = err.response.data.errorMessage;
       console.error(errorMessage);
       console.log("failed");
@@ -51,30 +52,31 @@ export class ViewApplicationComponent implements OnInit {
         fields: ["_id", "_rev", "degree", "branch", "totalSeats", "availableSeats", "appliedSeats"]
       };
 
-      axios.post(this.url + "adddepartments/_find", requestData, { headers: { 'Authorization': this.basicAuth } }).then(res => {
-        let data = res.data.docs[0];
+      this.http.post(this.url + "adddepartments/_find", requestData, { headers: { 'Authorization': this.basicAuth } }).subscribe((res: any) => {
+        let data = res.docs[0];
         this.update_seats(data);
       })
     }
 
     //get by id
     let urlValue = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/" + id;
-    axios.get(urlValue, { headers: { 'Authorization': this.basicAuth } }).then(result => {
-      const applicationObj = result.data;
+    this.http.get(urlValue, { headers: { 'Authorization': this.basicAuth } }).subscribe((result: any) => {
+      const applicationObj = result;
+      console.log("second", result._rev);
 
       applicationObj.status = status;
 
       //update status api
       const updateURL = urlValue + "?rev=" + applicationObj._rev;
       console.log(updateURL);
-      axios.put(updateURL, applicationObj, { headers: { 'Authorization': this.basicAuth } }).then(res => {
+      this.http.put(updateURL, applicationObj, { headers: { 'Authorization': this.basicAuth } }).subscribe((res: any) => {
         console.log("Update row", res.data);
         alert("Updated");
         window.location.reload();
 
       });
 
-    }).catch(err => {
+    }), ((err: { response: { data: any; }; }) => {
       let errorMessage = err.response.data;
       console.error(errorMessage);
       console.log("failed");
@@ -87,8 +89,6 @@ export class ViewApplicationComponent implements OnInit {
     console.log('Delete' + id + " " + revId);
 
     axios.delete(this.url + "viewapplication/" + id + "?rev=" + revId, { headers: { 'Authorization': this.basicAuth } }).then(res => {
-
-
       console.log("success");
       window.location.reload();
     }).catch(err => {
@@ -108,10 +108,11 @@ export class ViewApplicationComponent implements OnInit {
       'appliedSeats': parseInt(data.appliedSeats) + 1
     }
 
-    axios.put(this.url + "adddepartments/" + data._id + "?rev=" + data._rev, updateData, { headers: { 'Authorization': this.basicAuth } }).then(res => {
+    console.log("Seats", updateData);
+    this.http.put(this.url + "adddepartments/" + data._id + "?rev=" + data._rev, updateData, { headers: { 'Authorization': this.basicAuth } }).subscribe((res: any) => {
       alert("updated success");
       window.location.reload();
-    }).catch(err => {
+    }), ((err: any) => {
       alert("failed to update");
     })
   }

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 
@@ -17,7 +18,7 @@ export class PreviewComponent implements OnInit {
   regData: any;
   acadData: any;
 
-  constructor() {
+  constructor(private http: HttpClient, private applicationObj: AdminService) {
     this.data = this.userData != null ? JSON.parse(this.userData) : null;
     console.log("userdata", this.data);
     console.log("userdata", this.data.name);
@@ -42,15 +43,15 @@ export class PreviewComponent implements OnInit {
       "email": this.regData.email,
       "status": "pending"
     };
-   
-    const applicationObj = new AdminService();
-    applicationObj.submitApplication(registerObj).then(res => {
+
+
+    this.applicationObj.submitApplication(registerObj).subscribe((res: any) => {
       let data = res.data;
       console.log(data);
       alert("Your Application Submitted Successfully");
       alert("Please Logout Before Leaving");
     })
-      .catch(err => {
+      , ((err: { response: { data: { errorMessage: any; }; }; }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         alert("Error-" + errorMessage);

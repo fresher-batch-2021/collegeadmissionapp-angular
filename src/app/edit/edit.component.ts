@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { AdminService } from '../admin.service';
@@ -11,12 +12,12 @@ export class EditComponent implements OnInit {
   fees: any;
   feesList: any;
   idNo: any;
-  rev:any;
+  rev: any;
   admissionFees: string = "";
   tutionFees: string = "";
   examFees: string = "";
   hostelFees: string = "";
-  constructor() {
+  constructor(private http: HttpClient, private feesObj: AdminService, private editFeesObj: AdminService) {
 
     const queryString = window.location.search;
     console.log(queryString);
@@ -26,23 +27,23 @@ export class EditComponent implements OnInit {
     this.rev = urlParams.get('rev');
     console.log(id);
 
-    const feesObj = new AdminService();
-    feesObj.listFees().then(res => {
-      let data = res.data;
+
+    this.feesObj.listFees().subscribe((res: any) => {
+      let data = res.rows;
       console.log("response : ", data);
-      this.fees = data.rows;
+      this.fees = data;
       console.log("table list :", this.fees);
       this.feesList = this.fees.map((obj: any) => obj.doc);
-      for(let list of this.feesList){
+      for (let list of this.feesList) {
         console.log(list._id);
-        if(list._id == this.idNo){
+        if (list._id == this.idNo) {
           this.admissionFees = list.admissionFees;
           this.examFees = list.examFees;
           this.hostelFees = list.hostelFees;
           this.tutionFees = list.tutionFees;
         }
       }
-    }).catch(err => {
+    }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
       let errorMessage = err.response.data.errorMessage;
       console.error(errorMessage);
       console.log("failed");
@@ -54,7 +55,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
 
   updateFees() {
     const queryString = window.location.search;
@@ -76,15 +77,15 @@ export class EditComponent implements OnInit {
     // const dbPassword = "163671d490ddeef138fc61e470881715";
     // const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
     // let url = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/";
-    const editFeesObj = new AdminService();
-    editFeesObj.update(this.idNo, this.rev, updateFeesObj).then(res => {
+
+    this.editFeesObj.update(this.idNo, this.rev, updateFeesObj).subscribe((res: any) => {
       console.log(res.data);
       alert("successfull");
       window.location.href = "/listfees";
-      
-    }).catch(err => alert("error "+err.data)
 
-    )
+    }), ((err: { data: string; }) => alert("error " + err.data)
+
+      )
 
   }
 

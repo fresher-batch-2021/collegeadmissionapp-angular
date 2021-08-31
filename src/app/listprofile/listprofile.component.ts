@@ -13,7 +13,7 @@ export class ListprofileComponent implements OnInit {
   emailId: any;
   constructor() {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
-    console.log("userdata", this.loginData);
+   // console.log("userdata", this.loginData);
     this.emailId = this.loginData.email;
 
     this.displayProfile();
@@ -51,7 +51,7 @@ export class ListprofileComponent implements OnInit {
         selector: {
           branch: branch
         },
-        fields: ["_id", "_rev", "degree", "branch", "totalSeats", "availableSeats"]
+        fields: ["_id", "_rev", "degree", "branch", "totalSeats", "availableSeats", "appliedSeats"]
       };
       const urlValue = "https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/_find";
       axios.post(urlValue, withdrawList, { headers: { 'Authorization': this.basicAuth } }).then(res => {
@@ -87,7 +87,8 @@ export class ListprofileComponent implements OnInit {
       'degree': seats.degree,
       'branch': seats.branch,
       'availableSeats': parseInt(seats.availableSeats) + 1,
-      'totalSeats': seats.totalSeats
+      'totalSeats': seats.totalSeats,
+      'appliedSeats': parseInt(seats.appliedSeats) - 1
     }
     console.log(updatedData);
     const dbUserName = "apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4";

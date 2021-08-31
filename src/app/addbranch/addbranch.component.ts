@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
@@ -10,7 +11,7 @@ import { ValidatorService } from '../validator.service';
 })
 export class AddbranchComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient, private branchObj: AdminService) { }
 
   ngOnInit(): void {
   }
@@ -34,12 +35,11 @@ export class AddbranchComponent implements OnInit {
         availableSeats: this.availableSeats,
         appliedSeats: "0"
       }
-      const branchObj = new AdminService();
-      branchObj.addDepartment(departmentData).then(res => {
+      this.branchObj.addDepartment(departmentData).subscribe((res:any) => {
         let data = res.data;
         console.log(data);
         alert("Department Added Successfully");
-      }).catch(err => {
+      }), ((err: { message: any; }) => {
         alert(err.message);
         alert("Unable to register");
       });
