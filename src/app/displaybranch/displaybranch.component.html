@@ -20,7 +20,7 @@
                     <td>{{branchObj.totalSeats}}</td>
                     <td>{{branchObj.availableSeats}}</td>
                     <td>{{branchObj.appliedSeats}}</td>
-                    <td><button type='button' (click)="applyFunction()" value="apply" id="apply">Click to Apply
+                    <td *ngIf="branchObj.totalSeats!=branchObj.appliedSeats"><button type='button' (click)="applyFunction()" value="apply" id="apply">Click to Apply
                         </button>
                 </tr>
             </tbody>
