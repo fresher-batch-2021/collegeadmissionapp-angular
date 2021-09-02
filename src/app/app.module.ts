@@ -31,6 +31,11 @@ import { ViewfeesComponent } from './viewfees/viewfees.component';
 import { ListfeesComponent } from './listfees/listfees.component';
 import { ListalluserComponent } from './listalluser/listalluser.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +70,9 @@ import { ListalluserComponent } from './listalluser/listalluser.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

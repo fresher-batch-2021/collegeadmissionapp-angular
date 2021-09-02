@@ -40,3 +40,10 @@ tr:nth-child(even){
     margin-bottom: 3%;
 }
 
+.userList button[type="button"] {
+    font-size: 20px;
+    background-color:red;
+    color: white;
+    margin-bottom: 20px;
+  }
+  

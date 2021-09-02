@@ -8,6 +8,7 @@
         <thead>
             <tr>
                 <th id="searchBar">Application-ID</th>
+                <th id="searchBar">Applied-Date</th>
                 <th id="searchBar">Name</th>
                 <th id="searchBar">Branch</th>
                 <th id="searchBar">Percentage</th>
@@ -21,6 +22,7 @@
         <tbody id="applicationTable" *ngFor="let taskObj of (tableData | searchterm:selectedCategory);">
             <tr name="tablerow">
                 <td>{{taskObj.doc._id}}</td>
+                <td>{{taskObj.doc.appliedDate | date : "dd-mm-yyyy"}}</td>
                 <td>{{taskObj.doc.name}}</td>
                 <td>{{taskObj.doc.branch}}</td>
                 <td>{{taskObj.doc.percentage}}</td>

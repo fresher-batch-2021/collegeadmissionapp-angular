@@ -1,34 +1,39 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ServicelayerService } from '../servicelayer.service';
 import { ValidatorService } from '../validator.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  constructor(
+    private router: Router,
+    private serviceObj: ServicelayerService,
+    private toast: ToastrService
+  ) {}
 
-  constructor(private router: Router, private http: HttpClient, private serviceObj: ServicelayerService) { }
-
-  ngOnInit(): void {
-  }
-  userName: string = "";
-  password: string = "";
+  ngOnInit(): void {}
+  userName: string = '';
+  password: string = '';
 
   login() {
     const validatorService = new ValidatorService();
     try {
-      validatorService.isValidString(this.userName, "UserName cannot be blank");
-      validatorService.isValidPassword(this.password, "Password cannot be blank");
+      validatorService.isValidString(this.userName, 'UserName cannot be blank');
+      validatorService.isValidPassword(
+        this.password,
+        'Password cannot be blank'
+      );
       const selectedData = {
         selector: {
           username: this.userName,
-          password: this.password
+          password: this.password,
         },
-        fields: ["_id", "name", "contactNo", "email"]
+        fields: ['_id', 'name', 'contactNo', 'email'],
       };
 
       this.serviceObj.userLogin(selectedData).subscribe((res: any) => {
@@ -36,26 +41,21 @@ export class LoginComponent implements OnInit {
         console.log(data);
 
         if (data.length == 0) {
-          alert("Invalid Login Credentials")
+          this.toast.error('Invalid Login Credentials');
+        } else {
+          this.toast.success('Login Successful');
+
+          localStorage.setItem('registerData', JSON.stringify(data[0]));
+          this.router.navigateByUrl('home');
         }
-        else {
-          alert("Login Successful");
-          localStorage.setItem("registerData", JSON.stringify(data[0]));
-          this.router.navigateByUrl("home");
-        }
-      }), ((err: { response: { data: { errorMessage: any; }; }; }) => {
-        let errorMessage = err.response.data.errorMessage;
-        console.error(errorMessage);
-        alert("Error-" + errorMessage);
-      });
+      }),
+        (err: { response: { data: { errorMessage: any } } }) => {
+          let errorMessage = err.response.data.errorMessage;
+          console.error(errorMessage);
+        };
     } catch (err) {
       console.error(err.message);
-      alert(err.message);
-      alert("Unable to register");
+      this.toast.error('Unable to register');
     }
   }
 }
-
-// function loginObj(loginObj: any) {
-//   throw new Error('Function not implemented.');
-// }
