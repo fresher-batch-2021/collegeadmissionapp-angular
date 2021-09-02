@@ -36,12 +36,12 @@ export class DisplaybranchComponent implements OnInit {
       console.log('Table list :', this.branch);
       this.branchList = this.branch.map((obj: any) => obj.doc);
       this.toastr.success('List Successfull');
-    }),
+    },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         this.toastr.error('List Failed');
-      };
+      });
   }
 
   applyFunction() {

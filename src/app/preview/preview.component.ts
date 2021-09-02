@@ -49,17 +49,19 @@ export class PreviewComponent implements OnInit {
       appliedDate: todayDate,
     };
 
-    this.applicationObj.submitApplication(registerObj).subscribe((res: any) => {
-      let data = res.data;
-      console.log(data);
-      this.toastr.success('Your Application Submitted Successfully');
-      window.location.href = '/listprofile';
-    }),
+    this.applicationObj.submitApplication(registerObj).subscribe(
+      (res: any) => {
+        let data = res.data;
+        console.log(data);
+        this.toastr.success('Your Application Submitted Successfully');
+        window.location.href = '/listprofile';
+      },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         this.toastr.error('Unable to Submit your Application');
-      };
+      }
+    );
     console.log(registerObj);
   }
 }

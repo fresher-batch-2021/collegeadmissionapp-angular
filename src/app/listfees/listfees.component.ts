@@ -29,13 +29,13 @@ export class ListfeesComponent implements OnInit {
       console.log('Table list :', this.fees);
       this.feesList = this.fees.map((obj: any) => obj.doc);
       this.toastr.success('List Successfull');
-    }),
+    },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         console.log('failed');
         this.toastr.error('List Failed');
-      };
+      });
   }
   updateFees(id: any, revId: any) {
     window.location.href = '/edit?id=' + id + '&rev=' + revId;

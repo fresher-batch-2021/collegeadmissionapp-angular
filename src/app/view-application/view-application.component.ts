@@ -28,16 +28,18 @@ export class ViewApplicationComponent implements OnInit {
   url =
     'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/';
   displayForms() {
-    this.applicationObj.listApplication().subscribe((res: any) => {
-      let data = res.rows;
-      this.tableData = data;
-      console.log('Table list :', this.tableData);
-    }),
+    this.applicationObj.listApplication().subscribe(
+      (res: any) => {
+        let data = res.rows;
+        this.tableData = data;
+        console.log('Table list :', this.tableData);
+      },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         this.toastr.error('List Failed');
-      };
+      }
+    );
   }
 
   updateStatus(id: any, status: any, branch: any) {
@@ -73,26 +75,28 @@ export class ViewApplicationComponent implements OnInit {
       id;
     this.http
       .get(urlValue, { headers: { Authorization: this.basicAuth } })
-      .subscribe((result: any) => {
-        const applicationObj = result;
-        applicationObj.status = status;
+      .subscribe(
+        (result: any) => {
+          const applicationObj = result;
+          applicationObj.status = status;
 
-        const updateURL = urlValue + '?rev=' + applicationObj._rev;
-        alert('Are you want to Update this Record');
-        this.http
-          .put(updateURL, applicationObj, {
-            headers: { Authorization: this.basicAuth },
-          })
-          .subscribe((res: any) => {
-            this.toastr.info('Update Successfull');
-            window.location.reload();
-          });
-      }),
-      (err: { response: { data: any } }) => {
-        let errorMessage = err.response.data;
-        console.error(errorMessage);
-        this.toastr.error('Update Failed');
-      };
+          const updateURL = urlValue + '?rev=' + applicationObj._rev;
+          alert('Are you want to Update this Record');
+          this.http
+            .put(updateURL, applicationObj, {
+              headers: { Authorization: this.basicAuth },
+            })
+            .subscribe((res: any) => {
+              this.toastr.info('Update Successfull');
+              window.location.reload();
+            });
+        },
+        (err: { response: { data: any } }) => {
+          let errorMessage = err.response.data;
+          console.error(errorMessage);
+          this.toastr.error('Update Failed');
+        }
+      );
   }
 
   deleteFun(id: any, revId: any) {
@@ -130,12 +134,14 @@ export class ViewApplicationComponent implements OnInit {
         updateData,
         { headers: { Authorization: this.basicAuth } }
       )
-      .subscribe((res: any) => {
-        this.toastr.success('Successfully Updated');
-        window.location.reload();
-      }),
-      (err: any) => {
-        this.toastr.error('Failed to Update this Record');
-      };
+      .subscribe(
+        (res: any) => {
+          this.toastr.success('Successfully Updated');
+          window.location.reload();
+        },
+        (err: any) => {
+          this.toastr.error('Failed to Update this Record');
+        }
+      );
   }
 }

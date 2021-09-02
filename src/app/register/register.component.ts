@@ -107,17 +107,18 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.value.userPassword,
       };
 
-  
-      this.registerObj.userRegister(formData).subscribe((res: any) => {
-        let data = res.data;
-        console.log(data);
-        this.toast.success('Successffully Register');
-        window.location.href = 'login';
-      }),
+      this.registerObj.userRegister(formData).subscribe(
+        (res: any) => {
+          let data = res.data;
+          console.log(data);
+          this.toast.success('Successffully Register');
+          window.location.href = 'login';
+        },
         (err: any) => {
           console.error(err);
           this.toast.error('Unable to register');
-        };
+        }
+      );
     } catch (err) {
       console.error(err.message);
       alert(err.message);

@@ -21,19 +21,21 @@ export class ViewfeesComponent implements OnInit {
 
   ngOnInit(): void {}
   displayFees() {
-    this.feesObj.listFees().subscribe((res: any) => {
-      let data = res.rows;
-      console.log('Response : ', data);
-      this.fees = data;
-      console.log('Table list :', this.fees);
-      this.feesList = this.fees.map((obj: any) => obj.doc);
-      this.toastr.success('List Succesfull');
-    }),
+    this.feesObj.listFees().subscribe(
+      (res: any) => {
+        let data = res.rows;
+        console.log('Response : ', data);
+        this.fees = data;
+        console.log('Table list :', this.fees);
+        this.feesList = this.fees.map((obj: any) => obj.doc);
+        this.toastr.success('List Succesfull');
+      },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         console.log('Failed');
         this.toastr.error('List Failed');
-      };
+      }
+    );
   }
 }

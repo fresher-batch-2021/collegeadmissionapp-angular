@@ -41,13 +41,13 @@ export class EditComponent implements OnInit {
           this.tutionFees = list.tutionFees;
         }
       }
-    }),
+    },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
         console.error(errorMessage);
         console.log('failed');
         this.toastr.error('List Failed');
-      };
+      });
   }
 
   ngOnInit(): void {}

@@ -36,23 +36,25 @@ export class LoginComponent implements OnInit {
         fields: ['_id', 'name', 'contactNo', 'email'],
       };
 
-      this.serviceObj.userLogin(selectedData).subscribe((res: any) => {
-        let data = res.docs;
-        console.log(data);
+      this.serviceObj.userLogin(selectedData).subscribe(
+        (res: any) => {
+          let data = res.docs;
+          console.log(data);
 
-        if (data.length == 0) {
-          this.toast.error('Invalid Login Credentials');
-        } else {
-          this.toast.success('Login Successful');
+          if (data.length == 0) {
+            this.toast.error('Invalid Login Credentials');
+          } else {
+            this.toast.success('Login Successful');
 
-          localStorage.setItem('registerData', JSON.stringify(data[0]));
-          this.router.navigateByUrl('home');
-        }
-      }),
+            localStorage.setItem('registerData', JSON.stringify(data[0]));
+            this.router.navigateByUrl('home');
+          }
+        },
         (err: { response: { data: { errorMessage: any } } }) => {
           let errorMessage = err.response.data.errorMessage;
           console.error(errorMessage);
-        };
+        }
+      );
     } catch (err) {
       console.error(err.message);
       this.toast.error('Unable to register');
