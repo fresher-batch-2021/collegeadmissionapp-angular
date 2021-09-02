@@ -49,11 +49,11 @@ export class AddbranchComponent implements OnInit {
         let data = res.data;
         console.log(data);
         this.toastr.success('Department Added Successfully');
-      }),
+      },
         (err: { message: any }) => {
           alert(err.message);
           this.toastr.error('Unable to Add Department');
-        };
+        });
     } catch (err) {
       console.error(err.message);
       alert(err.message);

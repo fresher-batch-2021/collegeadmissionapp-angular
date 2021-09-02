@@ -17,8 +17,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
-  // dateYesterday: any;
-  // lastYear: any;
   currentYear: any;
 
   constructor(
