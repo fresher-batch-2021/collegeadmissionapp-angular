@@ -32,5 +32,7 @@ export class ServicelayerService {
     return this.http.post(environment.url + 'viewapplication/_find', userData);
   }
 
-
+  addSeats(){
+    
+  }
 }

@@ -35,7 +35,7 @@ export class PreviewComponent implements OnInit {
     console.log('academicData', this.acadData);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   update() {
     let todayDate = new Date();
