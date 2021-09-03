@@ -11,7 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { AcademicComponent } from './academic/academic.component';
 import { ProgramComponent } from './program/program.component';
 import { PersonalComponent } from './personal/personal.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PreviewComponent } from './preview/preview.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './edit/edit.component';
@@ -34,7 +34,7 @@ import { ListalluserComponent } from './listalluser/listalluser.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
-
+import { IntersectorService } from './intersector.service';
 
 @NgModule({
   declarations: [
@@ -74,7 +74,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: IntersectorService, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

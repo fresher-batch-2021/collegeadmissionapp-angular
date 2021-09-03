@@ -5,8 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-addfees',
@@ -16,7 +16,11 @@ import { ToastrService } from 'ngx-toastr';
 export class AddfeesComponent implements OnInit {
   feesDetails: FormGroup;
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {
+  constructor(
+    private fb: FormBuilder,
+    private toastr: ToastrService,
+    private adminService: AdminService
+  ) {
     this.feesDetails = this.fb.group({
       admissionFees: new FormControl('', [
         Validators.required,
@@ -47,25 +51,20 @@ export class AddfeesComponent implements OnInit {
         hostelFees: this.feesDetails.value.hostelFees,
       };
       console.log(feesObj);
-      const dbUserName =
-        'apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4';
-      const dbPassword = '163671d490ddeef138fc61e470881715';
-      const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
-      let url =
-        'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/addfees';
-      axios
-        .post(url, feesObj, { headers: { Authorization: basicAuth } })
-        .then((res: any) => {
+
+      this.adminService.addFees(feesObj).subscribe(
+        (res: any) => {
           let data = res.data;
           console.log(data);
           localStorage.setItem('feesObj', JSON.stringify(feesObj));
           this.toastr.success('Fees Added Successfully');
           window.location.reload();
-        })
-        .catch((err) => {
+        },
+        (err: { message: any }) => {
           alert(err.message);
           this.toastr.error('Unable to add Fees');
-        });
+        }
+      );
     } catch (err) {
       console.error(err.message);
       console.log(err.message);
