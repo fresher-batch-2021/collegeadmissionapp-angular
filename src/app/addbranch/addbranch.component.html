@@ -1,12 +1,17 @@
 <app-adminpanel></app-adminpanel>
-<div class="department">
+<div class="addDepartment_Form">
     <form>
         <h2>Add-Departments</h2>
         <table aria-describedby="mydesc">
             <tr>
                 <th scope="col"><label>Degree</label></th>
-                <td><input type="text" [(ngModel)]="degree" name="degree" id="degree" placeholder="Enter Degree Name"
-                        autocomplete="off" autofocus required></td>
+                <td><select name="degree" id="degree" [(ngModel)]="degree" autofocus required>
+                        <option value="" disabled>--select--</option>
+                        <option value="B.E">B.E</option>
+                        <option value="B.TECH">B.TECH</option>
+                        <option value="M.E">M.E</option>
+                        <option value="M.TECH">M.TECH</option>
+                    </select></td>
             </tr>
             <tr>
                 <th scope="col">

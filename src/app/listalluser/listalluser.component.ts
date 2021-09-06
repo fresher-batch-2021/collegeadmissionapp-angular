@@ -21,7 +21,7 @@ export class ListalluserComponent implements OnInit {
     this.listAllUser();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   listAllUser() {
     this.allUserObj.listAllUser().subscribe(
@@ -41,7 +41,7 @@ export class ListalluserComponent implements OnInit {
   }
 
   deleteFun(id: any, revId: any) {
-    this.allUserObj.deleteFunction(id, revId).subscribe(
+    this.allUserObj.deleteUser(id, revId).subscribe(
       (res) => {
         alert('Are you want to delete this branch ?');
         window.location.reload();

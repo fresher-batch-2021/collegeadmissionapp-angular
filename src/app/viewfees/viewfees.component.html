@@ -13,10 +13,10 @@
     </thead>
     <tbody id="feesTable" *ngFor="let feesObj of this.feesList">
       <tr name="tablerow">
-        <td>{{ feesObj.admissionFees }}</td>
-        <td>{{ feesObj.tutionFees }}</td>
-        <td>{{ feesObj.examFees }}</td>
-        <td>{{ feesObj.hostelFees }}</td>
+        <td>{{"₹ "+ feesObj.admissionFees }}</td>
+        <td>{{"₹ "+ feesObj.tutionFees }}</td>
+        <td>{{"₹ "+ feesObj.examFees }}</td>
+        <td>{{"₹ "+ feesObj.hostelFees }}</td>
         <td>
           <a routerLink="/home"><button type="button">BACK</button></a>
         </td>

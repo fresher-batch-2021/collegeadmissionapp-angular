@@ -41,7 +41,7 @@ export class AddfeesComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   addFees() {
     try {
       let feesObj = {
@@ -61,11 +61,11 @@ export class AddfeesComponent implements OnInit {
           window.location.reload();
         },
         (err: { message: any }) => {
-          alert(err.message);
+          console.log(err.message);
           this.toastr.error('Unable to add Fees');
         }
       );
-    } catch (err) {
+    } catch (err: any) {
       console.error(err.message);
       console.log(err.message);
       this.toastr.error('Unable to Add Fees');

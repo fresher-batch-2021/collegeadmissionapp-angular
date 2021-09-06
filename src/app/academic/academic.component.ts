@@ -9,9 +9,9 @@ import { ValidatorService } from '../validator.service';
   styleUrls: ['./academic.component.css'],
 })
 export class AcademicComponent implements OnInit {
-  constructor(private router: Router, private toastr: ToastrService) {}
+  constructor(private router: Router, private toastr: ToastrService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   qualifiedExam: string = '';
   examinationBoard: string = '';
   registerNumber: string = '';
@@ -88,7 +88,6 @@ export class AcademicComponent implements OnInit {
       this.toastr.success('Register successfull');
       this.router.navigateByUrl('preview');
     } catch (err) {
-      console.error(err.message);
       this.toastr.error('Unable to Register');
     }
   }

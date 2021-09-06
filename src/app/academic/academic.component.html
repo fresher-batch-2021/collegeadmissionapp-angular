@@ -1,15 +1,15 @@
 <app-header1></app-header1>
-<div class="academic">
+<div class="academicForm">
     <h1>Academic Information</h1>
     <form (ngSubmit)="academicInformation()">
-        <table class="table"  aria-describedby="mydesc">
+        <table aria-describedby="mydesc">
             <tr>
                 <th scope="col">
                     <label>Qualifying Examination</label>
                 </th>
                 <td>
                     <select name="qualifiedExam" [(ngModel)]="qualifiedExam" id="exam" autofocus>
-                        <option value="">--select--</option>
+                        <option value="" disabled>--select--</option>
                         <option value="HSC">HSC</option>
                         <option value="Diplomo">Diplomo</option>
                     </select>
@@ -21,7 +21,7 @@
                 </th>
                 <td>
                     <select name="examinationBoard" [(ngModel)]="examinationBoard" id="board">
-                        <option value="">--select--</option>
+                        <option value="" disabled>--select--</option>
                         <option value="State Board">State Board</option>
                         <option value="CBSE">CBSE</option>
                         <option value="Others">Others</option>
@@ -52,7 +52,7 @@
                 </th>
                 <td>
                     <select name="groupCode" [(ngModel)]="groupCode" id="group">
-                        <option value="">--select--</option>
+                        <option value="" disabled>--select--</option>
                         <option value="Maths Biology">Maths Biology</option>
                         <option value="Maths Computer">Maths Computer</option>
                         <option value="Vocational">Vocational</option>
@@ -120,7 +120,7 @@
                 </th>
                 <td>
                     <select id="branch" [(ngModel)]="branch" name="branch">
-                        <option value="">--select--</option>
+                        <option value="" disabled>--select--</option>
                         <option value="EEE">EEE</option>
                         <option value="ECE">ECE</option>
                         <option value="CSE">CSE</option>

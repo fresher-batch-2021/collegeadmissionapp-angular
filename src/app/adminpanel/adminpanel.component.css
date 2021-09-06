@@ -31,7 +31,13 @@
    
 }
 .logo img{
-float: center;
     margin: auto;
     padding-right: 50px;
+}
+.userName{
+    float: right;
+    color:white;
+    margin-top: 35px;
+    margin-right: 30px;
+    font-size: 30px;
 }

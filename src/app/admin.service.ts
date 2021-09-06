@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AdminService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   basicAuth =
     'Basic ' + btoa(environment.dbUserName + ':' + environment.dbPassword);
@@ -64,5 +64,8 @@ export class AdminService {
       environment.url + 'adddepartments/' + id + '?rev=' + rev,
       { headers: { Authorization: this.basicAuth } }
     );
+  }
+  deleteUser(id: any, rev: any) {
+    return this.http.delete(environment.url + 'collegeadmissionapp_user/' + id + '?rev=' + rev, { headers: { Authorization: this.basicAuth } });
   }
 }

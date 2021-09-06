@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private serviceObj: ServicelayerService,
     private toast: ToastrService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   userName: string = '';
   password: string = '';
 
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
           console.error(errorMessage);
         }
       );
-    } catch (err) {
+    } catch (err: any) {
       console.error(err.message);
       this.toast.error('Unable to register');
     }

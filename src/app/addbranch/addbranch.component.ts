@@ -16,9 +16,9 @@ export class AddbranchComponent implements OnInit {
     private http: HttpClient,
     private branchObj: AdminService,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   degree: string = '';
   branch: string = '';
   totalSeats: string = '';
@@ -51,12 +51,12 @@ export class AddbranchComponent implements OnInit {
         this.toastr.success('Department Added Successfully');
       },
         (err: { message: any }) => {
-          alert(err.message);
+          console.log(err.message);
           this.toastr.error('Unable to Add Department');
         });
-    } catch (err) {
+    } catch (err: any) {
       console.error(err.message);
-      alert(err.message);
+      console.log(err.message);
       this.toastr.error('Unable to Add Department');
     }
   }

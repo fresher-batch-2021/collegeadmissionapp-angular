@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -32,7 +33,9 @@ export class ServicelayerService {
     return this.http.post(environment.url + 'viewapplication/_find', userData);
   }
 
-  addSeats(){
-    
+
+  userList(userList: any) {
+    return this.http.post(environment.url + 'collegeadmissionapp_user/_find', userList);
   }
+
 }

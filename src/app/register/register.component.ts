@@ -18,6 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   currentYear: any;
+  userData: any;
 
   constructor(
     private fb: FormBuilder,
@@ -55,71 +56,48 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    const validatorService = new ValidatorService();
     try {
-      validatorService.isValidString(
-        this.registerForm.value.candidateName,
-        'Candidate Name cannot be blank'
-      );
-      validatorService.isValidString(
-        this.registerForm.value.contactNumber,
-        'Contact Number Cannot be blank'
-      );
-      validatorService.isValidNumber(
-        this.registerForm.value.contactNumber,
-        'Invalid Contact Number'
-      );
-      validatorService.isValidString(
-        this.registerForm.value.dob,
-        'Date of Birth cannot be blank'
-      );
-      validatorService.isValidString(
-        this.registerForm.value.email,
-        'Please enter valid email address'
-      );
-      validatorService.isValidString(
-        this.registerForm.value.userName,
-        'User Name cannot be blank'
-      );
-      validatorService.isValidString(
-        this.registerForm.value.userPassword,
-        'Password cannot be blank'
-      );
-      validatorService.isValidString(
-        this.registerForm.value.confirmPassword,
-        'Confirm-Password cannot be blank'
-      );
-      validatorService.isValidPasswordLength(
-        this.registerForm.value.userPassword,
-        'Password contain atleast 8 characters'
-      );
-      validatorService.isValidPasswordLength(
-        this.registerForm.value.confirmPassword,
-        'Confirm-Password contain atleast 8 characters'
-      );
 
-      let formData = {
-        name: this.registerForm.value.candidateName,
-        username: this.registerForm.value.userName,
-        dob: this.registerForm.value.dob,
-        email: this.registerForm.value.email,
-        contactNo: this.registerForm.value.contactNumber,
-        password: this.registerForm.value.userPassword,
+      let emailObj = {
+        selector: {
+          email: this.registerForm.value.email
+        },
+        fields: ['_id', '_rev', 'name', 'username', 'dob', 'email', 'contactNo', 'password'],
       };
 
-      this.registerObj.userRegister(formData).subscribe(
-        (res: any) => {
-          let data = res.data;
-          console.log(data);
-          this.toast.success('Successffully Register');
-          window.location.href = 'login';
-        },
-        (err: any) => {
-          console.error(err);
-          this.toast.error('Unable to register');
+      this.registerObj.userList(emailObj).subscribe((res: any) => {
+        this.userData = res.docs;
+        console.log("User List", this.userData);
+        if (this.userData.length === 0) {
+          let formData = {
+            name: this.registerForm.value.candidateName,
+            username: this.registerForm.value.userName,
+            dob: this.registerForm.value.dob,
+            email: this.registerForm.value.email,
+            contactNo: this.registerForm.value.contactNumber,
+            password: this.registerForm.value.userPassword,
+          };
+          console.log(formData);
+          this.registerObj.userRegister(formData).subscribe(
+            (res: any) => {
+              let data = res.data;
+              console.log(data);
+              this.toast.success('Successffully Register');
+              window.location.href = 'login';
+            },
+            (err: any) => {
+              console.error(err);
+              this.toast.error('Unable to register');
+            }
+          );
         }
-      );
-    } catch (err) {
+        else {
+          this.toast.error('EmailId already exists');
+        }
+      }, err => {
+        console.log("Error", err);
+      });
+    } catch (err: any) {
       console.error(err.message);
       alert(err.message);
       this.toast.error('Unable to register');

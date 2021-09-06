@@ -11,7 +11,7 @@ h2 {
     background-color: blue;
 }
 
-.department {
+.addDepartment_Form {
     margin: auto;
     margin-top: 80px;
     width: 50%;
@@ -19,7 +19,7 @@ h2 {
     padding: 10px;
 }
 
-.department table {
+.addDepartment_Form table {
     width: 500px;
     height: 200px;
     margin: auto;
@@ -28,13 +28,13 @@ h2 {
     border-radius: 20px;
 }
 
-.department table label {
+.addDepartment_Form table label {
     height: 40px;
     text-align: center;
     font-size: 20px;
 }
 
-.department table input[type="text"] {
+.addDepartment_Form table input[type="text"] {
     text-align: center;
     height: 30px;
 }
@@ -45,7 +45,7 @@ h2 {
 
 }
 
-.department button[type="submit"],
+.addDepartment_Form button[type="submit"],
 button[type="reset"] {
 
     font-size: 20px;
