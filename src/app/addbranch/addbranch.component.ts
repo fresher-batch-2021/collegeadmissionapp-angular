@@ -37,23 +37,41 @@ export class AddbranchComponent implements OnInit {
         this.availableSeats,
         'Available Seats cannot be blank'
       );
-
-      let departmentData = {
-        degree: this.degree,
-        branch: this.branch,
-        totalSeats: this.totalSeats,
-        availableSeats: this.availableSeats,
-        appliedSeats: '0',
+      let departmentObj = {
+        selector: {
+          branch: this.branch
+        },
+        fields: ['_id', '_rev', 'degree', 'branch', 'totalseats', 'availableSeats', 'appliedSeats']
       };
-      this.branchObj.addDepartment(departmentData).subscribe((res: any) => {
-        let data = res.data;
-        console.log(data);
-        this.toastr.success('Department Added Successfully');
+
+      this.branchObj.departmentList(departmentObj).subscribe((res: any) => {
+        let data = res.docs;
+        console.log("DepartmentList :", data);
+        if (data.length === 0) {
+          let departmentData = {
+            degree: this.degree,
+            branch: this.branch,
+            totalSeats: this.totalSeats,
+            availableSeats: this.availableSeats,
+            appliedSeats: '0',
+          };
+          this.branchObj.addDepartment(departmentData).subscribe((res: any) => {
+            let data = res.data;
+            console.log(data);
+            this.toastr.success('Department Added Successfully');
+          },
+            (err: { message: any }) => {
+              console.log(err.message);
+              this.toastr.error('Unable to Add Department');
+            });
+        } else {
+          this.toastr.error('Branch already exists');
+        }
       },
-        (err: { message: any }) => {
-          console.log(err.message);
-          this.toastr.error('Unable to Add Department');
+        err => {
+          console.log("Error", err);
         });
+
     } catch (err: any) {
       console.error(err.message);
       console.log(err.message);

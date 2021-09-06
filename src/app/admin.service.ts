@@ -68,4 +68,8 @@ export class AdminService {
   deleteUser(id: any, rev: any) {
     return this.http.delete(environment.url + 'collegeadmissionapp_user/' + id + '?rev=' + rev, { headers: { Authorization: this.basicAuth } });
   }
+  departmentList(branchList: any) {
+    return this.http.post(environment.url + 'adddepartments/_find', branchList, { headers: { Authorization: this.basicAuth } });
+
+  }
 }
