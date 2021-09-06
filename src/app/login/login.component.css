@@ -8,7 +8,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.login {
+.loginForm {
     width: 320px;
     margin: auto;
     margin-top: 150px;
@@ -20,7 +20,7 @@ h1 {
 
 }
 
-.login label {
+.loginForm label {
     margin-bottom: 20px;
     color: whitesmoke;
 }
@@ -66,13 +66,13 @@ h1 {
     top: 38%;
 }
 
-.login a {
+.loginForm a {
     text-decoration: none;
     font-size: 18px;
     color: #fff;
 }
 
-.login a:hover {
+.loginForm a:hover {
     color: #39dc79;
 }
 

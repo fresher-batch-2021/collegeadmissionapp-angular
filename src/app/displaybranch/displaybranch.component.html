@@ -5,12 +5,12 @@
         <table border="1" aria-describedby="mydesc">
             <thead>
                 <tr>
-                    <th id="searchBar">Degree</th>
-                    <th id="searchBar">Branch</th>
-                    <th id="searchBar">Total No of Seats</th>
-                    <th id="searchBar">Available Seats</th>
-                    <th id="searchBar">No of Students Applied</th>
-                    <th id="searchBar">Apply</th>
+                    <th scope="col">Degree</th>
+                    <th scope="col">Branch</th>
+                    <th scope="col">Total No of Seats</th>
+                    <th scope="col">Available Seats</th>
+                    <th scope="col">No of Students Applied</th>
+                    <th scope="col">Apply</th>
                 </tr>
             </thead>
             <tbody id="programme" *ngFor="let branchObj of this.branchList;">
@@ -20,7 +20,8 @@
                     <td>{{branchObj.totalSeats}}</td>
                     <td>{{branchObj.availableSeats}}</td>
                     <td>{{branchObj.appliedSeats}}</td>
-                    <td *ngIf="branchObj.totalSeats!=branchObj.appliedSeats"><button type='button' (click)="applyFunction()" value="apply" id="apply">Click to Apply
+                    <td *ngIf="branchObj.totalSeats!=branchObj.appliedSeats"><button type='button'
+                            (click)="applyFunction()" value="apply" id="apply">Click to Apply
                         </button>
                 </tr>
             </tbody>

@@ -1,27 +1,27 @@
 <app-header1></app-header1>
-<div class="searchBar">
+<div class="userProfile">
     <h2>Submitted-Applications</h2>
     <table border="1" aria-describedby="mydesc" id="myTable">
         <thead>
             <tr>
-                <th id="searchBar">Application-ID</th>
-                <th id="searchBar">Name</th>
-                <th id="searchBar">Branch</th>
-                <th id="searchBar">Percentage</th>
-                <th id="searchBar">Email-ID</th>
-                <th id="searchBar">Status</th>
-                <th id="searchBar">Action</th>
+                <th id="userProfile">Application-ID</th>
+                <th id="userProfile">Name</th>
+                <th id="userProfile">Branch</th>
+                <th id="userProfile">Percentage</th>
+                <th id="userProfile">Email-ID</th>
+                <th id="userProfile">Status</th>
+                <th id="userProfile">Action</th>
             </tr>
         </thead>
-        <tbody id="applicationTable" *ngFor="let taskObj of (tableData);">
+        <tbody id="applicationTable" *ngFor="let userObj of (tableData);">
             <tr name="tablerow">
-                <td>{{taskObj._id}}</td>
-                <td>{{taskObj.name}}</td>
-                <td>{{taskObj.branch}}</td>
-                <td>{{taskObj.percentage}}</td>
-                <td>{{taskObj.email}}</td>
-                <td>{{taskObj.status}}</td>
-                <td><button type='button' (click)="withdraw(taskObj._id,'WITHDRAWED',taskObj.branch)">Withdraw
+                <td>{{userObj._id}}</td>
+                <td>{{userObj.name}}</td>
+                <td>{{userObj.branch}}</td>
+                <td>{{userObj.percentage}}</td>
+                <td>{{userObj.email}}</td>
+                <td>{{userObj.status}}</td>
+                <td><button type='button' (click)="withdraw(userObj._id,'WITHDRAWED',userObj.branch)">Withdraw
                     </button>
             </tr>
         </tbody>

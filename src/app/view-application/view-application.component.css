@@ -10,7 +10,7 @@ h1 {
     background-color: blue;
 }
 
-.searchBar {
+.applicationList {
     margin: auto;
     margin-top: 50px;
     width: 95%;
@@ -19,22 +19,22 @@ h1 {
     font-family: sans-serif;
 }
 
-.searchBar table {
+.applicationList table {
     margin: auto;
     width: 95%;
     margin-top: 20px;
     margin-bottom: 3%;
     text-align: center;
 }
-.searchBar table th{
+.applicationList table th{
     background-color: slategray;
 }
-.searchBar table tr{
+.applicationList table tr{
     height: 50px;
     text-align: center;
 }
 
-.searchBar input[type="text"]{
+.applicationList input[type="text"]{
     margin-top: 40px;
     width: 60%;
     margin-left: 20%;
@@ -44,7 +44,7 @@ h1 {
    font-size: 30px;
    border-radius: 10px;
 }
-.searchBar button{
+.applicationList button{
     background-color: cornflowerblue;
     color: white;
 }

@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.name {
+.applicationForm {
     background-image: url('image.jpg');
     max-width: 100%;
     background-size: cover;
@@ -34,7 +34,7 @@ h1 {
     text-align: center;
 }
 
-.name input[type="submit"],
+.applicationForm input[type="submit"],
 input[type="reset"] {
     border: none;
     outline: none;

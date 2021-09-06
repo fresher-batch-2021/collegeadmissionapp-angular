@@ -1,5 +1,5 @@
 <app-header1></app-header1>
-<div class="name">
+<div class="applicationForm">
   <h1>Personal-Information</h1>
   <form [formGroup]="personalApplication" (ngSubmit)="personalInformation()">
     <table class="table" aria-describedby="mydesc">
@@ -8,50 +8,25 @@
           <label>First Name </label>
         </th>
         <td>
-          <input
-            type="text"
-            formControlName="firstName"
-            name="firstName"
-            id="firstName"
-            placeholder="FirstName"
-            required
-            autocomplete="off"
-            autofocus
-          />
+          <input type="text" formControlName="firstName" name="firstName" id="firstName" placeholder="FirstName"
+            required autocomplete="off" autofocus />
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.firstName.errors &&
               personalApplication.controls.firstName.dirty
-            "
-            class="danger"
-            padding
-            >Username is not valid.</span
-          >
+            " class="danger" padding>Username is not valid.</span>
         </td>
         <th scope="col">
           <label>Last Name </label>
         </th>
         <td>
-          <input
-            type="text"
-            formControlName="lastName"
-            name="lastName"
-            id="lastName"
-            placeholder="Lastname"
-            autocomplete="off"
-            required
-          />
+          <input type="text" formControlName="lastName" name="lastName" id="lastName" placeholder="Lastname"
+            autocomplete="off" required />
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.lastName.errors &&
               personalApplication.controls.lastName.dirty
-            "
-            class="danger"
-            padding
-            >Last-Name is not valid.</span
-          >
+            " class="danger" padding>Last-Name is not valid.</span>
         </td>
       </tr>
       <tr>
@@ -59,49 +34,25 @@
           <label>Father Name </label>
         </th>
         <td>
-          <input
-            type="text"
-            formControlName="fatherName"
-            name="fatherName"
-            id="fatherName"
-            placeholder="Fathername"
-            autocomplete="off"
-            required
-          />
+          <input type="text" formControlName="fatherName" name="fatherName" id="fatherName" placeholder="Fathername"
+            autocomplete="off" required />
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.fatherName.errors &&
               personalApplication.controls.fatherName.dirty
-            "
-            class="danger"
-            padding
-            >Father-Name is not valid.</span
-          >
+            " class="danger" padding>Father-Name is not valid.</span>
         </td>
         <th scope="col">
           <label>Mother Name </label>
         </th>
         <td>
-          <input
-            type="text"
-            formControlName="motherName"
-            name="motherName"
-            id="motherName"
-            placeholder="Mothername"
-            autocomplete="off"
-            required
-          />
+          <input type="text" formControlName="motherName" name="motherName" id="motherName" placeholder="Mothername"
+            autocomplete="off" required />
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.motherName.errors &&
               personalApplication.controls.motherName.dirty
-            "
-            class="danger"
-            padding
-            >Mother-Name is not valid.</span
-          >
+            " class="danger" padding>Mother-Name is not valid.</span>
         </td>
       </tr>
       <tr>
@@ -109,54 +60,23 @@
           <label>Date Of Birth </label>
         </th>
         <td>
-          <input
-            type="date"
-            formControlName="dob"
-            max="{{ this.currentYear | date: 'yyyy-MM-dd' }}"
-            name="dob"
-            id="dob"
-            placeholder="DOB"
-            required
-          />
+          <input type="date" formControlName="dob" max="{{ this.currentYear | date: 'yyyy-MM-dd' }}" name="dob" id="dob"
+            placeholder="DOB" required />
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.dob.errors &&
               personalApplication.controls.dob.dirty
-            "
-            class="danger"
-            padding
-            >DateOfBirth is not valid.</span
-          >
+            " class="danger" padding>DateOfBirth is not valid.</span>
         </td>
         <th scope="col">Gender</th>
         <td>
-          <input
-            type="radio"
-            formControlName="gender"
-            id="gender"
-            name="gender"
-            value="Male"
-            required
-          />Male
-          <input
-            type="radio"
-            formControlName="gender"
-            id="gender"
-            name="gender"
-            value="Female"
-            required
-          />Female
+          <input type="radio" formControlName="gender" id="gender" name="gender" value="Male" required />Male
+          <input type="radio" formControlName="gender" id="gender" name="gender" value="Female" required />Female
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.gender.errors &&
               personalApplication.controls.gender.dirty
-            "
-            class="danger"
-            padding
-            >Gender is not valid.</span
-          >
+            " class="danger" padding>Gender is not valid.</span>
         </td>
       </tr>
       <tr>
@@ -164,54 +84,25 @@
           <label>Communication-Address</label>
         </th>
         <td>
-          <textarea
-            rows="4"
-            cols="25"
-            formControlName="communicationAddress"
-            name="communicationAddress"
-            id="communicationAddress"
-            placeholder="Address"
-            autocomplete="off"
-          ></textarea>
+          <textarea rows="4" cols="25" formControlName="communicationAddress" name="communicationAddress"
+            id="communicationAddress" placeholder="Address" autocomplete="off"></textarea>
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.communicationAddress.errors &&
               personalApplication.controls.communicationAddress.dirty
-            "
-            class="danger"
-            padding
-            >Communication-Addressis not valid.</span
-          >
+            " class="danger" padding>Communication-Addressis not valid.</span>
         </td>
         <th scope="col">
           <label>State </label>
         </th>
         <td>
-          <input
-            type="radio"
-            formControlName="state"
-            id="state"
-            name="state"
-            value="TamilNadu"
-          />TamilNadu
-          <input
-            type="radio"
-            formControlName="state"
-            id="state"
-            name="state"
-            value="Others"
-          />Others
+          <input type="radio" formControlName="state" id="state" name="state" value="TamilNadu" />TamilNadu
+          <input type="radio" formControlName="state" id="state" name="state" value="Others" />Others
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.state.errors &&
               personalApplication.controls.state.dirty
-            "
-            class="danger"
-            padding
-            >State is not valid.</span
-          >
+            " class="danger" padding>State is not valid.</span>
         </td>
       </tr>
       <tr>
@@ -219,12 +110,7 @@
           <label>Same as Communication address</label>
         </th>
         <td>
-          <input
-            type="checkbox"
-            id="check"
-            (change)="eventChange()"
-            value="Same as Communication address"
-          />
+          <input type="checkbox" id="check" (change)="eventChange()" value="Same as Communication address" />
         </td>
         <th scope="col">
           <label>If Others</label>
@@ -238,27 +124,13 @@
           <label>Permanent Address </label>
         </th>
         <td>
-          <textarea
-            rows="4"
-            cols="25"
-            formControlName="permanentAddress"
-            name="permanentAddress"
-            id="permanentAddress"
-            placeholder="Address"
-            value="{{this.area}}"
-            autocomplete="off"
-            required
-          ></textarea>
+          <textarea rows="4" cols="25" formControlName="permanentAddress" name="permanentAddress" id="permanentAddress"
+            placeholder="Address" value="{{this.area}}" autocomplete="off" required></textarea>
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.permanentAddress.errors &&
               personalApplication.controls.permanentAddress.dirty
-            "
-            class="danger"
-            padding
-            >Permanent-Address is not valid.</span
-          >
+            " class="danger" padding>Permanent-Address is not valid.</span>
         </td>
         <th scope="col">
           <label>District *</label>
@@ -273,15 +145,10 @@
             <option value="Trichy">Trichy</option>
           </select>
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.district.errors &&
               personalApplication.controls.district.dirty
-            "
-            class="danger"
-            padding
-            >District is not valid.</span
-          >
+            " class="danger" padding>District is not valid.</span>
         </td>
       </tr>
       <tr>
@@ -289,74 +156,32 @@
           <label>Religion *</label>
         </th>
         <td>
-          <input
-            type="radio"
-            formControlName="religion"
-            id="religion"
-            name="religion"
-            value="Hindu"
-          />Hindu
-          <input
-            type="radio"
-            formControlName="religion"
-            id="religion"
-            name="religion"
-            value="Christian"
-          />Christian
-          <input
-            type="radio"
-            formControlName="religion"
-            id="religion"
-            name="religion"
-            value="Muslim"
-          />Muslim
+          <input type="radio" formControlName="religion" id="religion" name="religion" value="Hindu" />Hindu
+          <input type="radio" formControlName="religion" id="religion" name="religion" value="Christian" />Christian
+          <input type="radio" formControlName="religion" id="religion" name="religion" value="Muslim" />Muslim
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.religion.errors &&
               personalApplication.controls.religion.dirty
-            "
-            class="danger"
-            padding
-            >Religion is not valid.</span
-          >
+            " class="danger" padding>Religion is not valid.</span>
         </td>
         <th scope="col">
           <label>Aadhar Number *</label>
         </th>
         <td>
-          <input
-            type="number"
-            formControlName="aadhar"
-            id="aadhar"
-            name="aadhar"
-            minlength="12"
-            maxlength="12"
-            placeholder="Enter aadhar number"
-            autocomplete="off"
-            required
-          />
+          <input type="number" formControlName="aadhar" id="aadhar" name="aadhar" minlength="12" maxlength="12"
+            placeholder="Enter aadhar number" autocomplete="off" required />
           <br />
-          <span
-            *ngIf="
+          <span *ngIf="
               personalApplication.controls.aadhar.errors &&
               personalApplication.controls.aadhar.dirty
-            "
-            class="danger"
-            padding
-            >Aadhar Number is not valid.</span
-          >
+            " class="danger" padding>Aadhar Number is not valid.</span>
         </td>
       </tr>
     </table>
     <div class="submit">
       <input type="reset" id="submit" value="Reset" />&nbsp;&nbsp;&nbsp;&nbsp;
-      <input
-        type="submit"
-        [disabled]="!personalApplication.valid"
-        id="reset"
-        value="Save&Continue"
-      />
+      <input type="submit" [disabled]="!personalApplication.valid" id="reset" value="Save&Continue" />
     </div>
   </form>
 </div>
