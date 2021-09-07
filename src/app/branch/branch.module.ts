@@ -10,6 +10,7 @@ import { DeletebranchComponent } from '../deletebranch/deletebranch.component';
 import { ListalluserComponent } from '../listalluser/listalluser.component';
 import { ViewApplicationComponent } from '../view-application/view-application.component';
 import { SearchPipe } from '../search.pipe';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SearchPipe } from '../search.pipe';
     BranchRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    DataTablesModule,
     HttpClientModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

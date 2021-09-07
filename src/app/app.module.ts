@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { IntersectorService } from './intersector.service';
 import { UserModule } from './user/user.module';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule,    
     ReactiveFormsModule,
+    DataTablesModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
   ],

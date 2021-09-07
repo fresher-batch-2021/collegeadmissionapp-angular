@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -12,6 +13,9 @@ import { AdminService } from '../admin.service';
 export class ViewApplicationComponent implements OnInit {
   tableData: any;
   selectedCategory: any;
+  title = 'datatables';
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
     private http: HttpClient,
@@ -21,7 +25,13 @@ export class ViewApplicationComponent implements OnInit {
     this.displayForms();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
+  }
   dbUserName = 'apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4';
   dbPassword = '163671d490ddeef138fc61e470881715';
   basicAuth = 'Basic ' + btoa(this.dbUserName + ':' + this.dbPassword);
@@ -32,6 +42,7 @@ export class ViewApplicationComponent implements OnInit {
       (res: any) => {
         let data = res.rows;
         this.tableData = data;
+        this.dtTrigger.next();
         console.log('Table list :', this.tableData);
       },
       (err: { response: { data: { errorMessage: any } } }) => {
