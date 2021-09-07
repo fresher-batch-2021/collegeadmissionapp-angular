@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import axios from 'axios';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,7 +22,7 @@ export class ServicelayerService {
     );
   }
 
-  userProfile(emailId: any) {
+  userProfile(emailId: string) {
     const userData = {
       selector: {
         email: emailId,

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdminpanelComponent implements OnInit {
   userData = localStorage.getItem('admin');
   loginData: any;
-  userName: any;
+  userName: string;
   adminEmailValue = false;
 
   constructor() {

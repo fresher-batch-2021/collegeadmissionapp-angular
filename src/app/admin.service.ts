@@ -47,7 +47,7 @@ export class AdminService {
       { headers: { Authorization: this.basicAuth } }
     );
   }
-  update(id: any, rev: any, updateFeesObj: any) {
+  update(id: string, rev: string, updateFeesObj: any) {
     return this.http.put(
       environment.url + 'addfees/' + id + '?rev=' + rev,
       updateFeesObj,
@@ -59,13 +59,13 @@ export class AdminService {
       headers: { Authorization: this.basicAuth },
     });
   }
-  deleteFunction(id: any, rev: any) {
+  deleteFunction(id: string, rev: string) {
     return this.http.delete(
       environment.url + 'adddepartments/' + id + '?rev=' + rev,
       { headers: { Authorization: this.basicAuth } }
     );
   }
-  deleteUser(id: any, rev: any) {
+  deleteUser(id: string, rev: string) {
     return this.http.delete(environment.url + 'collegeadmissionapp_user/' + id + '?rev=' + rev, { headers: { Authorization: this.basicAuth } });
   }
   departmentList(branchList: any) {

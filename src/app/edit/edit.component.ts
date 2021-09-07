@@ -50,7 +50,7 @@ export class EditComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   updateFees() {
     const queryString = window.location.search;

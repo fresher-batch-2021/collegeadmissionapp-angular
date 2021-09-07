@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -12,11 +11,7 @@ import { AdminService } from '../admin.service';
 })
 export class ViewApplicationComponent implements OnInit {
   tableData: any;
-  selectedCategory: any;
   title = 'datatables';
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
-
   constructor(
     private http: HttpClient,
     private applicationObj: AdminService,
@@ -26,11 +21,7 @@ export class ViewApplicationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      processing: true
-    };
+
   }
   dbUserName = 'apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4';
   dbPassword = '163671d490ddeef138fc61e470881715';
@@ -42,7 +33,6 @@ export class ViewApplicationComponent implements OnInit {
       (res: any) => {
         let data = res.rows;
         this.tableData = data;
-        this.dtTrigger.next();
         console.log('Table list :', this.tableData);
       },
       (err: { response: { data: { errorMessage: any } } }) => {
@@ -53,7 +43,7 @@ export class ViewApplicationComponent implements OnInit {
     );
   }
 
-  updateStatus(id: any, status: any, branch: any) {
+  updateStatus(id: string, status: string, branch: string) {
     console.log('Update ' + id + ',status=' + status);
     if (status == 'ACCEPTED') {
       const requestData = {
@@ -110,7 +100,7 @@ export class ViewApplicationComponent implements OnInit {
       );
   }
 
-  deleteFun(id: any, revId: any) {
+  deleteFun(id: string, revId: string) {
     console.log('Delete' + id + ' ' + revId);
     alert('Are you want to delete this Record');
     axios

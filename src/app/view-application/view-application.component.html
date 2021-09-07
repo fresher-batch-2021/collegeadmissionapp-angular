@@ -1,10 +1,6 @@
 <div class="applicationList">
     <h1>Submitted-Applications</h1>
-    <div class="text-center">
-        <input type="text" name="branch" id="branch" [(ngModel)]="selectedCategory" placeholder="Search by DEPT">
-    </div>
-    <!-- <table datatable border="1" aria-describedby="mydesc" name="myTable" id="myTable"> -->
-    <table datatable class="row-border hover" *ngIf="tableData" >
+    <table datatable class="row-border hover" *ngIf="tableData">
         <thead>
             <tr>
                 <th id="searchBar">Sno</th>
@@ -18,7 +14,6 @@
                 <th id="searchBar">Action</th>
             </tr>
         </thead>
-        <!-- <tbody id="applicationTable" *ngFor="let taskObj of (tableData | searchterm:selectedCategory);"> -->
         <tbody>
             <tr *ngFor="let taskObj of tableData;let i=index;">
                 <td>{{i+1}}</td>
@@ -31,10 +26,9 @@
                 <td>{{taskObj.doc.status}}</td>
                 <td>
                     <button type='button' (click)="updateStatus(taskObj.doc._id,'ACCEPTED',taskObj.doc.branch)">Accept
-                    </button>&nbsp;&nbsp;&nbsp;
+                    </button>
                     <button type='button'
                         (click)="updateStatus(taskObj.doc._id,'REJECTED',taskObj.doc.branch)">Reject</button>
-                    &nbsp;
                     <button type='button' (click)="deleteFun(taskObj.doc._id,taskObj.doc._rev)">Delete</button>
                 </td>
             </tr>
