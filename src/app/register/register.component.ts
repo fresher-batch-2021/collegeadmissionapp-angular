@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ValidatorService } from '../validator.service';
 import {
   FormBuilder,
   FormControl,
@@ -76,6 +75,7 @@ export class RegisterComponent implements OnInit {
             email: this.registerForm.value.email,
             contactNo: this.registerForm.value.contactNumber,
             password: this.registerForm.value.userPassword,
+            role: "USER",
           };
           console.log(formData);
           this.registerObj.userRegister(formData).subscribe(

@@ -6,6 +6,7 @@ import { DisplaybranchComponent } from '../displaybranch/displaybranch.component
 import { LoginComponent } from '../login/login.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { RegisterComponent } from '../register/register.component';
+import { RoleGuard } from '../role.guard';
 import { UserprofileComponent } from '../userprofile/userprofile.component';
 import { ViewfeesComponent } from '../viewfees/viewfees.component';
 
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'viewfees', component: ViewfeesComponent },
   { path: 'displaybranch', component: DisplaybranchComponent },
-  { path: 'userprofile', component: UserprofileComponent, canActivate: [AuthenticationGuard] }
+  { path: 'userprofile', component: UserprofileComponent, canActivate: [AuthenticationGuard, RoleGuard] }
 
 ];
 @NgModule({

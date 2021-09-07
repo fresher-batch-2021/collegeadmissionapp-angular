@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           username: this.userName,
           password: this.password,
         },
-        fields: ['_id', 'name', 'contactNo', 'email'],
+        fields: ['_id', 'name', 'contactNo', 'email','role'],
       };
 
       this.serviceObj.userLogin(selectedData).subscribe(

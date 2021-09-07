@@ -4,6 +4,7 @@
         <table border="1" aria-describedby="mydesc">
             <thead>
                 <tr>
+                    <th scope="col">S.NO</th>
                     <th scope="col">Degree</th>
                     <th scope="col">Branch</th>
                     <th scope="col">Total No of Seats</th>
@@ -12,8 +13,9 @@
                     <th scope="col">Apply</th>
                 </tr>
             </thead>
-            <tbody id="programme" *ngFor="let branchObj of this.branchList;">
+            <tbody id="programme" *ngFor="let branchObj of this.branchList;let i=index;">
                 <tr name="tablerow">
+                    <td>{{i+1}}</td>
                     <td>{{branchObj.degree}}</td>
                     <td>{{branchObj.branch}}</td>
                     <td>{{branchObj.totalSeats}}</td>

@@ -3,7 +3,7 @@
     <table border="1" aria-describedby="mydesc">
         <thead>
             <tr>
-                <th id="userList">Regeister-ID</th>
+                <th id="userList">S.NO</th>
                 <th id="userList">Candidate-Name</th>
                 <th id="userList">Email-Id</th>
                 <th id="userList">Contact-Number</th>
@@ -11,9 +11,9 @@
                 <th id="userList">Action</th>
             </tr>
         </thead>
-        <tbody id="userListTable" *ngFor="let userObj of this.allUserList;">
+        <tbody id="userListTable" *ngFor="let userObj of this.allUserList;let i=index;">
             <tr name=" tablerow">
-                <td>{{userObj._id}}</td>
+                <td>{{i+1}}</td>
                 <td>{{userObj.name}}</td>
                 <td>{{userObj.email}}</td>
                 <td>{{userObj.contactNo}}</td>

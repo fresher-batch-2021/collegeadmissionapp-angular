@@ -5,12 +5,13 @@ import { AuthenticationGuard } from '../authentication.guard';
 import { ListprofileComponent } from '../listprofile/listprofile.component';
 import { PersonalComponent } from '../personal/personal.component';
 import { PreviewComponent } from '../preview/preview.component';
+import { RoleGuard } from '../role.guard';
 
 const routes: Routes = [
-  { path: 'personal', component: PersonalComponent, canActivate: [AuthenticationGuard] },
-  { path: 'academic', component: AcademicComponent, canActivate: [AuthenticationGuard] },
-  { path: 'preview', component: PreviewComponent, canActivate: [AuthenticationGuard] },
-  { path: 'listprofile', component: ListprofileComponent, canActivate: [AuthenticationGuard] },
+  { path: 'personal', component: PersonalComponent, canActivate: [AuthenticationGuard, RoleGuard] },
+  { path: 'academic', component: AcademicComponent, canActivate: [AuthenticationGuard, RoleGuard] },
+  { path: 'preview', component: PreviewComponent, canActivate: [AuthenticationGuard, RoleGuard] },
+  { path: 'listprofile', component: ListprofileComponent, canActivate: [AuthenticationGuard, RoleGuard] },
 ];
 
 @NgModule({
