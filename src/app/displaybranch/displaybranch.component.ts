@@ -26,7 +26,7 @@ export class DisplaybranchComponent implements OnInit {
     this.displayBranch();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   displayBranch() {
     this.departmentObj.displayDepartment().subscribe((res: any) => {
@@ -48,7 +48,7 @@ export class DisplaybranchComponent implements OnInit {
     if (this.loginData == null) {
       window.location.href = 'login';
     } else {
-      this.router.navigateByUrl('personal');
+      this.router.navigateByUrl('/application/personal');
     }
   }
 }

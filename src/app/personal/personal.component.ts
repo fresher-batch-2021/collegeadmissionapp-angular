@@ -82,7 +82,7 @@ export class PersonalComponent implements OnInit {
       console.log(personalDataObj);
       this.toast.success('Registration Successfull');
       localStorage.setItem('personalForm', JSON.stringify(personalDataObj));
-      window.location.href = 'academic';
+      window.location.href = '/application/academic';
     } catch (err: any) {
       console.error(err.message);
       this.toast.error('Unable to register');

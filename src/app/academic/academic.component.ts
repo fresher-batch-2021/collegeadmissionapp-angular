@@ -86,7 +86,7 @@ export class AcademicComponent implements OnInit {
       console.log(academicData);
       localStorage.setItem('academicForm', JSON.stringify(academicData));
       this.toastr.success('Register successfull');
-      this.router.navigateByUrl('preview');
+      this.router.navigateByUrl('/application/preview');
     } catch (err) {
       this.toastr.error('Unable to Register');
     }

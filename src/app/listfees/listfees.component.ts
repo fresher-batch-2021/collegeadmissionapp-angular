@@ -38,6 +38,6 @@ export class ListfeesComponent implements OnInit {
       });
   }
   updateFees(id: any, revId: any) {
-    window.location.href = '/edit?id=' + id + '&rev=' + revId;
+    window.location.href = '/fees/edit?id=' + id + '&rev=' + revId;
   }
 }

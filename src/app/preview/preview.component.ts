@@ -54,7 +54,7 @@ export class PreviewComponent implements OnInit {
         let data = res.data;
         console.log(data);
         this.toastr.success('Your Application Submitted Successfully');
-        window.location.href = '/listprofile';
+        window.location.href = '/application/listprofile';
       },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;

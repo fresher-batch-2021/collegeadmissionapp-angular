@@ -26,7 +26,7 @@ export class UserprofileComponent implements OnInit {
       this.router.navigateByUrl("login");
     }
     else {
-      this.router.navigateByUrl("listprofile");
+      this.router.navigateByUrl("/application/listprofile");
     }
   }
 

@@ -10,16 +10,20 @@ import { AdminComponent } from '../admin/admin.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { ViewfeesComponent } from '../viewfees/viewfees.component';
 import { DisplaybranchComponent } from '../displaybranch/displaybranch.component';
+import { RegisterComponent } from '../register/register.component';
+import { UserprofileComponent } from '../userprofile/userprofile.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
+    RegisterComponent,
     AdminComponent,
     ProfileComponent,
     ViewfeesComponent,
     DisplaybranchComponent,
+    UserprofileComponent
   ],
   imports: [
     CommonModule,
