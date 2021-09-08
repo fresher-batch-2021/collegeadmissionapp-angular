@@ -38,19 +38,25 @@ export class DisplaybranchComponent implements OnInit {
   }
 
   displayBranch() {
-    this.departmentObj.displayDepartment().subscribe((res: any) => {
-      let data = res.rows;
-      console.log('Response : ', data);
-      this.branch = data;
-      console.log('Table list :', this.branch);
-      this.branchList = this.branch.map((obj: any) => obj.doc);
-      this.toastr.success('List Successfull');
-    },
-      (err: { response: { data: { errorMessage: any } } }) => {
-        let errorMessage = err.response.data.errorMessage;
-        console.error(errorMessage);
-        this.toastr.error('List Failed');
-      });
+    try {
+      this.departmentObj.displayDepartment().subscribe((res: any) => {
+        let data = res.rows;
+        console.log('Response : ', data);
+        this.branch = data;
+        console.log('Table list :', this.branch);
+        this.branchList = this.branch.map((obj: any) => obj.doc);
+        this.toastr.success('List Successfull');
+      },
+        (err: { response: { data: { errorMessage: any } } }) => {
+          let errorMessage = err.response.data.errorMessage;
+          console.error(errorMessage);
+          this.toastr.error('List Failed');
+        });
+    }
+    catch (err: any) {
+      console.error(err.message);
+      this.toastr.error('Unable to register');
+    }
   }
 
   applyFunction() {

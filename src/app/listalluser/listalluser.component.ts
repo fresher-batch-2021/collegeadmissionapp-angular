@@ -22,7 +22,7 @@ export class ListalluserComponent implements OnInit {
     this.listAllUser();
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.spinner.show();
 
     setTimeout(() => {
@@ -31,34 +31,44 @@ export class ListalluserComponent implements OnInit {
   }
 
   listAllUser() {
-    this.allUserObj.listAllUser().subscribe(
-      (res: any) => {
-        let data = res.rows;
-        this.userList = data;
-        console.log('Table list :', this.userList);
-        this.allUserList = this.userList.map((obj: any) => obj.doc);
-      },
-      (err) => {
-        let errorMessage = err.response.data.errorMessage;
-        console.error(errorMessage);
-        console.log('failed');
-        this.toastr.error('List Failed');
-      }
-    );
+    try {
+      this.allUserObj.listAllUser().subscribe(
+        (res: any) => {
+          let data = res.rows;
+          this.userList = data;
+          console.log('Table list :', this.userList);
+          this.allUserList = this.userList.map((obj: any) => obj.doc);
+        },
+        (err) => {
+          let errorMessage = err.response.data.errorMessage;
+          console.error(errorMessage);
+          console.log('failed');
+          this.toastr.error('List Failed');
+        }
+      );
+    } catch (err: any) {
+      console.error(err.message);
+      this.toastr.error('Unable to register');
+    }
   }
 
   deleteFun(id: any, revId: any) {
-    this.allUserObj.deleteUser(id, revId).subscribe(
-      (res) => {
-        alert('Are you want to delete this branch ?');
-        window.location.reload();
-        this.toastr.success('Successfully Deletd');
-      },
-      (err: { response: { data: { errorMessage: any } } }) => {
-        let errorMessage = err.response.data.errorMessage;
-        console.error(errorMessage);
-        this.toastr.error('Unable to delete this branch');
-      }
-    );
+    try {
+      this.allUserObj.deleteUser(id, revId).subscribe(
+        (res) => {
+          alert('Are you want to delete this branch ?');
+          window.location.reload();
+          this.toastr.success('Successfully Deletd');
+        },
+        (err: { response: { data: { errorMessage: any } } }) => {
+          let errorMessage = err.response.data.errorMessage;
+          console.error(errorMessage);
+          this.toastr.error('Unable to delete this branch');
+        }
+      );
+    } catch (err: any) {
+      console.error(err.message);
+      this.toastr.error('Unable to register');
+    }
   }
 }

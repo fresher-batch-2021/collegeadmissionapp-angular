@@ -15,7 +15,6 @@ import { IntersectorService } from './intersector.service';
 import { UserModule } from './user/user.module';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ErrorInterceptor } from './error.interceptor';
 
 
 @NgModule({
@@ -40,11 +39,6 @@ import { ErrorInterceptor } from './error.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: IntersectorService, multi: true },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    }
   ],
   bootstrap: [AppComponent],
 })

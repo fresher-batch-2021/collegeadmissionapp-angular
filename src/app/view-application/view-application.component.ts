@@ -35,18 +35,25 @@ export class ViewApplicationComponent implements OnInit {
   url =
     'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/';
   displayForms() {
-    this.applicationObj.listApplication().subscribe(
-      (res: any) => {
-        let data = res.rows;
-        this.tableData = data;
-        console.log('Table list :', this.tableData);
-      },
-      (err: { response: { data: { errorMessage: any } } }) => {
-        let errorMessage = err.response.data.errorMessage;
-        console.error(errorMessage);
-        this.toastr.error('List Failed');
-      }
-    );
+    try {
+      this.applicationObj.listApplication().subscribe(
+        (res: any) => {
+          let data = res.rows;
+          this.tableData = data;
+          console.log('Table list :', this.tableData);
+        },
+        (err: { response: { data: { errorMessage: any } } }) => {
+          let errorMessage = err.response.data.errorMessage;
+          console.error(errorMessage);
+          console.log(errorMessage);
+          this.toastr.error('List Failed');
+        }
+      );
+    }
+    catch (err: any) {
+      console.error(err.message);
+      this.toastr.error('Unable to register');
+    }
   }
 
   updateStatus(id: string, status: string, branch: string) {
@@ -101,6 +108,7 @@ export class ViewApplicationComponent implements OnInit {
         (err: { response: { data: any } }) => {
           let errorMessage = err.response.data;
           console.error(errorMessage);
+          console.log(errorMessage);
           this.toastr.error('Update Failed');
         }
       );
@@ -108,21 +116,26 @@ export class ViewApplicationComponent implements OnInit {
 
   deleteFun(id: string, revId: string) {
     console.log('Delete' + id + ' ' + revId);
-    alert('Are you want to delete this Record');
-    axios
-      .delete(this.url + 'viewapplication/' + id + '?rev=' + revId, {
-        headers: { Authorization: this.basicAuth },
-      })
-      .then((res) => {
-        console.log('success');
-        window.location.reload();
-      })
-      .catch((err) => {
-        let errorMessage = err.response.data.errorMessage;
-        console.error(errorMessage);
-        console.log(errorMessage);
-        this.toastr.error('Failed to delete this record');
-      });
+    try {
+      alert('Are you want to delete this Record');
+      axios
+        .delete(this.url + 'viewapplication/' + id + '?rev=' + revId, {
+          headers: { Authorization: this.basicAuth },
+        })
+        .then((res) => {
+          console.log('success');
+          window.location.reload();
+        })
+        .catch((err) => {
+          let errorMessage = err.response.data.errorMessage;
+          console.error(errorMessage);
+          console.log(errorMessage);
+          this.toastr.error('Failed to delete this record');
+        });
+    } catch (err: any) {
+      console.error(err.message);
+      this.toastr.error('Unable to register');
+    }
   }
 
   update_seats(data: any) {
