@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-view-application',
@@ -15,13 +16,18 @@ export class ViewApplicationComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private applicationObj: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {
     this.displayForms();
   }
 
   ngOnInit(): void {
+    this.spinner.show();
 
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
   }
   dbUserName = 'apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4';
   dbPassword = '163671d490ddeef138fc61e470881715';

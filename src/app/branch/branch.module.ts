@@ -12,6 +12,7 @@ import { ViewApplicationComponent } from '../view-application/view-application.c
 import { SearchPipe } from '../search.pipe';
 import { DataTablesModule } from 'angular-datatables';
 import { AdminpanelComponent } from '../adminpanel/adminpanel.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AdminpanelComponent } from '../adminpanel/adminpanel.component';
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

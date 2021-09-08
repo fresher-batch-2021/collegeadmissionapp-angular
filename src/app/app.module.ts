@@ -14,6 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { IntersectorService } from './intersector.service';
 import { UserModule } from './user/user.module';
 import { DataTablesModule } from 'angular-datatables';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DataTablesModule } from 'angular-datatables';
     DataTablesModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: IntersectorService, multi: true },

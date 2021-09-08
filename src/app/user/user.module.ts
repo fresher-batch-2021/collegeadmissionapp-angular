@@ -12,6 +12,7 @@ import { ViewfeesComponent } from '../viewfees/viewfees.component';
 import { DisplaybranchComponent } from '../displaybranch/displaybranch.component';
 import { RegisterComponent } from '../register/register.component';
 import { UserprofileComponent } from '../userprofile/userprofile.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -30,7 +31,8 @@ import { UserprofileComponent } from '../userprofile/userprofile.component';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

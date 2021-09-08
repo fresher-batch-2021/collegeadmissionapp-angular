@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
   selector: 'app-displaybranch',
@@ -19,14 +21,21 @@ export class DisplaybranchComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private departmentObj: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     console.log('registerData', this.loginData);
     this.displayBranch();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+  }
 
   displayBranch() {
     this.departmentObj.displayDepartment().subscribe((res: any) => {

@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-listalluser',
@@ -16,12 +16,19 @@ export class ListalluserComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private allUserObj: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {
     this.listAllUser();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+  }
 
   listAllUser() {
     this.allUserObj.listAllUser().subscribe(
