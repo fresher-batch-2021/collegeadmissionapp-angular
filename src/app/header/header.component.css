@@ -4,7 +4,7 @@
 }
 .menubar {
     font-family: sans-serif;
-    background-color:rgb(0,100,0); 
+    background-color:rgb(128,128,128); 
     text-align: center;
 }
 
@@ -13,6 +13,7 @@
     list-style: none;
 }
 .menubar ul li{
+    font-size: 20px;
     width: 120px;
     margin: 10px;
     padding: 10px;
@@ -22,7 +23,7 @@
     color: white;
 }
 .menubar ul li:hover{
-    background: #2bab0d;
+    background:#0000FF;
     border-radius: 3px;
 
 }
@@ -34,3 +35,33 @@
     margin-left: 10px;
     padding-right: 50px;
 }
+.sidenav {
+    font-family: sans-serif;
+    background-color:rgb(128,128,128); 
+    text-align: center;
+    width: 220px;
+    height: 100%;
+    z-index: 1;
+    overflow-x: hidden;
+
+}
+  
+  .sidenav a {
+      font-family: sans-serif;
+    padding: 6px 15px 15px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+  }
+ 
+  .sidenav a:hover {
+    background:#0000FF;
+    border-radius: 3px;
+    width: 185px;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+

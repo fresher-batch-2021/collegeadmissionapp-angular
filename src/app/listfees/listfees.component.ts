@@ -20,7 +20,7 @@ export class ListfeesComponent implements OnInit {
     this.displayFees();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   displayFees() {
     this.feesObj.listFees().subscribe((res: any) => {
       console.log('Result', res.rows);
@@ -38,6 +38,6 @@ export class ListfeesComponent implements OnInit {
       });
   }
   updateFees(id: any, revId: any) {
-    window.location.href = '/fees/edit?id=' + id + '&rev=' + revId;
+    window.location.href = '/branch/fees/edit?id=' + id + '&rev=' + revId;
   }
 }

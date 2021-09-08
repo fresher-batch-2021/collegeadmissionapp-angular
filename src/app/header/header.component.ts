@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  userData = localStorage.getItem('admin');
+  loginData: any;
+  constructor() {
+    this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
+    console.log('adminData', this.loginData);
+  }
 
   ngOnInit(): void {
   }
+  // displaySidebar() {
+  //   if (this.loginData != null) {
+
+  //   }
+  // }
+
 
 }

@@ -71,7 +71,7 @@ export class EditComponent implements OnInit {
         console.log(res.data);
         alert('Are you want to update this record');
         this.toastr.success('Upadate Successfull');
-        window.location.href = '/fees/listfees';
+        window.location.href = '/branch/fees/listfees';
       }),
       (err: { data: string }) => alert('error ' + err.data);
   }

@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Header1Component } from './header1/header1.component';
 import { LogoutComponent } from './logout/logout.component';
-import { AdminpanelComponent } from './adminpanel/adminpanel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { IntersectorService } from './intersector.service';
@@ -23,14 +22,13 @@ import { DataTablesModule } from 'angular-datatables';
     HomeComponent,
     Header1Component,
     LogoutComponent,
-    AdminpanelComponent,
   ],
   imports: [
     UserModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,    
+    HttpClientModule,
     ReactiveFormsModule,
     DataTablesModule,
     BrowserAnimationsModule, // required animations module

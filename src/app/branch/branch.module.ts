@@ -11,12 +11,14 @@ import { ListalluserComponent } from '../listalluser/listalluser.component';
 import { ViewApplicationComponent } from '../view-application/view-application.component';
 import { SearchPipe } from '../search.pipe';
 import { DataTablesModule } from 'angular-datatables';
+import { AdminpanelComponent } from '../adminpanel/adminpanel.component';
 
 
 @NgModule({
   declarations: [
     AddbranchComponent,
     DeletebranchComponent,
+    AdminpanelComponent,
     ListalluserComponent,
     ViewApplicationComponent,
     SearchPipe

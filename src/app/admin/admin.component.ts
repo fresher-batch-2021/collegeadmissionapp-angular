@@ -40,7 +40,7 @@ export class AdminComponent implements OnInit {
     else {
       alert("Login Succesfull");
       localStorage.setItem('admin', JSON.stringify(adminObj));
-      this.router.navigateByUrl("adminpanel");
+      this.router.navigateByUrl("/branch/adminpanel");
     }
   }
 

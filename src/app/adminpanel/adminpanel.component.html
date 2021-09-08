@@ -1,34 +1,12 @@
-<div class="body">
-    <div class="logo">
-        <a href="index.html"><img src="assets/images/logo.png" alt="logo"></a>
-        <a class="userName">Welcome -{{loginData.adminEmail}} </a>
-    </div>
+<div class="sidebar">
+    <a routerLink="/branch/fees/addfees">Add-Fees</a>
+    <a routerLink="/branch/fees/listfees">Update-Fees</a>
+    <a routerLink="/branch/addbranch">Add-Branch</a>
+    <a routerLink="/branch/deletebranch">Delete-Branch</a>
+    <a routerLink="/branch/listalluser">User-List</a>
+    <a routerLink="/branch/viewapplication">View-Application</a>
+</div>
 
-    <div class="menubar">
-        <ul class="tag">
-            <li>
-                <a routerLink="/fees/addfees">Add-Fees</a>
-            </li>
-            <li>
-                <a routerLink="/fees/listfees">Update-Fees</a>
-            </li>
-            <li>
-                <a routerLink="/branch/addbranch">Add-Branch</a>
-            </li>
-            <li>
-                <a routerLink="/branch/deletebranch">Delete-Branch</a>
-            </li>
-            <li>
-                <a routerLink="/branch/listalluser">User-List</a>
-            </li>
-            <li>
-                <a routerLink="/branch/viewapplication">View-Application</a>
-            </li>
-            <li>
-                <a routerLink="/logout">Logout</a>
-            </li>
-        </ul>
-
-    </div>
-
+<div class="content">
+    <router-outlet></router-outlet>
 </div>
