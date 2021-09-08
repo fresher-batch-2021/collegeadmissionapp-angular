@@ -15,6 +15,9 @@ const routes: Routes = [
         path: 'fees',
         loadChildren: () => import('../fees/fees.module').then(m => m.FeesModule)
       },
+      {
+        path: "", redirectTo: "addbranch", pathMatch: "full"
+      },
       { path: 'addbranch', component: AddbranchComponent },
       { path: 'deletebranch', component: DeletebranchComponent },
       { path: 'listalluser', component: ListalluserComponent },
