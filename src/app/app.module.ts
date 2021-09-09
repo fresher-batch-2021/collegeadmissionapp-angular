@@ -15,7 +15,7 @@ import { IntersectorService } from './intersector.service';
 import { UserModule } from './user/user.module';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { ChartsModule } from 'ng2-charts';
+import { ContentprojectionComponent } from './contentprojection/contentprojection.component';
 
 
 
@@ -26,10 +26,10 @@ import { ChartsModule } from 'ng2-charts';
     HomeComponent,
     Header1Component,
     LogoutComponent,
+    ContentprojectionComponent,
   ],
   imports: [
     UserModule,
-    ChartsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

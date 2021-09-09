@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContentprojectionComponent } from './contentprojection/contentprojection.component';
 import { HomeComponent } from './home/home.component';
 import { LogoutComponent } from './logout/logout.component';
 
@@ -7,6 +8,7 @@ import { LogoutComponent } from './logout/logout.component';
 const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
+  { path: 'contentprojection', component: ContentprojectionComponent },
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
