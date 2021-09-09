@@ -14,6 +14,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { AdminpanelComponent } from '../adminpanel/adminpanel.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ErrorInterceptor } from '../error.interceptor';
+import { ChartComponent } from '../chart/chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -23,10 +25,12 @@ import { ErrorInterceptor } from '../error.interceptor';
     AdminpanelComponent,
     ListalluserComponent,
     ViewApplicationComponent,
+    ChartComponent,
     SearchPipe
   ],
   imports: [
     CommonModule,
+    ChartsModule,
     BranchRoutingModule,
     FormsModule,
     ReactiveFormsModule,

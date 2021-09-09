@@ -15,12 +15,12 @@ const routes: Routes = [
     path: 'application',
     loadChildren: () => import('./application/application.module').then(m => m.ApplicationModule)
   },
-  
+
   {
     path: 'branch',
     loadChildren: () => import('./branch/branch.module').then(m => m.BranchModule)
   },
-  
+
   { path: 'logout', component: LogoutComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

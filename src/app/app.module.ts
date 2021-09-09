@@ -15,6 +15,8 @@ import { IntersectorService } from './intersector.service';
 import { UserModule } from './user/user.module';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ChartsModule } from 'ng2-charts';
+
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
   ],
   imports: [
     UserModule,
+    ChartsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -35,7 +38,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     DataTablesModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: IntersectorService, multi: true },
