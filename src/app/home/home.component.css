@@ -8,6 +8,7 @@
 .logo img {
   margin: auto;
   height: 460px;
-  width: 1335px;
+  margin-left: 150px;
+  max-width: 100%;
   font-family: sans-serif;
 }

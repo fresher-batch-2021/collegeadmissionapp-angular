@@ -7,10 +7,14 @@
                 <img src="assets/images/mhrd.png" alt="mhrdlogo">
         </div>
         <div class="menubar">
-                <ul class="tag">
+                <ul class="tag" appDirectives >
 
                         <li>
-                                <a routerLink="/home"> Home</a>
+                                <a routerLink="/home">
+                                        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+                                        Home
+                                </a>
+
                         </li>
                         <li>
                                 <a routerLink="/user/profile"> About Us</a>
@@ -30,9 +34,6 @@
                         <li>
                                 <a routerLink="/user/userprofile">User Profile</a>
                         </li>
-                        <!-- <li>
-                                <a routerLink="/chart">Chart</a>
-                        </li> -->
 
                 </ul>
 

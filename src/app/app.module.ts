@@ -16,6 +16,9 @@ import { UserModule } from './user/user.module';
 import { DataTablesModule } from 'angular-datatables';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ContentprojectionComponent } from './contentprojection/contentprojection.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { DirectivesDirective } from './directives.directive';
 
 
 
@@ -27,11 +30,14 @@ import { ContentprojectionComponent } from './contentprojection/contentprojectio
     Header1Component,
     LogoutComponent,
     ContentprojectionComponent,
+    DirectivesDirective,
   ],
   imports: [
     UserModule,
     BrowserModule,
     AppRoutingModule,
+    MatButtonModule,
+    MatIconModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
