@@ -46,7 +46,7 @@ export class DeletebranchComponent implements OnInit {
     try {
       const alert = confirm('Are you want to delete this branch ?');
       if (alert == true) {
-        this.departmentObj.deleteFunction(id, revId).subscribe(
+        this.departmentObj.deleteBranch(id, revId).subscribe(
           (res) => {
 
             window.location.reload();

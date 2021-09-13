@@ -1,25 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { RestserviceService } from './restservice.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServicelayerService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private restService: RestserviceService) { }
 
   userLogin(selectedData: any) {
-    return this.http.post(
-      environment.url + 'collegeadmissionapp_user/_find',
-      selectedData
-    );
+    return this.restService.save('collegeadmissionapp_user/_find', selectedData);
   }
-
   userRegister(registerObj: any) {
-    return this.http.post(
-      environment.url + 'collegeadmissionapp_user',
-      registerObj
-    );
+    return this.restService.save('collegeadmissionapp_user', registerObj);
   }
 
   userProfile(emailId: string) {
@@ -29,12 +22,12 @@ export class ServicelayerService {
       },
       fields: ['_id', 'name', 'branch', 'percentage', 'email', 'status'],
     };
-    return this.http.post(environment.url + 'viewapplication/_find', userData);
+    return this.restService.select('viewapplication/_find', userData);
   }
 
 
   userList(userList: any) {
-    return this.http.post(environment.url + 'collegeadmissionapp_user/_find', userList);
+    return this.restService.getOneData('collegeadmissionapp_user/_find', userList);
   }
 
 }

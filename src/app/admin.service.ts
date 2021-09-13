@@ -1,75 +1,56 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { RestserviceService } from './restservice.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AdminService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private restService: RestserviceService) { }
 
-  basicAuth =
-    'Basic ' + btoa(environment.dbUserName + ':' + environment.dbPassword);
+  basicAuth = 'Basic ' + btoa(environment.dbUserName + ':' + environment.dbPassword);
+
   submitApplication(registerObj: any) {
-    return this.http.post(environment.url + 'viewapplication', registerObj, {
-      headers: { Authorization: this.basicAuth },
-    });
+    return this.restService.save('viewapplication', registerObj);
   }
 
   addDepartment(departmentObj: any) {
-    return this.http.post(environment.url + 'adddepartments', departmentObj, {
-      headers: { Authorization: this.basicAuth },
-    });
+    return this.restService.save('adddepartments', departmentObj);
   }
   displayDepartment() {
-    return this.http.get(
-      environment.url + 'adddepartments/_all_docs?include_docs=true',
-      { headers: { Authorization: this.basicAuth } }
-    );
+    return this.restService.getAllData('adddepartments');
   }
-  listApplication() {
-    return this.http.get(
-      environment.url + 'viewapplication/_all_docs?include_docs=true',
-      { headers: { Authorization: this.basicAuth } }
-    );
-  }
-  listFees() {
-    return this.http.get(
-      environment.url + 'addfees/_all_docs?include_docs=true',
-      {
-        headers: { Authorization: this.basicAuth },
-      }
-    );
-  }
-  listAllUser() {
-    return this.http.get(
-      environment.url + 'collegeadmissionapp_user/_all_docs?include_docs=true',
-      { headers: { Authorization: this.basicAuth } }
-    );
-  }
-  update(id: string, rev: string, updateFeesObj: any) {
-    return this.http.put(
-      environment.url + 'addfees/' + id + '?rev=' + rev,
-      updateFeesObj,
-      { headers: { Authorization: this.basicAuth } }
-    );
-  }
-  addFees(feesObj: any) {
-    return this.http.post(environment.url + 'addfees', feesObj, {
-      headers: { Authorization: this.basicAuth },
-    });
-  }
-  deleteFunction(id: string, rev: string) {
-    return this.http.delete(
-      environment.url + 'adddepartments/' + id + '?rev=' + rev,
-      { headers: { Authorization: this.basicAuth } }
-    );
-  }
-  deleteUser(id: string, rev: string) {
-    return this.http.delete(environment.url + 'collegeadmissionapp_user/' + id + '?rev=' + rev, { headers: { Authorization: this.basicAuth } });
-  }
-  departmentList(branchList: any) {
-    return this.http.post(environment.url + 'adddepartments/_find', branchList, { headers: { Authorization: this.basicAuth } });
 
+  listApplication() {
+    return this.restService.getAllData('viewapplication');
+  }
+
+  listFees() {
+    return this.restService.getAllData('addfees');
+  }
+
+  listAllUser() {
+    return this.restService.getAllData('collegeadmissionapp_user');
+  }
+
+  update(id: string, rev: string, updateFeesObj: any) {
+    return this.restService.updateData('addfees/', id, rev, updateFeesObj);
+  }
+
+  addFees(feesObj: any) {
+    return this.restService.save('addfees', feesObj);
+  }
+
+  deleteBranch(id: string, rev: string) {
+    return this.restService.deleteData('adddepartments/', id, rev);
+  }
+
+  deleteUser(id: string, rev: string) {
+    return this.restService.deleteData('collegeadmissionapp_user/', id, rev);
+  }
+
+  departmentList(branchList: any) {
+    return this.restService.getOneData('adddepartments', branchList);
   }
 }
