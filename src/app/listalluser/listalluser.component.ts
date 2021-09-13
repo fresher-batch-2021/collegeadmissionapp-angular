@@ -54,18 +54,22 @@ export class ListalluserComponent implements OnInit {
 
   deleteFun(id: any, revId: any) {
     try {
-      this.allUserObj.deleteUser(id, revId).subscribe(
-        (res) => {
-          alert('Are you want to delete this branch ?');
-          window.location.reload();
-          this.toastr.success('Successfully Deletd');
-        },
-        (err: { response: { data: { errorMessage: any } } }) => {
-          let errorMessage = err.response.data.errorMessage;
-          console.error(errorMessage);
-          this.toastr.error('Unable to delete this branch');
-        }
-      );
+      const deleteUser = confirm('Are you want to delete this branch ?');
+      if (deleteUser == true) {
+        this.allUserObj.deleteUser(id, revId).subscribe(
+          (res) => {
+
+            window.location.reload();
+            this.toastr.success('Successfully Deletd');
+          },
+          (err: { response: { data: { errorMessage: any } } }) => {
+            let errorMessage = err.response.data.errorMessage;
+            console.error(errorMessage);
+            this.toastr.error('Unable to delete this branch');
+          }
+        );
+      }
+
     } catch (err: any) {
       console.error(err.message);
       this.toastr.error('Unable to register');

@@ -85,7 +85,7 @@ export class PersonalComponent implements OnInit {
       window.location.href = '/application/academic';
     } catch (err: any) {
       console.error(err.message);
-      this.toast.error('Unable to register');
+      this.toast.error('Unable to Submit your Application');
     }
   }
 

@@ -48,6 +48,7 @@ export class PreviewComponent implements OnInit {
       status: 'pending',
       appliedDate: todayDate,
     };
+    console.log(registerObj);
 
     this.applicationObj.submitApplication(registerObj).subscribe(
       (res: any) => {
@@ -62,6 +63,6 @@ export class PreviewComponent implements OnInit {
         this.toastr.error('Unable to Submit your Application');
       }
     );
-    console.log(registerObj);
+
   }
 }

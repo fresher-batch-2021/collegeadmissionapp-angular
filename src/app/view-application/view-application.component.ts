@@ -52,59 +52,32 @@ export class ViewApplicationComponent implements OnInit {
     }
     catch (err: any) {
       console.error(err.message);
-      this.toastr.error('Unable to register');
+      this.toastr.error('Unable to Display Application List');
     }
   }
 
   updateStatus(id: string, status: string, branch: string) {
-    console.log('Update ' + id + ',status=' + status);
-    if (status == 'ACCEPTED') {
-      const requestData = {
-        selector: {
-          branch: branch,
-        },
-        fields: [
-          '_id',
-          '_rev',
-          'degree',
-          'branch',
-          'totalSeats',
-          'availableSeats',
-          'appliedSeats',
-        ],
-      };
 
-      this.http
-        .post(this.url + 'adddepartments/_find', requestData, {
-          headers: { Authorization: this.basicAuth },
-        })
-        .subscribe((res: any) => {
-          let data = res.docs[0];
-          this.update_seats(data);
-        });
-    }
+    const statusUpdate = confirm('Are you want to Update this Record');
+    if (statusUpdate == true) {
+      let urlValue =
+        'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/' +
+        id;
+      this.http.get(urlValue, { headers: { Authorization: this.basicAuth } }).subscribe((result: any) => {
+        const applicationObj = result;
+        applicationObj.status = status;
 
-    let urlValue =
-      'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/' +
-      id;
-    this.http
-      .get(urlValue, { headers: { Authorization: this.basicAuth } })
-      .subscribe(
-        (result: any) => {
-          const applicationObj = result;
-          applicationObj.status = status;
+        const updateURL = urlValue + '?rev=' + applicationObj._rev;
 
-          const updateURL = urlValue + '?rev=' + applicationObj._rev;
-          alert('Are you want to Update this Record');
-          this.http
-            .put(updateURL, applicationObj, {
-              headers: { Authorization: this.basicAuth },
-            })
-            .subscribe((res: any) => {
-              this.toastr.info('Update Successfull');
-              window.location.reload();
-            });
-        },
+        this.http
+          .put(updateURL, applicationObj, {
+            headers: { Authorization: this.basicAuth },
+          })
+          .subscribe((res: any) => {
+            this.toastr.info('Update Successfull');
+            window.location.reload();
+          });
+      },
         (err: { response: { data: any } }) => {
           let errorMessage = err.response.data;
           console.error(errorMessage);
@@ -112,26 +85,45 @@ export class ViewApplicationComponent implements OnInit {
           this.toastr.error('Update Failed');
         }
       );
+      if (status == 'ACCEPTED') {
+        const requestData = {
+          selector: {
+            branch: branch,
+          },
+          fields: ['_id', '_rev', 'degree', 'branch', 'totalSeats', 'availableSeats', 'appliedSeats'],
+        };
+
+        this.http.post(this.url + 'adddepartments/_find', requestData, {
+          headers: { Authorization: this.basicAuth },
+        })
+          .subscribe((res: any) => {
+            let data = res.docs[0];
+            this.update_seats(data);
+          });
+      }
+    }
   }
 
   deleteFun(id: string, revId: string) {
     console.log('Delete' + id + ' ' + revId);
     try {
-      alert('Are you want to delete this Record');
-      axios
-        .delete(this.url + 'viewapplication/' + id + '?rev=' + revId, {
-          headers: { Authorization: this.basicAuth },
-        })
-        .then((res) => {
-          console.log('success');
-          window.location.reload();
-        })
-        .catch((err) => {
-          let errorMessage = err.response.data.errorMessage;
-          console.error(errorMessage);
-          console.log(errorMessage);
-          this.toastr.error('Failed to delete this record');
-        });
+      const deleteApplication = confirm('Are you want to delete this Record');
+      if (deleteApplication == true) {
+        axios
+          .delete(this.url + 'viewapplication/' + id + '?rev=' + revId, {
+            headers: { Authorization: this.basicAuth },
+          })
+          .then((res) => {
+            console.log('success');
+            window.location.reload();
+          })
+          .catch((err) => {
+            let errorMessage = err.response.data.errorMessage;
+            console.error(errorMessage);
+            console.log(errorMessage);
+            this.toastr.error('Failed to delete this record');
+          });
+      }
     } catch (err: any) {
       console.error(err.message);
       this.toastr.error('Unable to register');

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
+import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { ServicelayerService } from '../servicelayer.service';
 
@@ -13,7 +14,7 @@ export class ListprofileComponent implements OnInit {
   loginData: any;
   tableData: any;
   emailId: any;
-  constructor(private userProfile: ServicelayerService) {
+  constructor(private userProfile: ServicelayerService, private toastr: ToastrService) {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     this.emailId = this.loginData.email;
 
@@ -35,66 +36,58 @@ export class ListprofileComponent implements OnInit {
         console.log('table list :', this.tableData);
       },
       (err: any) => {
-        alert('List Failed');
+        this.toastr.error('List Failed');
       }
     );
   }
 
   withdraw(id: any, status: any, branch: any) {
-    if (status == 'WITHDRAWED') {
-      const withdrawList = {
-        selector: {
-          branch: branch,
-        },
-        fields: [
-          '_id',
-          '_rev',
-          'degree',
-          'branch',
-          'totalSeats',
-          'availableSeats',
-          'appliedSeats',
-        ],
-      };
-      
-      axios
-        .post(environment.url + "adddepartments/_find", withdrawList, {
-          headers: { Authorization: this.basicAuth },
-        })
-        .then((res) => {
-          let seats = res.data.docs[0];
-          this.addSeats(seats);
-        });
 
-      let url =
-        'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/' +
-        id;
-      axios
-        .get(url, { headers: { Authorization: this.basicAuth } })
-        .then((res) => {
-          const applicationObj = res.data;
 
-          applicationObj.status = status;
+    let url =
+      'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/' +
+      id;
+    const withdraw = confirm("Are you sure want to withdraw your Application")
+    if (withdraw == true) {
+      axios.get(url, { headers: { Authorization: this.basicAuth } }).then((res) => {
+        const applicationObj = res.data;
 
-          //update status api
-          const updateURL = url + '?rev=' + applicationObj._rev;
-          console.log(updateURL);
-          axios
-            .put(updateURL, applicationObj, {
-              headers: { Authorization: this.basicAuth },
-            })
-            .then((result) => {
-              console.log('Update row', result.data);
-              alert('Updated');
-              window.location.reload();
-            });
-        })
+        applicationObj.status = status;
+
+        //update status api
+        const updateURL = url + '?rev=' + applicationObj._rev;
+        console.log(updateURL);
+        axios
+          .put(updateURL, applicationObj, {
+            headers: { Authorization: this.basicAuth },
+          })
+          .then((result) => {
+            console.log('Update row', result.data);
+            window.location.reload();
+          });
+      })
         .catch((err) => {
           let errorMessage = err.response.data;
           console.error(errorMessage);
           console.log('failed');
           alert('Error-' + errorMessage);
         });
+      if (status == 'WITHDRAWED') {
+        const withdrawList = {
+          selector: {
+            branch: branch,
+          },
+          fields: ['_id', '_rev', 'degree', 'branch', 'totalSeats', 'availableSeats', 'appliedSeats'],
+        };
+
+        axios.post(environment.url + "adddepartments/_find", withdrawList, {
+          headers: { Authorization: this.basicAuth },
+        })
+          .then((res) => {
+            let seats = res.data.docs[0];
+            this.addSeats(seats);
+          });
+      }
     }
   }
 
@@ -118,11 +111,11 @@ export class ListprofileComponent implements OnInit {
         headers: { Authorization: basicAuth },
       })
       .then((res) => {
-        alert('Updated Success');
+        this.toastr.success('Your Application Withdrawed Successfully');
         window.location.reload();
       })
       .catch((err) => {
-        alert('failed to update');
+        this.toastr.error('Unable to withdrawed your Application');
       });
   }
 }

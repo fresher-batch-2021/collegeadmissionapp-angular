@@ -64,15 +64,17 @@ export class EditComponent implements OnInit {
       hostelFees: this.hostelFees,
     };
     console.log('Upadate Fees', updateFeesObj);
+    const updateFeesValue = confirm('Are you want to update this record');
+    if (updateFeesValue == true) {
+      this.editFeesObj
+        .update(this.idNo, this.rev, updateFeesObj)
+        .subscribe((res: any) => {
+          console.log(res.data);
+          this.toastr.success('Upadate Successfull');
+          window.location.href = '/branch/fees/listfees';
+        }),
+        (err: { data: string }) => alert('error ' + err.data);
+    }
 
-    this.editFeesObj
-      .update(this.idNo, this.rev, updateFeesObj)
-      .subscribe((res: any) => {
-        console.log(res.data);
-        alert('Are you want to update this record');
-        this.toastr.success('Upadate Successfull');
-        window.location.href = '/branch/fees/listfees';
-      }),
-      (err: { data: string }) => alert('error ' + err.data);
   }
 }

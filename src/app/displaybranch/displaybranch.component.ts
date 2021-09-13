@@ -55,7 +55,7 @@ export class DisplaybranchComponent implements OnInit {
     }
     catch (err: any) {
       console.error(err.message);
-      this.toastr.error('Unable to register');
+      this.toastr.error('Unable to List Branch');
     }
   }
 

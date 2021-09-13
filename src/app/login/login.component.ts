@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       );
     } catch (err: any) {
       console.error(err.message);
-      this.toast.error('Unable to register');
+      this.toast.error('Unable to Login');
     }
   }
 }
