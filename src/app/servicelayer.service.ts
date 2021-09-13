@@ -27,7 +27,7 @@ export class ServicelayerService {
 
 
   userList(userList: any) {
-    return this.restService.getOneData('collegeadmissionapp_user/_find', userList);
+    return this.restService.getOneData('collegeadmissionapp_user', userList);
   }
 
 }
