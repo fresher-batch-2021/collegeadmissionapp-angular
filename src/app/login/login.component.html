@@ -2,31 +2,21 @@
     <img src="assets/images/skcet.png" alt="user logo" class="logo">
     <h1>Login Here</h1>
     <form (ngSubmit)="login()" class="example-form">
-        
+
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>User Name</mat-label>
             <input matInput [(ngModel)]="userName" name="username" id="userName" placeholder="UserName" autofocus
                 autocomplete="off" required>
         </mat-form-field>
-        <!-- <label><strong> User Name </strong></label>
-        <input type="text" [(ngModel)]="userName" name="username" id="userName" placeholder="UserName"
-            autocomplete="off" autofocus required>
-        <br> -->
+
         <br>
         <br>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput [(ngModel)]="password" name="password" id="password" placeholder="password" autofocus
-                autocomplete="off" required>
+            <input matInput type="password" [(ngModel)]="password" name="password" id="password" placeholder="password"
+                autofocus autocomplete="off" required>
         </mat-form-field>
-        <!-- <label>
-            <strong>
-                Password
-            </strong>
-        </label>
 
-        <input type="password" [(ngModel)]="password" name="password" id="password" minlength="8" autocomplete="off"
-            placeholder="Password" required> -->
         <br>
         <br>
         <input type="submit" name="log" id="log" value="Log In Here">

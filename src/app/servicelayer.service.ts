@@ -1,17 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RestserviceService } from './restservice.service';
+import { UserClass } from './user-class';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServicelayerService {
+  collectionName: string = "registerForm"
   constructor(private http: HttpClient, private restService: RestserviceService) { }
 
-  userLogin(selectedData: any) {
+  userLogin(userName: string, password: string) {
+    const selectedData = {
+      selector: {
+        userName: userName,
+        password: password,
+      },
+      fields: ['_id', 'name', 'contactNo', 'email', 'role'],
+    };
+    console.log(selectedData);
+
     return this.restService.save('collegeadmissionapp_user/_find', selectedData);
   }
-  userRegister(registerObj: any) {
+  userRegister(registerObj: UserClass) {
     return this.restService.save('collegeadmissionapp_user', registerObj);
   }
 

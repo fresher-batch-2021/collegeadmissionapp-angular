@@ -28,15 +28,9 @@ export class LoginComponent implements OnInit {
         this.password,
         'Password cannot be blank'
       );
-      const selectedData = {
-        selector: {
-          username: this.userName,
-          password: this.password,
-        },
-        fields: ['_id', 'name', 'contactNo', 'email','role'],
-      };
 
-      this.serviceObj.userLogin(selectedData).subscribe(
+      this.serviceObj.userLogin(this.userName, this.password).subscribe(
+
         (res: any) => {
           let data = res.docs;
           console.log(data);
@@ -53,6 +47,7 @@ export class LoginComponent implements OnInit {
         (err: { response: { data: { errorMessage: any } } }) => {
           let errorMessage = err.response.data.errorMessage;
           console.error(errorMessage);
+
         }
       );
     } catch (err: any) {

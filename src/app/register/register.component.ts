@@ -8,6 +8,7 @@ import {
 import { ServicelayerService } from '../servicelayer.service';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { UserClass } from '../user-class';
 
 @Component({
   selector: 'app-register',
@@ -78,7 +79,9 @@ export class RegisterComponent implements OnInit {
             role: "USER",
           };
           console.log(formData);
-          this.registerObj.userRegister(formData).subscribe(
+          const classObj = new UserClass();
+          classObj.setData(formData)
+          this.registerObj.userRegister(classObj).subscribe(
             (res: any) => {
               let data = res.data;
               console.log(data);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-adminpanel',
@@ -8,22 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class AdminpanelComponent implements OnInit {
   userData = localStorage.getItem('admin');
   loginData: any;
-  userName: string;
-  adminEmailValue = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     console.log("userdata", this.loginData);
-    this.userName = this.loginData.adminEmail;
-    console.log("userName :", this.userName);
-
-    if (this.userName != null) {
-      this.adminEmailValue = true;
-    }
-
+    this.applyFunction();
   }
 
   ngOnInit(): void {
+   
+  }
+
+  applyFunction() {
+    if (this.loginData == null) {
+      window.location.href = '/user/admin';
+    } else {
+      this.router.navigateByUrl('/branch');
+    }
   }
 
 }
