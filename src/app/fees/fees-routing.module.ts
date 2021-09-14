@@ -7,7 +7,7 @@ import { ListfeesComponent } from '../listfees/listfees.component';
 const routes: Routes = [
   { path: 'addfees', component: AddfeesComponent },
   { path: 'listfees', component: ListfeesComponent },
-  { path: 'edit', component: EditComponent },
+  { path: 'edit/:id/:rev', component: EditComponent },
 ];
 
 @NgModule({

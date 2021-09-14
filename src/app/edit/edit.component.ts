@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
 
@@ -17,30 +18,39 @@ export class EditComponent implements OnInit {
   tutionFees: string = '';
   examFees: string = '';
   hostelFees: string = '';
+  bookId: any;
   constructor(
+    private route: ActivatedRoute,
     private http: HttpClient,
     private feesObj: AdminService,
     private editFeesObj: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router,
   ) {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const id = urlParams.get('id');
-    this.idNo = id;
-    this.rev = urlParams.get('rev');
+    this.idNo = this.route.snapshot.params["id"];
+    this.rev = this.route.snapshot.params["rev"];
+
+    console.log(this.rev)
 
     this.feesObj.listFees().subscribe((res: any) => {
       let data = res.rows;
       this.fees = data;
+      console.log("Update :", this.fees);
+
       this.feesList = this.fees.map((obj: any) => obj.doc);
       for (let list of this.feesList) {
+        console.log(list)
         if (list._id == this.idNo) {
+          console.log(list.admissionFees)
           this.admissionFees = list.admissionFees;
+          console.log(this.admissionFees)
           this.examFees = list.examFees;
           this.hostelFees = list.hostelFees;
           this.tutionFees = list.tutionFees;
         }
       }
+
+      console.log("Fees :", this.feesList);
     },
       (err: { response: { data: { errorMessage: any } } }) => {
         let errorMessage = err.response.data.errorMessage;
@@ -71,7 +81,8 @@ export class EditComponent implements OnInit {
         .subscribe((res: any) => {
           console.log(res.data);
           this.toastr.success('Upadate Successfull');
-          window.location.href = '/branch/fees/listfees';
+          this.router.navigate([`/branch/fees/listfees`])
+
         }),
         (err: { data: string }) => alert('error ' + err.data);
     }

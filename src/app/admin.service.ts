@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Department } from './department';
+import { Form } from './form';
 import { RestserviceService } from './restservice.service';
 
 @Injectable({
@@ -11,11 +13,11 @@ export class AdminService {
 
   basicAuth = 'Basic ' + btoa(environment.dbUserName + ':' + environment.dbPassword);
 
-  submitApplication(registerObj: any) {
+  submitApplication(registerObj: Form) {
     return this.restService.save('viewapplication', registerObj);
   }
 
-  addDepartment(departmentObj: any) {
+  addDepartment(departmentObj: Department) {
     return this.restService.save('adddepartments', departmentObj);
   }
   displayDepartment() {

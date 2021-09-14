@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { Department } from '../department';
 import { ValidatorService } from '../validator.service';
 
 @Component({
@@ -55,7 +56,9 @@ export class AddbranchComponent implements OnInit {
             availableSeats: this.availableSeats,
             appliedSeats: '0',
           };
-          this.branchObj.addDepartment(departmentData).subscribe((res: any) => {
+          const branchClass = new Department();
+          branchClass.setData(departmentData)
+          this.branchObj.addDepartment(branchClass).subscribe((res: any) => {
             let data = res.data;
             console.log(data);
             this.toastr.success('Department Added Successfully');

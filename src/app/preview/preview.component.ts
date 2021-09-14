@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { Form } from '../form';
 
 @Component({
   selector: 'app-preview',
@@ -50,7 +51,9 @@ export class PreviewComponent implements OnInit {
     };
     console.log(registerObj);
 
-    this.applicationObj.submitApplication(registerObj).subscribe(
+    const formClass = new Form();
+    formClass.setData(registerObj)
+    this.applicationObj.submitApplication(formClass).subscribe(
       (res: any) => {
         let data = res.data;
         console.log(data);

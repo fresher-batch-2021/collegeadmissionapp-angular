@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
 
@@ -15,7 +16,8 @@ export class ListfeesComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private feesObj: AdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router:Router
   ) {
     this.displayFees();
   }
@@ -43,6 +45,8 @@ export class ListfeesComponent implements OnInit {
     }
   }
   updateFees(id: any, revId: any) {
-    window.location.href = '/branch/fees/edit?id=' + id + '&rev=' + revId;
+    alert(id);
+    this.router.navigate([`/branch/fees/edit/${id}/${revId}`])
+    // window.location.href='/branch/fees/edit?id='+id;
   }
 }
