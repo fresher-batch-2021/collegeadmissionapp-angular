@@ -13,12 +13,12 @@ h1 {
 
     margin: 7% 7% 7%;
     border: 2px solid ;
-    padding-left: 3%;
+    padding-left: 2%;
     padding-right: 3%;
 }
 th{
     background-color: #ccc;
-    padding:1%;
+    padding:10px;
 }
 td{
     padding:1%;
@@ -29,13 +29,13 @@ tr:nth-child(even){
 }
 
 .displayFees  table {
-    padding-left:5%;
+    padding-left:3%;
     border-collapse: collapse ;
     height: 50px;
     text-align: center;
     margin: auto;
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 5%;
     margin-bottom: 3%;
 }

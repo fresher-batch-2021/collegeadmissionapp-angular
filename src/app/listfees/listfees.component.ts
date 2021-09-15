@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
@@ -12,6 +12,10 @@ import { AdminService } from '../admin.service';
 export class ListfeesComponent implements OnInit {
   fees: any;
   feesList: any;
+  
+  check : string = "manikandan";
+  @Input() inputValue : string = "!input";
+  @Output() outputValue = new EventEmitter<string>();
 
   constructor(
     private http: HttpClient,
@@ -22,7 +26,14 @@ export class ListfeesComponent implements OnInit {
     this.displayFees();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void 
+  { 
+    alert(this.inputValue);
+    this.outputValue.emit(this.check);
+    console.log("@ouput", this.outputValue);
+  }
+
+
   displayFees() {
     try {
       this.feesObj.listFees().subscribe((res: any) => {

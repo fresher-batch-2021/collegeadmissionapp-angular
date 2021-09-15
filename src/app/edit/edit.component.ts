@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
@@ -20,6 +20,10 @@ export class EditComponent implements OnInit {
   examFees: string = '';
   hostelFees: string = '';
   bookId: any;
+
+  @Input() count : number = 0;
+
+
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -30,6 +34,8 @@ export class EditComponent implements OnInit {
   ) {
     this.idNo = this.route.snapshot.params["id"];
     this.rev = this.route.snapshot.params["rev"];
+
+
 
     console.log(this.rev)
 
@@ -61,7 +67,11 @@ export class EditComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    alert(this.count);
+    
+   }
 
   updateFees() {
     const queryString = window.location.search;
