@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Clgfees } from './clgfees';
 import { Department } from './department';
 import { Form } from './form';
 import { RestserviceService } from './restservice.service';
@@ -36,11 +37,11 @@ export class AdminService {
     return this.restService.getAllData('collegeadmissionapp_user');
   }
 
-  update(id: string, rev: string, updateFeesObj: any) {
+  update(id: string, rev: string, updateFeesObj: Clgfees) {
     return this.restService.updateData('addfees/', id, rev, updateFeesObj);
   }
 
-  addFees(feesObj: any) {
+  addFees(feesObj: Clgfees) {
     return this.restService.save('addfees', feesObj);
   }
 

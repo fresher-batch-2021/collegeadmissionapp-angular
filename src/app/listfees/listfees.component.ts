@@ -17,7 +17,7 @@ export class ListfeesComponent implements OnInit {
     private http: HttpClient,
     private feesObj: AdminService,
     private toastr: ToastrService,
-    private router:Router
+    private router: Router
   ) {
     this.displayFees();
   }
@@ -47,6 +47,5 @@ export class ListfeesComponent implements OnInit {
   updateFees(id: any, revId: any) {
     alert(id);
     this.router.navigate([`/branch/fees/edit/${id}/${revId}`])
-    // window.location.href='/branch/fees/edit?id='+id;
   }
 }

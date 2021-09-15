@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { Clgfees } from '../clgfees';
 
 @Component({
   selector: 'app-addfees',
@@ -52,13 +53,15 @@ export class AddfeesComponent implements OnInit {
       };
       console.log(feesObj);
 
-      this.adminService.addFees(feesObj).subscribe(
+      const feesClass = new Clgfees();
+      feesClass.setData(feesObj)
+      this.adminService.addFees(feesClass).subscribe(
         (res: any) => {
           let data = res.data;
           console.log(data);
           localStorage.setItem('feesObj', JSON.stringify(feesObj));
           this.toastr.success('Fees Added Successfully');
-          window.location.reload();
+          //window.location.reload();
         },
         (err: { message: any }) => {
           console.log(err.message);

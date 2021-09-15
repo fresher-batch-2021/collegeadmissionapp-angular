@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
+import { Clgfees } from '../clgfees';
 
 @Component({
   selector: 'app-edit',
@@ -74,10 +75,13 @@ export class EditComponent implements OnInit {
       hostelFees: this.hostelFees,
     };
     console.log('Upadate Fees', updateFeesObj);
+    const feesValue = new Clgfees();
+    feesValue.setData(updateFeesObj)
+
     const updateFeesValue = confirm('Are you want to update this record');
     if (updateFeesValue == true) {
       this.editFeesObj
-        .update(this.idNo, this.rev, updateFeesObj)
+        .update(this.idNo, this.rev, feesValue)
         .subscribe((res: any) => {
           console.log(res.data);
           this.toastr.success('Upadate Successfull');
