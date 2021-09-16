@@ -48,11 +48,11 @@ export class ListalluserComponent implements OnInit {
       );
     } catch (err: any) {
       console.error(err.message);
-      this.toastr.error('Unable to register');
+      this.toastr.error('Unable to Display the UserList');
     }
   }
 
-  deleteFun(id: any, revId: any) {
+  deleteFun(id: string, revId: string) {
     try {
       const deleteUser = confirm('Are you want to delete this branch ?');
       if (deleteUser == true) {
@@ -72,7 +72,7 @@ export class ListalluserComponent implements OnInit {
 
     } catch (err: any) {
       console.error(err.message);
-      this.toastr.error('Unable to register');
+      this.toastr.error('Unable to delete this branch');
     }
   }
 }

@@ -61,7 +61,6 @@ export class AddfeesComponent implements OnInit {
           console.log(data);
           localStorage.setItem('feesObj', JSON.stringify(feesObj));
           this.toastr.success('Fees Added Successfully');
-          //window.location.reload();
         },
         (err: { message: any }) => {
           console.log(err.message);

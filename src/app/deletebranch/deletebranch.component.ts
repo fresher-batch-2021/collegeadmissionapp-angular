@@ -42,15 +42,15 @@ export class DeletebranchComponent implements OnInit {
 
   }
 
-  deleteFun(id: any, revId: any) {
+  deleteFun(id: string, revId: string) {
     try {
       const alert = confirm('Are you want to delete this branch ?');
       if (alert == true) {
         this.departmentObj.deleteBranch(id, revId).subscribe(
           (res) => {
-
-            window.location.reload();
             this.toastr.success('Successfully Deletd');
+            window.location.reload();
+           
           },
           (err: { response: { data: { errorMessage: any } } }) => {
             let errorMessage = err.response.data.errorMessage;
@@ -62,7 +62,7 @@ export class DeletebranchComponent implements OnInit {
       }
     } catch (err: any) {
       console.error(err.message);
-      this.toastr.error('Unable to register');
+      this.toastr.error('Unable to delete this branch');
     }
   }
 }

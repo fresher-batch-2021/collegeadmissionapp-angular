@@ -21,7 +21,7 @@ export class EditComponent implements OnInit {
   hostelFees: string = '';
   bookId: any;
 
-  @Input() count : number = 0;
+  @Input() count: number = 0;
 
 
   constructor(
@@ -34,9 +34,6 @@ export class EditComponent implements OnInit {
   ) {
     this.idNo = this.route.snapshot.params["id"];
     this.rev = this.route.snapshot.params["rev"];
-
-
-
     console.log(this.rev)
 
     this.feesObj.listFees().subscribe((res: any) => {
@@ -70,8 +67,8 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
 
     alert(this.count);
-    
-   }
+
+  }
 
   updateFees() {
     const queryString = window.location.search;
@@ -90,9 +87,7 @@ export class EditComponent implements OnInit {
 
     const updateFeesValue = confirm('Are you want to update this record');
     if (updateFeesValue == true) {
-      this.editFeesObj
-        .update(this.idNo, this.rev, feesValue)
-        .subscribe((res: any) => {
+      this.editFeesObj.update(this.idNo, this.rev, feesValue).subscribe((res: any) => {
           console.log(res.data);
           this.toastr.success('Upadate Successfull');
           this.router.navigate([`/branch/fees/listfees`])

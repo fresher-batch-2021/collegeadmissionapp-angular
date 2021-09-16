@@ -13,7 +13,7 @@ export class ListprofileComponent implements OnInit {
   userData = localStorage.getItem('registerData');
   loginData: any;
   tableData: any;
-  emailId: any;
+  emailId: string;
   constructor(private userProfile: ServicelayerService, private toastr: ToastrService) {
     this.loginData = this.userData != null ? JSON.parse(this.userData) : null;
     this.emailId = this.loginData.email;
@@ -41,12 +41,11 @@ export class ListprofileComponent implements OnInit {
     );
   }
 
-  withdraw(id: any, status: any, branch: any) {
+  withdraw(id: string, status: string, branch: any) {
 
 
-    let url =
-      'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/' +
-      id;
+    let url = 'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/viewapplication/' + id;
+
     const withdraw = confirm("Are you sure want to withdraw your Application")
     if (withdraw == true) {
       axios.get(url, { headers: { Authorization: this.basicAuth } }).then((res) => {
@@ -100,16 +99,13 @@ export class ListprofileComponent implements OnInit {
       appliedSeats: parseInt(seats.appliedSeats) - 1,
     };
     console.log(updatedData);
+    
     const dbUserName = 'apikey-v2-v1zh0zplguvn1ukyhpnqwpt7rhiuokz1bqggmlt9kw4';
     const dbPassword = '163671d490ddeef138fc61e470881715';
     const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
-    let url =
-      'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/';
+    let url = 'https://21781b11-9dff-4242-9efa-fb21396540ca-bluemix.cloudantnosqldb.appdomain.cloud/adddepartments/';
 
-    axios
-      .put(url + seats._id + '?rev=' + seats._rev, updatedData, {
-        headers: { Authorization: basicAuth },
-      })
+    axios.put(url + seats._id + '?rev=' + seats._rev, updatedData, { headers: { Authorization: basicAuth }, })
       .then((res) => {
         this.toastr.success('Your Application Withdrawed Successfully');
         window.location.reload();
